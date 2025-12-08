@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>World Food Explorer</title>
+<link rel="stylesheet" href="Css/styles.css">
+</head>
+<body>
+<header class="header">
+<h1 class="title">World Food Explorer</h1>
+</header>
+
+
+<section class="slideshow">
+<button class="arrow left">&#8592;</button>
+<img id="worldMap" src="images/map1.png" alt="Carte du monde" onclick="goToCountry()">
+<button class="arrow right">&#8594;</button>
+</section>
+
+
+<div class="country-selector">
+<button onclick="location.href='Page/france.html'">France</button>
+<button onclick="location.href='Page/japan.html'">Japon</button>
+<button onclick="location.href='Page/italy.html'">Italie</button>
+</div>
+
+
+<footer class="footer">
+<div class="footer-content">
+<p class="footer-credit">Créé par <strong>Evan Colo</strong></p>
+<div class="footer-links">
+<a href="https://twitter.com" target="_blank" title="Twitter">𝕏 Twitter</a>
+<a href="https://facebook.com" target="_blank" title="Facebook">📘 Facebook</a>
+<a href="https://www.instagram.com/evan_976_/" target="_blank" title="Instagram">📷 Instagram</a>
+<a href="mailto:evancolo0@email.com" title="Email">✉️ Email</a>
+</div>
+<p class="footer-info">© 2025 World Food Explorer - Tous droits réservés</p>
+</div>
+</footer>
+
+
+<script>
+let maps = ["images/map1.png", "images/map2.png", "images/map3.png"];
+let countries = ["Page/france.html", "Page/japan.html", "Page/italy.html"];
+let index = 0;
+
+
+function updateMap(){
+document.getElementById("worldMap").src = maps[index];
+}
+
+
+function goToCountry(){
+location.href = countries[index];
+}
+
+
+document.querySelector('.right').onclick = () => {
+index = (index + 1) % maps.length;
+updateMap();
+};
+
+
+document.querySelector('.left').onclick = () => {
+index = (index - 1 + maps.length) % maps.length;
+updateMap();
+};
+
+
+setInterval(() => {
+index = (index + 1) % maps.length;
+updateMap();
+}, 4000);
+</script>
+
+
+</body>
+</html>
