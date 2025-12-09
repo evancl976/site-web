@@ -1,0 +1,136 @@
+/* STYLE GLOBAL */
+body {
+margin: 0;
+background: linear-gradient(#001122, #000814);
+color: white;
+font-family: Arial, sans-serif;
+}
+
+
+.header {
+text-align: center;
+padding: 25px;
+border-bottom: 3px solid gold;
+}
+
+
+.title {
+font-size: 45px;
+color: gold;
+letter-spacing: 3px;
+}
+
+
+/* SLIDESHOW */
+.slideshow {
+position: relative;
+text-align: center;
+margin-top: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 600px;
+}
+
+
+.slideshow img {
+width: 35%;
+border: 5px solid gold;
+border-radius: 20px;
+display: block;
+margin: 0 auto;
+}
+
+
+.arrow {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: gold;
+border: none;
+padding: 15px;
+cursor: pointer;
+font-size: 22px;
+border-radius: 8px;
+z-index: 10;
+}
+
+
+.left { left: 2%; }
+.right { right: 2%; }
+
+
+/* SELECTEUR DE PAYS */
+.country-selector {
+margin-top: 40px;
+text-align: center;
+}
+
+
+.country-selector button {
+background: gold;
+color: black;
+border: none;
+padding: 15px 25px;
+margin: 10px;
+font-size: 20px;
+cursor: pointer;
+border-radius: 10px;
+border-radius: 10px;
+}
+
+
+/* FOOTER */
+.footer {
+background: #000814;
+border-top: 3px solid gold;
+margin-top: 50px;
+padding: 30px;
+text-align: center;
+}
+
+
+.footer-content {
+max-width: 1200px;
+margin: 0 auto;
+}
+
+
+.footer-credit {
+font-size: 18px;
+margin: 10px 0;
+color: gold;
+}
+
+
+.footer-links {
+margin: 20px 0;
+display: flex;
+justify-content: center;
+gap: 20px;
+flex-wrap: wrap;
+}
+
+
+.footer-links a {
+color: white;
+text-decoration: none;
+font-size: 16px;
+padding: 10px 15px;
+border: 2px solid gold;
+border-radius: 8px;
+transition: all 0.3s;
+}
+
+
+.footer-links a:hover {
+background: gold;
+color: black;
+}
+
+
+.footer-info {
+margin: 20px 0 0 0;
+font-size: 14px;
+color: #999;
+}
