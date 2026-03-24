@@ -5,6 +5,12 @@
 <title>La Reunion - Spécialités</title>
 <link rel="stylesheet" href="../Css/styles.css">
 </head>
+    <script>
+function toggleInfo(id) {
+    const box = document.getElementById(id);
+    box.classList.toggle("active");
+}
+</script>
 <body>
 
 
@@ -16,11 +22,29 @@
 <section class="country-info">
 <h2>🍽️ Plat spécial : Cabri massalé</h2>
 <p>
-    Le <strong>cabri massalé</strong> est un plat emblématique de la cuisine
+    Le <strong class="mot-cliquable" onclick="toggleInfo('infoMassale')">
+    cabri massalé
+</strong> est un plat emblématique de la cuisine
     réunionnaise. Il est préparé à base de viande de cabri marinée puis mijotée
     longuement avec un mélange d’épices appelé <em>massalé</em>,
     composé notamment de coriandre, cumin, girofle, ail, gingembre et curcuma.
 </p>
+    <div id="infoMassale" class="info-cachee">
+    <h3> Qu’est-ce que le cabri massalé ?</h3>
+    <p>
+      Le cabri massalé est un plat traditionnel emblématique de la cuisine de l’océan Indien, particulièrement apprécié à La Réunion et à Mayotte. Il s’agit d’un ragoût de viande de cabri (jeune chèvre) cuisiné avec un mélange d’épices appelé massalé, qui lui donne son goût intense, parfumé et légèrement piquant.<P>  Ce plat est reconnu pour sa richesse en saveurs et son caractère authentique, profondément ancré dans les traditions culinaires locales.
+
+Le massalé est un mélange d’épices d’origine indienne, introduit dans ces îles par les populations venues d’Inde.<P> Il est généralement composé de curcuma, coriandre, cumin, fenugrec, clou de girofle, cannelle, ail et parfois du piment. Ce mélange est la base du plat et apporte une profondeur aromatique unique, à la fois chaude, épicée et légèrement boisée.
+
+La préparation du cabri massalé commence par la découpe et l’assaisonnement de la viande, souvent marinée avec de l’ail, du gingembre, du sel, du poivre et du citron. Ensuite, la viande est saisie dans une marmite avec des oignons et des épices pour développer les arômes.<P> On ajoute ensuite le massalé, un peu d’eau et parfois des tomates, puis on laisse le tout mijoter lentement.
+
+La cuisson est une étape essentielle : elle permet à la viande de devenir tendre et fondante, tout en absorbant les épices. La sauce, quant à elle, devient épaisse, parfumée et légèrement relevée, ce qui donne au plat toute sa puissance gustative.<P> Le feu doux et le temps de cuisson sont indispensables pour réussir un bon cabri massalé.
+
+Ce plat est généralement servi avec du riz blanc, accompagné de grains (lentilles ou haricots) et parfois d’un rougail (condiment épicé à base de tomates ou de piment).<P> Cette association permet d’équilibrer les saveurs et de profiter pleinement de la richesse du massalé.
+
+Le cabri massalé est souvent préparé lors des grandes occasions, fêtes ou repas familiaux, car il demande du temps et un certain savoir-faire. Il représente un véritable symbole du métissage culturel de ces régions, mêlant influences indiennes, africaines et créoles
+    </p>
+</div>
 <p>
     Ce plat savoureux et parfumé est généralement accompagné de riz,
     de grains (lentilles, pois du cap ou haricots rouges)
