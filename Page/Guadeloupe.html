@@ -5,7 +5,12 @@
     <title>Guadeloupe – Spécialités culinaires</title>
     <link rel="stylesheet" href="../Css/styles.css">
 </head>
-
+<script>
+function toggleColombo() {
+    const box = document.getElementById("infoColombo");
+    box.classList.toggle("active");
+}
+</script>
 <body>
 
 <header class="header">
@@ -18,10 +23,26 @@
     <article class="dish">
         <h2>🍽️ Plat spécial : Colombo de poulet</h2>
         <p>
-            Le <strong>colombo de poulet</strong> est un plat traditionnel des Antilles françaises,
+            Le <strong class="mot-cliquable" onclick="toggleColombo()">
+    colombo de poulet
+</strong> est un plat traditionnel des Antilles françaises,
             notamment en Guadeloupe et en Martinique. Il est issu d’un mélange d’influences
             indiennes, africaines et européennes.
         </p>
+        <div id="infoColombo" class="info-cachee">
+    <h3> Qu’est-ce que le Colombo de poulet ?</h3>
+    <p>
+        Le colombo de poulet est un plat emblématique des Antilles,
+        inspiré de la cuisine indienne. Il est préparé avec un mélange
+        d’épices appelé "colombo", composé notamment de curcuma,
+        coriandre, cumin et moutarde.
+    </p>
+    <p>
+        Ce plat est un ragoût parfumé, mijoté avec des légumes
+        et du poulet, offrant une saveur riche, épicée et très
+        appréciée dans la cuisine créole.
+    </p>
+</div>
         <p>
             Il s’agit d’un ragoût de poulet mijoté avec un mélange d’épices appelé
             <em>colombo</em> (curcuma, coriandre, cumin, moutarde),
