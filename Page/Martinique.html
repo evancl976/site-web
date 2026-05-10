@@ -5,7 +5,12 @@
     <title>Martinique - Spécialités</title>
     <link rel="stylesheet" href="../Css/styles.css">
 </head>
-
+<script>
+function toggleInfo(id) {
+    const box = document.getElementById(id);
+    box.classList.toggle("active");
+}
+</script>
 <body>
 
 <header class="header">
@@ -16,11 +21,29 @@
 
     <h2>🍽️ Plat spécial : Accras de morue</h2>
     <p>
-        Les <strong>accras de morue</strong> sont une spécialité traditionnelle antillaise.
+        Les <strong class="mot-cliquable" onclick="toggleInfo('infoAccras')">
+    accras de morue
+</strong> sont une spécialité traditionnelle antillaise.
         Ce sont de petits beignets frits préparés à base de morue dessalée et émiettée,
         mélangée avec de la farine, des œufs, de l’ail, de l’oignon, du persil,
         des épices et parfois du piment.
     </p>
+    <div id="infoAccras" class="info-cachee">
+    <h3> Qu’est-ce que les accras de morue ?</h3>
+
+    <p>
+        Les accras de morue sont de petits beignets frits très populaires
+        dans les Antilles françaises. Ils sont préparés avec de la morue
+        dessalée mélangée à une pâte assaisonnée avec des épices,
+        des herbes et parfois du piment.
+    </p>
+
+    <p>
+        Croustillants à l’extérieur et moelleux à l’intérieur,
+        ils sont souvent servis en apéritif ou en entrée,
+        accompagnés d’une sauce créole ou d’un citron.
+    </p>
+</div>
     <p>
         Ils sont croustillants à l’extérieur et moelleux à l’intérieur.
         Les accras se mangent généralement en entrée ou à l’apéritif,
