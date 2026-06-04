@@ -1,82 +1,152 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Cuisine d'outre mer</title>
-<link rel="stylesheet" href="Css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuisine d'outre mer</title>
+    <link rel="stylesheet" href="Css/styles.css">
+    <style>
+        /* --- Styles pour l'encadré Fiche Technique --- */
+        .project-preview-section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .preview-card {
+            background: #000b18;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.3s ease;
+        }
+
+        .preview-card:hover {
+            border-color: #ffd700;
+        }
+
+        .preview-card h2 {
+            color: #ffd700;
+            font-size: 22px;
+            margin-top: 0;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .preview-card p {
+            color: #cbd5e0;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Bouton Premium vers la page Info */
+        .explore-tech-btn {
+            background: rgba(255, 215, 0, 0.05);
+            color: #ffd700;
+            border: 1px solid #ffd700;
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+        }
+
+        .explore-tech-btn:hover {
+            background: #ffd700;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Amélioration esthétique des boutons flèches du Globe */
+        .arrow-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #ffd700;
+            color: #ffd700;
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .arrow-btn:hover {
+            background: #ffd700;
+            color: #000;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+    </style>
 </head>
 <body>
-<header class="header">
-<h1 class="title">Cuisine d'outre mer</h1>
-</header>
 
+    <header class="header">
+        <h1 class="title">Cuisine d'outre mer</h1>
+        <p class="subtitle">Voyage culinaire à travers nos îles</p>
+    </header>
 
-<section class="slideshow">
-<button class="arrow left">&#8592;</button>
-<img id="worldMap" src="images/map1.png" alt="Carte du monde" onclick="goToCountry()">
-<button class="arrow right">&#8594;</button>
-</section>
+    <section class="globe-section">
+        <h2 id="active-country-title"></h2>
 
+        <div class="globe-wrapper">
+            <button class="arrow-btn left-arrow" onclick="prevCountry()" aria-label="Pays précédent">❮</button>
 
-<div class="country-selector">
-<button onclick="location.href='Page/Mayotte.html'">Mayotte</button>
-<button onclick="location.href='Page/Guyane.html'">Guyane</button>
-<button onclick="location.href='Page/Guadeloupe.html'">Guadeloupe</button>
-<button onclick="location.href='Page/Martinique.html'">Martinique</button>
-<button onclick="location.href='Page/La reunion.html'">La Reunion</button>
-</div>
+            <div class="globe-container">
+                <canvas id="globeCanvas"></canvas>
+                <div id="globeTooltip" class="globe-tooltip"></div>
+            </div>
 
+            <button class="arrow-btn right-arrow" onclick="nextCountry()" aria-label="Pays suivant">❯</button>
+        </div>
+    </section>
 
-<footer class="footer">
-<div class="footer-content">
-<p class="footer-credit">Créé par <strong>Evan Colo</strong></p>
-<div class="footer-links">
-<a href="https://twitter.com" target="_blank" title="Twitter">𝕏 Twitter</a>
-<a href="https://facebook.com" target="_blank" title="Facebook">📘 Facebook</a>
-<a href="https://www.instagram.com/evan_976_/" target="_blank" title="Instagram">📷 Instagram</a>
-<a href="mailto:evancolo0@email.com" title="Email">✉️ Email</a>
-</div>
-<p class="footer-info">© 2025 World Food Explorer - Tous droits réservés</p>
-</div>
-</footer>
+    <nav class="navigation-center">
+        <div class="country-selector">
+            <button onclick="location.href='Page/Mayotte.html'">🇾🇹 Mayotte</button>
+            <button onclick="location.href='Page/Guyane.html'">🇬🇫 Guyane</button>
+            <button onclick="location.href='Page/Guadeloupe.html'">🇬🇵 Guadeloupe</button>
+            <button onclick="location.href='Page/Martinique.html'">🇲🇶 Martinique</button>
+            <button onclick="location.href='Page/La reunion.html'">🇷🇪 La Réunion</button>
+        </div>
+    </nav>
 
+    <!-- EMPLACEMENT SPÉCIAL ENCADRÉ AVEC BOUTON VERS INFO.HTML -->
+    <section class="project-preview-section">
+        <div class="preview-card">
+            <h2>🛠️ Fiche Technique du Projet</h2>
+            <p>
+                Découvrez les coulisses du développement de cette application pour l'oral du BAC : de l'architecture sémantique HTML à la logique du globe 3D interactif.
+            </p>
+            <button class="explore-tech-btn" onclick="window.open('Page/Info.html', '_blank')">
+                Consulter les détails de fabrication ➔
+            </button>
+        </div>
+    </section>
 
-<script>
-let maps = ["images/map1.png", "images/map2.png", "images/map3.png","images/map4.png", "images/map5.png"];
-let countries = ["Page/Mayotte.html", "Page/Guyane.html", "Page/Guadeloupe.html","Page/Martinique.html", "Page/La reunion.html"];
-let index = 0;
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-credit">Créé avec passion par <strong>Evan Colo</strong></p>
+            <div class="footer-links">
+                <a href="https://twitter.com" target="_blank" title="Twitter">𝕏 Twitter</a>
+                <a href="https://facebook.com" target="_blank" title="Facebook">📘 Facebook</a>
+                <a href="https://www.instagram.com/evan_976_/" target="_blank" title="Instagram">📷 Instagram</a>
+                <a href="mailto:evancolo0@email.com" title="Email">✉️ Email</a>
+                <!-- Le bouton "À propos" du footer a été enlevé d'ici comme demandé -->
+            </div>
+            <p class="footer-info">© 2025 World Food Explorer - Tous droits réservés - Présentation Oral BAC</p>
+        </div>
+    </footer>
 
-
-function updateMap(){
-document.getElementById("worldMap").src = maps[index];
-}
-
-
-function goToCountry(){
-location.href = countries[index];
-}
-
-
-document.querySelector('.right').onclick = () => {
-index = (index + 1) % maps.length;
-updateMap();
-};
-
-
-document.querySelector('.left').onclick = () => {
-index = (index - 1 + maps.length) % maps.length;
-updateMap();
-};
-
-
-setInterval(() => {
-index = (index + 1) % maps.length;
-updateMap();
-}, 4000);
-</script>
-
-
+    <script src="Script/globe.js"></script>
 </body>
 </html>
-
-

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guadeloupe/Boudin noir – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/styles.css">
+</head>
+<body>
+
+    <!-- BANNIÈRE IMMERSIVE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.9)), url('../../images/guadeloupe-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Destination Antilles</span>
+            <h1 class="hero-title">Gastronomie en Guadeloupe</h1>
+            <p class="hero-subtitle">Parfums de colombo, douceur créole et trésors de l'île papillon</p>
+        </div>
+    </section>
+
+    <!-- CONTENEUR PRINCIPAL DU GUIDE -->
+    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+        <!-- INTRODUCTION NARRATIVE -->
+        <section class="guide-intro">
+            <h2>Une symphonie de saveurs créoles</h2>
+            <p>
+                La cuisine guadeloupéenne est une invitation au voyage, où se mêlent harmonieusement les traditions amérindiennes, africaines, européennes et indiennes. Rythmée par les produits de la mer, les racines pays et le piment antillais, elle se distingue par sa générosité et ses marinades savoureuses. Du marché de Pointe-à-Pitre aux tables de bord de mer, chaque plat raconte l'histoire et la convivialité de Karukera.
+            </p>
+        </section>
+
+        <!-- SECTION DE LA RECETTE ET SPÉCIALITÉ -->
+        <section class="specialties-container">
+            
+            <!-- LE BOUDIN NOIR CRÉOLE -->
+            <article class="dish-showcase">
+                <div class="dish-image-frame">
+                    <img src="../../images/boudin-creole.jpg" alt="Boudin noir antillais traditionnel">
+                </div>
+                <div class="dish-description">
+                    <span class="dish-category">Le Roi de l'Apéro Créole</span>
+                    <h3>Le Boudin Noir Antillais</h3>
+                    <p>
+                        Incontournable absolu des fêtes de fin d'année et des apéritifs dominicaux, le <strong class="mot-cliquable" onclick="toggleBoudin()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">boudin noir créole</strong> est une véritable pièce d'orfèvrerie culinaire. Plus petit, plus léger et infiniment plus épicé que son cousin européen, il se déguste traditionnellement chaud, à la main, en pinçant le boyau.
+                    </p>
+                    <p>
+                        Ce emblème de la convivialité antillaise se distingue par sa texture onctueuse et son bouquet d'aromates locaux qui réveille les papilles sans jamais masquer la délicatesse de sa préparation artisanale.
+                    </p>
+                    
+                    <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
+                    <button class="read-more-btn" onclick="toggleBoudin()">Découvrir ses secrets de fabrication et ses épices ➔</button>
+
+                    <!-- CARTE ANIMÉE CACHÉE -->
+                    <div id="infoBoudin" class="info-cachee">
+                        <h4>L'art et les secrets du Boudin créole</h4>
+                        <p>La grande différence du boudin antillais réside dans l'utilisation de la mie de pain rassie (ou de biscuits de mer) fondue dans du lait ou du bouillon, ce qui lui donne cette texture incroyablement douce et fondante. Contrairement au boudin classique, on n'y trouve pas de gros morceaux de gras.</p>
+                        <p>Le secret réside surtout dans son assaisonnement d'une richesse incomparable. On prépare une "liqueur" aromatique intense composée de cives (oignons pays), d'ail, de thym, de persil, de clous de girofle et surtout de piment antillais finement dosé, associés au fameux "bois d'inde" (la feuille du quatre-épices) qui lui donne son identité unique.</p>
+                        <p>Le montage se fait à la main dans des boyaux naturels, ficelés à intervalles réguliers pour former de petites portions d'apéritif. L'étape la plus délicate est la cuisson : le bouillon doit frémir doucement sans jamais bouillir, sous peine de voir les boudins éclater. Une fois cuits, on les badigeonne d'un filet d'huile pour leur donner un aspect brillant irrésistible.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- SECTION OÙ MANGER (Adresse recommandée) -->
+        <section class="guide-restaurant" style="margin-top: 40px;">
+            <div class="restaurant-card-premium">
+                <div class="restaurant-header">
+                    <h2>🍴 Adresse Recommandée</h2>
+                    <h3>Chez Olivier</h3>
+                </div>
+                <div class="restaurant-body">
+                    <p>Réputé pour son authenticité et ses saveurs créoles, Chez Olivier séduit ses visiteurs par la qualité de ses plats traditionnels, son accueil chaleureux et son ambiance conviviale. Les avis mettent en avant une cuisine généreuse, des produits frais et une excellente mise en valeur des spécialités guadeloupéennes, faisant de cette adresse une référence incontournable pour découvrir la gastronomie locale.</p>
+                    
+                    <ul class="premium-contacts">
+                        <li><strong>📍 Adresse :</strong> 1 Avenue Franck Meatti, Sainte Rose 97115 Guadeloupe</li>
+                        <li><strong>📞 Téléphone :</strong> +590 690 37-9178</li>
+                    </ul>
+
+                    <a href="https://www.tripadvisor.fr/Restaurant_Review-g1395136-d12249505-Reviews-Chez_Olivier-Sainte_Rose_Basse_Terre_Island_Guadeloupe.html"
+                       target="_blank" rel="noopener noreferrer" class="premium-tripadvisor">
+                        Consulter les avis sur Tripadvisor ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION : AUTRES SPÉCIALITÉS DU PAYS -->
+        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de la Guadeloupe à découvrir :</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                
+                <!-- LE COLOMBO DE POULET -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='colombo poulet.html'">
+                    <div style="height: 140px; background: url('../../images/colombo-plat.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Colombo de Poulet</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">L'emblème de l'île mariant poulet fondant, légumes pays et épices douces indiennes.</p>
+                    </div>
+                </div>
+
+                <!-- LE BOKIT -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='bokit.html'">
+                    <div style="height: 140px; background: url('../../images/bokit.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Bokit</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le sandwich iconique croustillant, frit à la perfection et généreusement garni.</p>
+                    </div>
+                </div>
+
+                <!-- LE MATETE DE CRABE -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='matete de crabe.html'">
+                    <div style="height: 140px; background: url('../../images/matete-crabe.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Matete de crabe</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le plat traditionnel des fêtes, associant crabe de terre et riz mijoté aux herbes.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
+        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="country-selector">
+                <button onclick="location.href='../Guadeloupe.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (Guadeloupe)</button>
+            </div>
+            <div class="country-selector">
+                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
+            </div>
+        </nav>
+
+    </main>
+
+    <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT INTERACTIF -->
+    <script>
+        function toggleBoudin() {
+            const box = document.getElementById("infoBoudin");
+            box.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

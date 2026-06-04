@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayotte/Pilao – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/styles.css">
+</head>
+<body>
+
+    <!-- BANNIÈRE IMMERSIVE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.9)), url('../../images/mayotte-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Destination Océan Indien</span>
+            <h1 class="hero-title">Gastronomie à Mayotte</h1>
+            <p class="hero-subtitle">Plats typiques, traditions et saveurs parfumées du lagon</p>
+        </div>
+    </section>
+
+    <!-- CONTENEUR PRINCIPAL DU GUIDE -->
+    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+        <!-- INTRODUCTION NARRATIVE -->
+        <section class="guide-intro">
+            <h2>Une mosaïque de saveurs exotiques</h2>
+            <p>
+                La cuisine mahoraise est un voyage sensoriel unique, au carrefour des influences africaines, arabes, malgaches et indiennes. Façonnée par la générosité du lagon et une terre fertile, elle met à l'honneur les produits frais : poissons fraîchement pêchés, lait de coco fait maison, manioc, et une variété d'épices locales qui parfument subtilement chaque marmite. Découvrir Mayotte, c'est s'asseoir autour d'un plat de partage et d'histoire.
+            </p>
+        </section>
+
+        <!-- SECTION DE LA RECETTE ET SPÉCIALITÉ -->
+        <section class="specialties-container">
+            
+            <!-- LE PILAO -->
+            <article class="dish-showcase">
+                <div class="dish-image-frame">
+                    <img src="../../images/pilao.jpg" alt="Le Pilao traditionnel de Mayotte">
+                </div>
+                <div class="dish-description">
+                    <span class="dish-category">Le Plat de Fête</span>
+                    <h3>Le Pilao</h3>
+                    <p>
+                        C’est le roi incontournable des grands événements et des célébrations à Mayotte. Le <strong class="mot-cliquable" onclick="togglePilao()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">pilao</strong> est un plat de riz richement épicé et garni de viande (généralement du poulet ou du bœuf) qui rassemble les familles lors des mariages traditionnels (Manzaraka).
+                    </p>
+                    <p>
+                        Ce chef-d'œuvre culinaire se caractérise par sa couleur joliment dorée et ses effluves envoûtants d'épices chaudes qui se diffusent dès l'ouverture de la marmite.
+                    </p>
+                    
+                    <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
+                    <button class="read-more-btn" onclick="togglePilao()">Découvrir son histoire et sa préparation ➔</button>
+
+                    <!-- CARTE ANIMÉE CACHÉE -->
+                    <div id="infoPilao" class="info-cachee">
+                        <h4>Le secret de sa préparation</h4>
+                        <p>Tout réside dans l'art de faire dorer et caraméliser la viande au fond de la marmite avant d'y ajouter un mélange d'épices pilées très précis : cardamome, clous de girofle, cannelle, cumin et poivre noir. Le riz est ensuite jeté directement dans ce bouillon parfumé pour qu'il absorbe l'intégralité des saveurs pendant sa cuisson à l'étouffée.</p>
+                        <p>Il est coutume de le servir chaud, souvent accompagné d'un rougail de tomates bien pimenté ou d'une salade d'oignons croquants pour apporter une touche de fraîcheur acidulée.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- SECTION OÙ MANGER (Restaurant recommandé) -->
+        <section class="guide-restaurant" style="margin-top: 40px;">
+            <div class="restaurant-card-premium">
+                <div class="restaurant-header">
+                    <h2>🍴 Adresse Recommandée</h2>
+                    <h3>Zam Zam</h3>
+                </div>
+                <div class="restaurant-body">
+                    <p>Très apprécié par ses clients, le restaurant Zam Zam est reconnu pour sa cuisine mahoraise authentique, ses plats généreux et ses saveurs traditionnelles. Les visiteurs soulignent régulièrement la qualité du pilao, l'accueil chaleureux et l'ambiance conviviale qui font de chaque repas une expérience mémorable.</p>
+                    
+                    <ul class="premium-contacts">
+                        <li><strong>📍 Adresse :</strong> Bandrele 97660, Mayotte</li>
+                        <li><strong>📞 Téléphone :</strong> +262 269 62 23 30</li>
+                    </ul>
+
+                    <a href="https://www.tripadvisor.fr/Restaurant_Review-g1209185-d4379384-Reviews-Zam_Zam-Bandrele.html"
+                       target="_blank" rel="noopener noreferrer" class="premium-tripadvisor">
+                         Consulter les avis sur Tripadvisor ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION : AUTRES SPÉCIALITÉS DU PAYS (LE PILAO EST REMPLACÉ PAR LE MATABA ICI) -->
+        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de Mayotte à découvrir :</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                
+                <!-- LE MATABA -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='mataba.html'">
+                    <div style="height: 140px; background: url('../../images/mataba.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Mataba</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">L'onctueux ragoût traditionnel de feuilles de manioc pilées et mijotées au lait de coco.</p>
+                    </div>
+                </div>
+
+                <!-- LE KANGUÉ -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='kangue.html'">
+                    <div style="height: 140px; background: url('../../images/kangue.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Kangué</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Ragoût traditionnel de bœuf fondant cuit lentement à l'étouffée dans son jus.</p>
+                    </div>
+                </div>
+
+                <!-- LES BROCHETTES -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='brochettes.html'">
+                    <div style="height: 140px; background: url('../../images/brochettes.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Mamas Brochettes</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Délicieuses grillades de bœuf marinées aux épices, cuites au feu de bois.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
+        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="country-selector">
+                <button onclick="location.href='../Mayotte.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (Mayotte)</button>
+            </div>
+            <div class="country-selector">
+                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
+            </div>
+        </nav>
+
+    </main>
+
+    <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+        </div>
+    </footer>
+
+    <script>
+        function togglePilao() {
+            const box = document.getElementById("infoPilao");
+            box.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

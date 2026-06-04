@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayotte/Kangué – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/styles.css">
+</head>
+<body>
+
+    <!-- BANNIÈRE IMMERSIVE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.9)), url('../../images/mayotte-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Destination Océan Indien</span>
+            <h1 class="hero-title">Gastronomie à Mayotte</h1>
+            <p class="hero-subtitle">Plats typiques, traditions et saveurs parfumées du lagon</p>
+        </div>
+    </section>
+
+    <!-- CONTENEUR PRINCIPAL DU GUIDE -->
+    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+        <!-- INTRODUCTION NARRATIVE -->
+        <section class="guide-intro">
+            <h2>Une mosaïque de saveurs exotiques</h2>
+            <p>
+                La cuisine mahoraise est un voyage sensoriel unique, au carrefour des influences africaines, arabes, malgaches et indiennes. Façonnée par la générosité du lagon et une terre fertile, elle met à l'honneur les produits frescos : poissons fraîchement pêchés, lait de coco fait maison, manioc, et une variété d'épices locales qui parfument subtilement chaque marmite. Découvrir Mayotte, c'est s'asseoir autour d'un plat de partage et d'histoire.
+            </p>
+        </section>
+
+        <!-- SECTION DE LA RECETTE ET SPÉCIALITÉ -->
+        <section class="specialties-container">
+            
+            <!-- LE KANGUÉ -->
+            <article class="dish-showcase">
+                <div class="dish-image-frame">
+                    <img src="../../images/kangue.jpg" alt="Le Kangué traditionnel de Mayotte">
+                </div>
+                <div class="dish-description">
+                    <span class="dish-category">Le Traditionnel Mijoté</span>
+                    <h3>Le Kangué</h3>
+                    <p>
+                        Véritable emblème de la cuisine familiale et réconfortante, le <strong class="mot-cliquable" onclick="toggleKangue()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">kangué</strong> est un ragoût de viande traditionnel de bœuf. Ce plat met à l'honneur la patience culinaire mahoraise en se concentrant sur un mode de cuisson lent qui sublime la qualité et le goût de la viande.
+                    </p>
+                    <p>
+                        C'est une spécialité qui se distingue par sa simplicité brute et la tendreté exceptionnelle d'une viande qui se détache toute seule à la dégustation.
+                    </p>
+                    
+                    <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
+                    <button class="read-more-btn" onclick="toggleKangue()">Découvrir son histoire et sa préparation ➔</button>
+
+                    <!-- CARTE ANIMÉE CACHÉE -->
+                    <div id="infoKangue" class="info-cachee">
+                        <h4>Le secret de sa préparation</h4>
+                        <p>La particularité du kangué réside dans sa cuisson à l'étouffée, réalisée presque exclusivement dans le propre jus de la viande. Les morceaux de bœuf (souvent coupés avec l'os pour donner plus de goût) sont placés dans une grande marmite fermée avec un filet d'huile, de l'ail, du sel et parfois un peu de tomate. On laisse mijoter à feu très doux pendant plusieurs heures jusqu'à réduction complète.</p>
+                        <p>Une fois le jus totalement évaporé, la viande commence légèrement à dorer dans son propre gras concentré, lui donnant une texture fondante à l'intérieur et délicieusement confite à l'extérieur. Il est traditionnellement escorté de manioc bouilli, de bananes vertes ou de riz blanc.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- SECTION OÙ MANGER (Restaurant recommandé - Le Moana) -->
+        <section class="guide-restaurant" style="margin-top: 40px;">
+            <div class="restaurant-card-premium">
+                <div class="restaurant-header">
+                    <h2>🍴 Adresse Recommandée</h2>
+                    <h3>Le Moana</h3>
+                </div>
+                <div class="restaurant-body">
+                    <p>Apprécié pour son cadre agréable et sa cuisine inspirée des traditions mahoraises, Le Moana séduit les visiteurs par la qualité de ses plats et son accueil chaleureux. Les clients soulignent régulièrement la richesse des saveurs locales, le soin apporté à la préparation des recettes et l'atmosphère conviviale qui fait de chaque repas un moment de découverte et de partage.</p>
+                    
+                    <ul class="premium-contacts">
+                        <li><strong>📍 Adresse :</strong> 1 B Rue Du Commerce, Mamoudzou 97600 Mayotte</li>
+                        <li><strong>📞 Téléphone :</strong> +262 639 69 24 14</li>
+                    </ul>
+
+                    <a href="https://www.tripadvisor.fr/Restaurant_Review-g480210-d3815333-Reviews-Le_Moana-Mamoudzou.html"
+                       target="_blank" rel="noopener noreferrer" class="premium-tripadvisor">
+                         Consulter les avis sur Tripadvisor ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION : AUTRES SPÉCIALITÉS DU PAYS (LE KANGUÉ EST REMPLACÉ PAR LE MATABA ET LE PILAO) -->
+        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de Mayotte à découvrir :</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                
+                <!-- LE PILAO -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='pilao.html'">
+                    <div style="height: 140px; background: url('../../images/pilao.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Pilao</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le célèbre riz festif parfumé aux épices et accompagné de viandes dorées.</p>
+                    </div>
+                </div>
+
+                <!-- LE MATABA -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='mataba.html'">
+                    <div style="height: 140px; background: url('../../images/mataba.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Mataba</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">L'onctueux ragoût traditionnel de feuilles de manioc pilées et mijotées au lait de coco.</p>
+                    </div>
+                </div>
+
+                <!-- LES BROCHETTES -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='brochettes.html'">
+                    <div style="height: 140px; background: url('../../images/brochettes.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Mamas Brochettes</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Délicieuses grillades de bœuf marinées aux épices, cuites au feu de bois.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
+        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="country-selector">
+                <button onclick="location.href='../Mayotte.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (Mayotte)</button>
+            </div>
+            <div class="country-selector">
+                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
+            </div>
+        </nav>
+
+    </main>
+
+    <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleKangue() {
+            const box = document.getElementById("infoKangue");
+            box.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

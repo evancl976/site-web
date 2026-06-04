@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dans les Coulisses du Code – Fiche Technique</title>
+    <link rel="stylesheet" href="../Css/styles.css">
+    
+    <style>
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: linear-gradient(135deg, #000814 0%, #001f3f 100%);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .info-page-container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        .info-hero {
+            text-align: center; padding: 30px 20px;
+            background: rgba(0, 11, 24, 0.6);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 24px; margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-hero h1 { color: #ffd700; font-size: 32px; margin-bottom: 10px; text-transform: uppercase; }
+        
+        /* MOTS-CLÉS FLASHY POUR LE JURY */
+        .flashy {
+            color: #00e5ff; /* Cyan Néon ultra-visible */
+            font-weight: 900;
+            text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+        }
+
+        /* SOMMAIRE INTERACTIF (ONGLET DES ENCRES) */
+        .anchors-nav {
+            background: #000b18; border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 16px; padding: 20px; margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .anchors-title { color: #ffd700; font-size: 15px; text-transform: uppercase; margin-bottom: 15px; text-align: center; font-weight: bold; }
+        .anchors-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+        .ancre-item {
+            background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #cbd5e0; padding: 10px; border-radius: 8px; text-decoration: none; text-align: center; font-size: 13.5px; font-weight: 500; transition: 0.3s;
+        }
+        .ancre-item:hover { border-color: #ffd700; color: #ffd700; background: rgba(255, 215, 0, 0.05); }
+
+        /* TEXTES COURTS & PUCES */
+        .resume-list { list-style-type: none; padding: 0; margin: 0 0 20px 0; }
+        .resume-list li { margin-bottom: 12px; font-size: 16px; color: #cbd5e0; padding-left: 20px; position: relative; }
+        .resume-list li::before { content: '➤'; position: absolute; left: 0; color: #ffd700; font-size: 14px; }
+
+        .keyboard-hint {
+            text-align: center; background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2); padding: 12px;
+            border-radius: 12px; margin-bottom: 30px; font-size: 14px; color: #cbd5e0;
+        }
+        .key-badge { background: #ffd700; color: #000; padding: 3px 8px; border-radius: 5px; font-weight: bold; }
+
+        /* ACCORDÉONS */
+        .tech-timeline { display: flex; flex-direction: column; gap: 20px; }
+        .tech-card { background: #000b18; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; overflow: hidden; scroll-margin-top: 40px; }
+        .accordion-trigger { width: 100%; background: none; border: none; padding: 20px 30px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; color: #ffffff; }
+        .accordion-title-block { display: flex; flex-direction: column; gap: 5px; }
+        .accordion-trigger h2 { font-size: 22px; margin: 0; color: #ffffff; }
+        .tech-card.active { border-color: #ffd700; box-shadow: 0 10px 30px rgba(255, 215, 0, 0.05); }
+        .tech-card.active .accordion-trigger h2 { color: #ffd700; }
+        .accordion-content { max-height: 0; overflow: hidden; padding: 0 30px; transition: 0.4s; }
+        .tech-card.active .accordion-content { max-height: 4000px; padding: 10px 30px 40px 30px; border-top: 1px solid rgba(255, 215, 0, 0.1); }
+
+        /* BADGES DIFFICULTÉ */
+        .level-badge { align-self: flex-start; padding: 4px 10px; font-size: 11px; font-weight: bold; text-transform: uppercase; border-radius: 4px; margin-bottom: 5px; }
+        .level-1 { background: rgba(72, 187, 120, 0.15); color: #48bb78; border: 1px solid #48bb78; }
+        .level-2 { background: rgba(237, 137, 54, 0.15); color: #ed8936; border: 1px solid #ed8936; }
+        .level-3 { background: rgba(229, 62, 62, 0.15); color: #e53e3e; border: 1px solid #e53e3e; }
+
+        .analogy-box { background: rgba(255, 215, 0, 0.02); border: 1px dashed rgba(255, 215, 0, 0.3); border-radius: 8px; padding: 15px; margin-top: 15px; font-size: 14.5px; color: #e2e8f0; }
+        .arbo-container { background: rgba(0, 5, 12, 0.7); border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 8px; padding: 20px; font-family: monospace; font-size: 14px; color: #cbd5e0; }
+        .arbo-folder { color: #ffd700; font-weight: bold; }
+        
+        /* MINI PREVIEW CSS AVEC EARTH.JPEG */
+        .planet-crafting-visual {
+            display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px;
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,215,0,0.15); padding: 20px; border-radius: 12px; margin-bottom: 20px;
+        }
+        .flat-texture-box { 
+            width: 120px; height: 60px; 
+            background: url('../images/earth.jpg') no-repeat center; 
+            background-size: cover; border-radius: 4px; 
+        }
+        .round-planet-box { 
+            width: 60px; height: 60px; 
+            background: url('../images/earth.jpg') no-repeat center; 
+            background-size: cover; border-radius: 50%; 
+            box-shadow: inset -5px -5px 10px #000; 
+        }
+
+        /* FORCE L'AFFICHAGE STRICT CÔTE À CÔTE (2 COLONNES) */
+        .real-globes-container { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; /* Deux colonnes identiques côte à côte */
+            gap: 20px; 
+            margin: 25px 0; 
+            width: 100%;
+        }
+        .real-globe-wrapper { 
+            background: #000b18; 
+            border: 1px solid rgba(255, 215, 0, 0.3); 
+            border-radius: 12px; 
+            padding: 20px; 
+            text-align: center; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            transition: 0.3s; 
+        }
+        .real-globe-wrapper:hover { border-color: #ffd700; }
+        .canvas-hook { width: 100%; height: 350px; margin: 0 auto; position: relative; }
+
+        /* SCHÉMAS ANIMÉS CSS */
+        .schema-container { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 30px;}
+        .schema-box { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,215,0,0.15); border-radius: 12px; padding: 15px; width: 250px; text-align: center; display: flex; flex-direction: column; align-items: center;}
+        .globe-visual-1 { width: 60px; height: 60px; border: 2px dashed rgba(255,255,255,0.4); border-radius: 50%; animation: spinGlobe 8s linear infinite; margin-bottom: 10px;}
+        .globe-visual-2 { width: 60px; height: 60px; border: 2px solid rgba(255,255,255,0.6); border-radius: 50%; position: relative; margin-bottom: 10px; background: radial-gradient(circle at 30% 30%, #001f3f, #000);}
+        .dot-island { position: absolute; width: 6px; height: 6px; background: #ffd700; border-radius: 50%; }
+        .flow-step { background: rgba(255,215,0,0.1); border: 1px solid #ffd700; border-radius: 4px; padding: 4px 8px; font-size: 11px; color: #fff; margin: 2px 0;}
+        @keyframes spinGlobe { to { transform: rotate(360deg); } }
+
+        /* ACTIONS FOOTER */
+        .actions-footer { display: flex; justify-content: center; gap: 20px; margin-top: 50px; flex-wrap: wrap; }
+        .btn-footer { border: 1px solid #ffd700; background: rgba(255,215,0,0.05); color: #ffd700; padding: 12px 25px; border-radius: 30px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s; }
+        .btn-footer:hover { background: #ffd700; color: #000b18; }
+        .btn-footer img { width: 20px; height: 20px; margin-right: 10px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="info-page-container">
+
+        <header class="info-hero">
+            <h1>🛠️ Fiche Technique & Architecture</h1>
+            <p>Résumé des technologies utilisées pour la présentation orale.</p>
+        </header>
+
+        <div class="keyboard-hint">
+            💡 <strong>Jury :</strong> Appuyez sur la touche <span class="key-badge">ESPACE</span> pour dérouler la présentation.
+        </div>
+
+        <nav class="anchors-nav">
+            <div class="anchors-title">📌 Accès Direct aux Chapitres</div>
+            <div class="anchors-links">
+                <a href="#etape-html" onclick="goToSection(0); return false;" class="ancre-item">1. Structure HTML5</a>
+                <a href="#etape-css" onclick="goToSection(1); return false;" class="ancre-item">2. Style & Design CSS3</a>
+                <a href="#etape-arborescence" onclick="goToSection(2); return false;" class="ancre-item">3. Organisation Fichiers</a>
+                <a href="#etape-js-ui" onclick="goToSection(3); return false;" class="ancre-item">4. Interactions JS</a>
+                <a href="#etape-globe" onclick="goToSection(4); return false;" class="ancre-item">5. Globes 3D Finaux</a>
+            </div>
+        </nav>
+
+        <div class="tech-timeline">
+
+            <article class="tech-card active" id="etape-html">
+                <button class="accordion-trigger" onclick="toggleAccordion(0)">
+                    <div class="accordion-title-block">
+                        <span class="level-badge level-1">Difficulté : 1/3 · Facile</span>
+                        <h2>1. Structure de base (HTML5) 🧱</h2>
+                    </div>
+                </button>
+                <div class="accordion-content">
+                    <ul class="resume-list">
+                        <li>Le <span class="flashy">HTML</span> est le squelette brut de la page.</li>
+                        <li>Il définit les textes, les images et les liens sans aucun design.</li>
+                        <li>Utilisation de <span class="flashy">balises sémantiques</span> (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>) pour un code propre et lisible.</li>
+                    </ul>
+                    <div class="analogy-box">
+                        <strong>🏠 Analogie :</strong> Le HTML, ce sont les <strong>murs bruts</strong> et la tuyauterie de la maison. Solide, mais gris.
+                    </div>
+                </div>
+            </article>
+
+            <article class="tech-card" id="etape-css">
+                <button class="accordion-trigger" onclick="toggleAccordion(1)">
+                    <div class="accordion-title-block">
+                        <span class="level-badge level-1">Difficulté : 1.5/3 · Accessible</span>
+                        <h2>2. Design & Apparence (CSS3) 🎨</h2>
+                    </div>
+                </button>
+                <div class="accordion-content">
+                    <ul class="resume-list">
+                        <li>Le <span class="flashy">CSS</span> est la "peinture" et l'esthétique générale du site.</li>
+                        <li>Création du thème graphique <span class="flashy">Bleu Nuit & Or</span> pour un rendu Premium.</li>
+                        <li>Gère le <span class="flashy">Responsive Design</span> pour s'adapter parfaitement aux mobiles.</li>
+                    </ul>
+                    
+                    <div class="planet-crafting-visual">
+                        <div class="craft-step">
+                            <span class="flashy" style="font-size:11px">1. Image Plate (earth.jpeg)</span>
+                            <div class="flat-texture-box"></div>
+                        </div>
+                        <div class="craft-arrow">➔</div>
+                        <div class="craft-step">
+                            <span style="color:#ffd700; font-size:11px">Code CSS : <code>border-radius: 50%</code></span>
+                        </div>
+                        <div class="craft-arrow">➔</div>
+                        <div class="craft-step">
+                            <span class="flashy" style="font-size:11px">2. Illusion Sphérique</span>
+                            <div class="round-planet-box"></div>
+                        </div>
+                    </div>
+
+                    <div class="analogy-box">
+                        <strong>🎨 Analogie :</strong> Le CSS, c'est le <strong>décorateur d'intérieur</strong> qui pose le papier peint et place les luminaires.
+                    </div>
+                </div>
+            </article>
+
+            <article class="tech-card" id="etape-arborescence">
+                <button class="accordion-trigger" onclick="toggleAccordion(2)">
+                    <div class="accordion-title-block">
+                        <span class="level-badge level-2">Difficulté : 2/3 · Intermédiaire</span>
+                        <h2>3. Organisation des Fichiers 🗂️</h2>
+                    </div>
+                </button>
+                <div class="accordion-content">
+                    <ul class="resume-list">
+                        <li>Le site est divisé en <span class="flashy">modules distincts</span> pour éviter le désordre.</li>
+                        <li>Utilisation de <span class="flashy">chemins d'accès relatifs</span> (ex: <code>../Css/styles.css</code>) pour lier les pages.</li>
+                    </ul>
+                    <div class="arbo-container">
+                        <span class="arbo-folder">📁 Racine_Projet/</span><br>
+                        ├── index.html <span style="color: #718096;">(Accueil du site)</span><br>
+                        ├── <span class="arbo-folder">📁 Css/</span> ➔ styles.css<br>
+                        ├── <span class="arbo-folder">📁 Script/</span> ➔ globe_sboutton.js, globe_boutton.js<br>
+                        └── <span class="arbo-folder">📁 Page/</span><br>
+                            ├── Info.html <span style="color: #718096;">(Page actuelle Fiche Technique)</span><br>
+                            ├── Mayotte.html<br>
+                            └── <span class="arbo-folder">📁 Mayotte/</span> ➔ brochettes.html, pilao.html...
+                    </div>
+                </div>
+            </article>
+
+            <article class="tech-card" id="etape-js-ui">
+                <button class="accordion-trigger" onclick="toggleAccordion(3)">
+                    <div class="accordion-title-block">
+                        <span class="level-badge level-2">Difficulté : 2.5/3 · Avancée</span>
+                        <h2>4. Interactions & Dynamisme (JavaScript) ⚡</h2>
+                    </div>
+                </button>
+                <div class="accordion-content">
+                    <ul class="resume-list">
+                        <li>Le <span class="flashy">JavaScript (JS)</span> rend l'interface complètement vivante.</li>
+                        <li>Détection immédiate des actions utilisateur avec la commande <span class="flashy">onclick</span>.</li>
+                        <li>Permet de déplier les panneaux secrets et de charger les données de façon fluide.</li>
+                    </ul>
+                    <div class="analogy-box">
+                        <strong>⚡ Analogie :</strong> C'est le <strong>réseau électrique</strong>. Vous appuyez sur l'interrupteur, l'action s'exécute.
+                    </div>
+                </div>
+            </article>
+
+            <article class="tech-card" id="etape-globe">
+                <button class="accordion-trigger" onclick="toggleAccordion(4)">
+                    <div class="accordion-title-block">
+                        <span class="level-badge level-3">Difficulté : 3/3 · Complexe</span>
+                        <h2>5. Le Globe 3D : L'Outil Central 🌍</h2>
+                    </div>
+                </button>
+                <div class="accordion-content">
+                    <ul class="resume-list">
+                        <li>Généré mathématiquement et rendu dans des balises <span class="flashy">HTML5 Canvas</span> distinctes.</li>
+                        <li>Interpolation fluide des <span class="flashy">coordonnées GPS (Lat/Long)</span> pour cibler précisément les îles d'outre-mer.</li>
+                        <li>Présentation de deux modèles d'intégration selon les besoins ergonomiques du système.</li>
+                    </ul>
+
+                    <h3 style="color:#ffd700; text-align:center; margin-top:20px;">Démonstration Live des Outils Globes</h3>
+                    
+                    <div class="real-globes-container">
+                        
+                        <div class="real-globe-wrapper">
+                            <p style="color:#00e5ff; margin:0 0 5px 0; font-size:14px; font-weight:bold;">Configuration 1</p>
+                            <p style="color:#fff; margin:0 0 15px 0; font-size:15px; font-weight:bold;">🌍 Globe sans boutons (Manuel)</p>
+                            <div id="globe-sans-boutons" class="canvas-hook"></div>
+                        </div>
+
+                        <div class="real-globe-wrapper">
+                            <p style="color:#00e5ff; margin:0 0 5px 0; font-size:14px; font-weight:bold;">Configuration 2</p>
+                            <p style="color:#fff; margin:0 0 15px 0; font-size:15px; font-weight:bold;">🌍 Globe avec boutons (Guidé)</p>
+                            <div id="globe-avec-boutons" class="canvas-hook"></div>
+                        </div>
+
+                    </div>
+
+                    <h3 style="color:#ffd700; text-align:center;">Logique de l'Algorithme</h3>
+                    <div class="schema-container">
+                        <div class="schema-box">
+                            <div class="globe-visual-1"></div>
+                            <span class="flashy">1. Mathématique</span>
+                            <p style="font-size:12px; color:#a0aec0; margin:5px 0;">Le JS calcule la trajectoire de la sphère.</p>
+                        </div>
+                        <div class="schema-box">
+                            <div class="globe-visual-2"><div class="dot-island dot-1"></div><div class="dot-island dot-3"></div></div>
+                            <span class="flashy">2. Ciblage GPS</span>
+                            <p style="font-size:12px; color:#a0aec0; margin:5px 0;">Conversion des positions en repères cliquables.</p>
+                        </div>
+                        <div class="schema-box">
+                            <div class="flow-step">Clic / Sélection Cible</div><div class="flow-arrow">▼</div><div class="flow-step" style="background:#00e5ff; color:#000;">Ouvre Mayotte.html</div>
+                            <span class="flashy">3. Redirection</span>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+        </div>
+
+        <div class="actions-footer">
+            <button onclick="location.href='../index.html'" class="btn-footer">🏠 Retour à l'accueil</button>
+            <a href="https://github.com/evancl976/site-web" target="_blank" class="btn-footer">
+                <img src="../images/github.png" alt="GitHub"> Download Site Web
+            </a>
+        </div>
+
+    </div>
+
+    <script src="../Script/globe_sboutton.js"></script>
+    <script src="../Script/globe_boutton.js"></script>
+
+    <script>
+        let currentIdx = 0;
+        const cards = document.querySelectorAll('.tech-card');
+
+        function toggleAccordion(index) {
+            cards.forEach((card, i) => {
+                if (i === index) {
+                    card.classList.toggle('active');
+                    if (card.classList.contains('active')) currentIdx = i;
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+        }
+
+        function goToSection(index) {
+            cards.forEach((card, i) => {
+                if (i === index) {
+                    card.classList.add('active');
+                    currentIdx = i;
+                    setTimeout(() => { card.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+        }
+
+        // Commande Espace
+        window.addEventListener('keydown', function(e) {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                currentIdx = (currentIdx + 1) % cards.length;
+                goToSection(currentIdx);
+            }
+        });
+    </script>
+
+</body>
+</html>

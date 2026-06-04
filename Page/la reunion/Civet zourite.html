@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Réunion/Civet zourite – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/styles.css">
+</head>
+<body>
+
+    <!-- BANNIÈRE IMMERSIVE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.9)), url('../../images/reunion-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Destination Océan Indien</span>
+            <h1 class="hero-title">Gastronomie à La Réunion</h1>
+            <p class="hero-subtitle">Caris mijotés, massalés intenses et traditions d'une île intense</p>
+        </div>
+    </section>
+
+    <!-- CONTENEUR PRINCIPAL DU GUIDE -->
+    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+        <!-- INTRODUCTION NARRATIVE -->
+        <section class="guide-intro">
+            <h2>Un volcan de saveurs métissées</h2>
+            <p>
+                La cuisine réunionnaise est le reflet vivant de son peuple : un métissage harmonieux unique au monde. Née de la rencontre entre les cultures malgaches, africaines, indiennes, chinoises et européennes, elle s'exprime à travers des marmites en fonte où mijotent caris et rougails parfumés. Partager un repas à La Réunion, c'est découvrir un art de vivre authentique, généreux et profondément ancré dans les traditions créoles.
+            </p>
+        </section>
+
+        <!-- SECTION DE LA RECETTE ET SPÉCIALITÉ -->
+        <section class="specialties-container">
+            
+            <!-- LE CIVET ZOURITE -->
+            <article class="dish-showcase">
+                <div class="dish-image-frame">
+                    <img src="../../images/civet-zourite.jpg" alt="Civet zourite traditionnel réunionnais">
+                </div>
+                <div class="dish-description">
+                    <span class="dish-category">La Tradition Marine</span>
+                    <h3>Le Civet zourite</h3>
+                    <p>
+                        Incontournable des tables dominicales et des repas en bord de mer, le <strong class="mot-cliquable" onclick="toggleCivet()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">civet zourite</strong> est un chef-d'œuvre de la cuisine créole. Ce plat d'une grande richesse aromatique met à l'honneur le poulpe (appelé localement "zourite") dans une version tropicalisée du civet traditionnel.
+                    </p>
+                    <p>
+                        Mijoté de longues heures dans une réduction de vin rouge, agrémenté de clous de girofle, de branches de thym et de tomates bien mûres, il se distingue par sa sauce sombre et onctueuse ainsi que par la texture incroyablement fondante de ses morceaux de poulpe.
+                    </p>
+                    
+                    <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
+                    <button class="read-more-btn" onclick="toggleCivet()">Découvrir la préparation du zourite et ses secrets de tendreté ➔</button>
+
+                    <!-- CARTE ANIMÉE CACHÉE -->
+                    <div id="infoCivet" class="info-cachee">
+                        <h4>L'histoire et le secret du Civet Zourite</h4>
+                        <p>Le terme « zourite » désigne le poulpe en créole réunionnais. Historiquement pêché à marée basse sur les récifs coralliens de l'île à l'aide d'une fouine (une longue pique en fer), le zourite fait partie des produits de la mer les plus prisés et respectés de la gastronomie locale.</p>
+                        <p>Le secret absolu d'un civet réussi réside dans l'art de rendre le zourite tendre. Traditionnellement, les pêcheurs battaient vigoureusement le poulpe fraîchement capturé contre les rochers pour briser ses fibres musculaires. Aujourd'hui, une technique moderne et tout aussi efficace consiste à le congeler pendant au moins 24 heures avant sa préparation, ce qui garantit une chair d'un fondant exceptionnel après cuisson.</p>
+                        <p>La cuisson se déroule en plusieurs étapes clés. Le zourite est d'abord blanchi pour éliminer son eau, puis découpé en morceaux. On le fait ensuite rissoler dans une marmite en fonte avec des oignons émincés, de l'ail et du gingembre pilés, du thym frais et une touche indispensable de clous de girofle écrasés. C'est l'ajout de tomates concassées et d'un vin rouge corsé qui va donner naissance à cette sauce onctueuse caractéristique lors d'une réduction lente à petit feu.</p>
+                        <p>À La Réunion, le civet zourite ne se conçoit pas sans ses accompagnements incontournables : un généreux lit de riz blanc volcanique, des grains (pois du Cap ou lentilles) et un rougail frais (comme un rougail mangue ou un rougail tomate) pour apporter du piquant et de la fraîcheur en bouche.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- SECTION OÙ MANGER (Restaurant recommandé) -->
+        <section class="guide-restaurant" style="margin-top: 40px;">
+            <div class="restaurant-card-premium">
+                <div class="restaurant-header">
+                    <h2>🍴 Adresse Recommandée</h2>
+                    <h3>Chez Mamy Marianne</h3>
+                </div>
+                <div class="restaurant-body">
+                    <p>Situé dans la commune historique de Saint-Paul, Chez Mamy Marianne est une adresse réputée pour sa cuisine créole authentique et généreuse. Ce restaurant familial prépare ses caris, ses rougails saucisses et son fameux cabri massalé dans le respect strict des recettes traditionnelles d’antan, le tout servi dans une ambiance typiquement réunionnaise et chaleureuse.</p>
+                    
+                    <ul class="premium-contacts">
+                        <li><strong>📍 Adresse :</strong> Rue du Général de Gaulle, 97460 Saint-Paul, La Réunion</li>
+                        <li><strong>📞 Téléphone :</strong> +262 262 02 13 91</li>
+                    </ul>
+
+                    <a href="https://www.tripadvisor.com/Restaurant_Review-g480230-d26828900-Reviews-Chez_Mamy_Marianne-Saint_Paul_Arrondissement_of_Saint_Paul.html?m=69573"
+                       target="_blank" rel="noopener noreferrer" class="premium-tripadvisor">
+                        Consulter les avis sur Tripadvisor ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION : AUTRES SPÉCIALITÉS DE L'ÎLE -->
+        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de La Réunion à découvrir :</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                
+                <!-- ROUGAIL SAUCISSE -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='Rougail saucisse.html'">
+                    <div style="height: 140px; background: url('../../images/rougail-saucisse.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Rougail saucisse</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le plat signature de l'île : des saucisses mijotées dans une sauce tomate relevée.</p>
+                    </div>
+                </div>
+
+                <!-- BONBONS PIMENTS -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='Bonbons piments.html'">
+                    <div style="height: 140px; background: url('../../images/bonbons-piments.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Bonbons piments</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Croquettes croustillantes et épicées à base de pois du Cap frits aux herbes.</p>
+                    </div>
+                </div>
+
+                <!-- CABRI MASSALÉ -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='cabri massale.html'">
+                    <div style="height: 140px; background: url('../../images/massale-plat.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Cabri massalé</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Un savoureux ragoût de chèvre longuement mijoté aux épices massalé et caloupilé.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
+        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="country-selector">
+                <button onclick="location.href='../la reunion.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (La Réunion)</button>
+            </div>
+            <div class="country-selector">
+                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
+            </div>
+        </nav>
+
+    </main>
+
+    <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT INTERACTIF -->
+    <script>
+        function toggleCivet() {
+            const box = document.getElementById("infoCivet");
+            box.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

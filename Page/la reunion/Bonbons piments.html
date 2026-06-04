@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Réunion/Bonbons piments – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/styles.css">
+</head>
+<body>
+
+    <!-- BANNIÈRE IMMERSIVE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.9)), url('../../images/reunion-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Destination Océan Indien</span>
+            <h1 class="hero-title">Gastronomie à La Réunion</h1>
+            <p class="hero-subtitle">Caris mijotés, massalés intenses et traditions d'une île intense</p>
+        </div>
+    </section>
+
+    <!-- CONTENEUR PRINCIPAL DU GUIDE -->
+    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+        <!-- INTRODUCTION NARRATIVE -->
+        <section class="guide-intro">
+            <h2>Un volcan de saveurs métissées</h2>
+            <p>
+                La cuisine réunionnaise est le reflet vivant de son peuple : un métissage harmonieux unique au monde. Née de la rencontre entre les cultures malgaches, africaines, indiennes, chinoises et européennes, elle s'exprime à travers des marmites en fonte où mijotent caris et rougails parfumés. Partager un repas à La Réunion, c'est découvrir un art de vivre authentique, généreux et profondément ancré dans les traditions créoles.
+            </p>
+        </section>
+
+        <!-- SECTION DE LA RECETTE ET SPÉCIALITÉ -->
+        <section class="specialties-container">
+            
+            <!-- LES BONBONS PIMENTS -->
+            <article class="dish-showcase">
+                <div class="dish-image-frame">
+                    <img src="../../images/bonbons-piments.jpg" alt="Bonbons piments traditionnels réunionnais">
+                </div>
+                <div class="dish-description">
+                    <span class="dish-category">L'Apéritif Croustillant</span>
+                    <h3>Les Bonbons piments</h3>
+                    <p>
+                        Incontournables de la culture "street food" locale, les <strong class="mot-cliquable" onclick="toggleBonbons()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">bonbons piments</strong> sont les rois absolus de l'apéritif et des marchés forains de La Réunion. Ces petites bouchées frites, dégustées chaudes à tout moment de la journée, cachent sous leur robe dorée un cœur tendre d'une richesse aromatique explosive.
+                    </p>
+                    <p>
+                        Confectionnés à base de pois du Cap (haricots de Lima) broyés, ils sont généreusement relevés d'un bouquet d'herbes et d'épices fraîches : curcuma, gingembre, coriandre, oignons verts et piments émincés. Un contraste saisissant entre croustillant extérieur et fondant intérieur.
+                    </p>
+                    
+                    <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
+                    <button class="read-more-btn" onclick="toggleBonbons()">Découvrir l'origine des bonbons piments et leurs secrets de friture ➔</button>
+
+                    <!-- CARTE ANIMÉE CACHÉE -->
+                    <div id="infoBonbons" class="info-cachee">
+                        <h4>L'histoire et le secret des Bonbons Piments</h4>
+                        <p>Les bonbons piments tirent leurs origines de l'immigration indienne musulmane (les "Zarabes") arrivée sur l'île au XIXe siècle, s'inspirant directement du *vada* indien. Au fil du temps, la recette s'est créolisée pour devenir un emblème national partagé par toutes les communautés de l'île.</p>
+                        <p>La préparation traditionnelle exige de la patience. Le premier secret réside dans le traitement des pois du Cap : ils doivent tremper dans l'eau froide pendant au moins 12 heures. L'étape la plus minutieuse consiste à retirer intégralement leur peau fine à la main avant de les broyer, afin d'obtenir une pâte parfaitement lisse et digeste.</p>
+                        <p>Le second secret repose sur la texture de la pâte et le façonnage. Les pois ne doivent pas être réduits en purée liquide, mais conserver une texture légèrement granuleuse. On y incorpore du curcuma pays, du gingembre pilé, du cumin, des oignons verts et de la coriandre fraîche. Les cuisinières forment ensuite de petites galettes au creux de la main et y dessinent un petit trou central avec le doigt : cette astuce ancestrale garantit une cuisson parfaitement uniforme au moment du bain de friture.</p>
+                        <p>Plongés dans une huile bien chaude mais non fumante, ils dorent lentement pour cuire à cœur sans brûler. Ils se dégustent traditionnellement tièdes, nature ou glissés dans un morceau de pain frais, accompagnés d'un punch maison ou d'une boisson fraîche.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- SECTION OÙ MANGER (Restaurant recommandé) -->
+        <section class="guide-restaurant" style="margin-top: 40px;">
+            <div class="restaurant-card-premium">
+                <div class="restaurant-header">
+                    <h2>🍴 Adresse Recommandée</h2>
+                    <h3>Le Ti Piment</h3>
+                </div>
+                <div class="restaurant-body">
+                    <p>Apprécié pour sa cuisine créole authentique, Le Ti Piment séduit ses visiteurs par la qualité de ses spécialités réunionnaises, la générosité de ses portions et l'accueil chaleureux de son équipe. Les avis mettent régulièrement en avant les saveurs traditionnelles, les recettes préparées avec soin et l'ambiance conviviale qui font de chaque repas une véritable immersion dans la gastronomie réunionnaise.</p>
+                    
+                    <ul class="premium-contacts">
+                        <li><strong>📍 Adresse :</strong> 1 Bis Rue Roberto, Bras-Panon 97412 Ile de La Réunion</li>
+                        <li><strong>📞 Téléphone :</strong> +234679</li>
+                    </ul>
+
+                    <a href="https://www.tripadvisor.fr/Restaurant_Review-g3442308-d6480084-Reviews-Le_Ti_Piment-Bras_Panon_Arrondissement_of_Saint_Benoit.html"
+                       target="_blank" rel="noopener noreferrer" class="premium-tripadvisor">
+                        Consulter les avis sur Tripadvisor ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION : AUTRES SPÉCIALITÉS DE L'ÎLE -->
+        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de La Réunion à découvrir :</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                
+                <!-- ROUGAIL SAUCISSE -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='Rougail saucisse.html'">
+                    <div style="height: 140px; background: url('../../images/rougail-saucisse.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Rougail saucisse</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le plat signature de l'île : des saucisses mijotées dans une sauce tomate relevée.</p>
+                    </div>
+                </div>
+
+                <!-- CABRI MASSALÉ -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='cabri massale.html'">
+                    <div style="height: 140px; background: url('../../images/massale-plat.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Cabri massalé</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Un savoureux ragoût de chèvre longuement mijoté aux épices massalé et caloupilé.</p>
+                    </div>
+                </div>
+
+                <!-- CIVET ZOURITE -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='Civet zourite.html'">
+                    <div style="height: 140px; background: url('../../images/civet-zourite.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Civet zourite</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Un civet de poulpe fondant mijoté au vin rouge, clous de girofle et aromates.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
+        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="country-selector">
+                <button onclick="location.href='../la reunion.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (La Réunion)</button>
+            </div>
+            <div class="country-selector">
+                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
+            </div>
+        </nav>
+
+    </main>
+
+    <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT INTERACTIF -->
+    <script>
+        function toggleBonbons() {
+            const box = document.getElementById("infoBonbons");
+            box.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

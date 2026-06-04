@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayotte/Mataba – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/styles.css">
+</head>
+<body>
+
+    <!-- BANNIÈRE IMMERSIVE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.9)), url('../../images/mayotte-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Destination Océan Indien</span>
+            <h1 class="hero-title">Gastronomie à Mayotte</h1>
+            <p class="hero-subtitle">Plats typiques, traditions et saveurs parfumées du lagon</p>
+        </div>
+    </section>
+
+    <!-- CONTENEUR PRINCIPAL DU GUIDE -->
+    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+        <!-- INTRODUCTION NARRATIVE -->
+        <section class="guide-intro">
+            <h2>Une mosaïque de saveurs exotiques</h2>
+            <p>
+                La cuisine mahoraise est un voyage sensoriel unique, au carrefour des influences africaines, arabes, malgaches et indiennes. Façonnée par la générosité du lagon et une terre fertile, elle met à l'honneur les produits frais : poissons fraîchement pêchés, lait de coco fait maison, manioc, et une variété d'épices locales qui parfument subtilement chaque marmite. Découvrir Mayotte, c'est s'asseoir autour d'un plat de partage et d'histoire.
+            </p>
+        </section>
+
+        <!-- SECTION DE LA RECETTE ET SPÉCIALITÉ -->
+        <section class="specialties-container">
+            
+            <!-- LE MATABA -->
+            <article class="dish-showcase">
+                <div class="dish-image-frame">
+                    <img src="../../images/mataba-plat.jpg" alt="Le Mataba traditionnel">
+                </div>
+                <div class="dish-description">
+                    <span class="dish-category">L'Incontournable</span>
+                    <h3>Le Mataba</h3>
+                    <p>
+                        C’est le pilier de la table mahoraise. Le <strong class="mot-cliquable" onclick="toggleMataba()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">mataba</strong> est un ragoût doux et onctueux préparé à base de jeunes feuilles de manioc finement pilées au pilon traditionnel, puis mijotées de longues heures dans du lait de coco frais.
+                    </p>
+                    <p>
+                        Ce plat convivial se distingue par sa texture veloutée et son parfum unique apporté par les épices de l'île (ail, gingembre, curcuma).
+                    </p>
+                    
+                    <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
+                    <button class="read-more-btn" onclick="toggleMataba()">Découvrir son histoire et sa préparation ➔</button>
+
+                    <!-- CARTE ANIMÉE CACHÉE -->
+                    <div id="infoMataba" class="info-cachee">
+                        <h4>Le secret de sa préparation</h4>
+                        <p>La sélection des feuilles de manioc demande un lavage minutieux avant d'être pilées. On y ajoute le lait de coco qui apporte la douceur indispensable pour équilibrer le goût végétal de la feuille. Selon les familles et les occasions, le mataba est agrémenté de poisson frais, fumé, de crevettes ou parfois de viande.</p>
+                        <p>Il est traditionnellement servi fumant, accompagné de riz blanc, de manioc bouilli ou de bananes vertes pour absorber cette sauce savoureuse.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- SECTION OÙ MANGER (Restaurant recommandé) -->
+        <section class="guide-restaurant" style="margin-top: 40px;">
+            <div class="restaurant-card-premium">
+                <div class="restaurant-header">
+                    <h2>🍴 Adresse Recommandée</h2>
+                    <h3>Saveurs des Îles & Le Choizil</h3>
+                </div>
+                <div class="restaurant-body">
+                    <p>Reconnu pour sa cuisine mahoraise authentique, cet établissement familial situé à Mtsamboro est l'endroit idéal pour déguster un mataba fait dans les règles de l'art, face aux magnifiques paysages de l'océan Indien.</p>
+                    
+                    <ul class="premium-contacts">
+                        <li><strong>📍 Adresse :</strong> 1620 Route Départementale, Mtsamboro 97630</li>
+                        <li><strong>📞 Téléphone :</strong> +262 639 64 02 74</li>
+                    </ul>
+
+                    <a href="https://www.tripadvisor.com/Restaurant_Review-g1453773-d10889569-Reviews-Saveurs_Des_Iles_Retrouver_nous_aussi_au_CHOIZIL-Mtsamboro.html?m=69573"
+                       target="_blank" rel="noopener noreferrer" class="premium-tripadvisor">
+                         Consulter les avis sur Tripadvisor ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+<!-- SECTION : AUTRES SPÉCIALITÉS DU PAYS (AVEC LE PILAO REVENU EN FORCE !) -->
+        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de Mayotte à découvrir :</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                
+                <!-- LE PILAO -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='pilao.html'">
+                    <div style="height: 140px; background: url('../../images/pilao.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Pilao</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le célèbre riz festif parfumé aux épices et accompagné de viandes dorées.</p>
+                    </div>
+                </div>
+
+                <!-- LE KANGUÉ -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='kangue.html'">
+                    <div style="height: 140px; background: url('../../images/kangue.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Kangué</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Ragoût traditionnel de bœuf fondant cuit lentement à l'étouffée dans son jus.</p>
+                    </div>
+                </div>
+
+                <!-- LES BROCHETTES -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='brochettes.html'">
+                    <div style="height: 140px; background: url('../../images/brochettes.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Mamas Brochettes</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Délicieuses grillades de bœuf marinées aux épices, cuites au feu de bois.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
+        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="country-selector">
+                <button onclick="location.href='../Mayotte.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (Mayotte)</button>
+            </div>
+            <div class="country-selector">
+                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
+            </div>
+        </nav>
+
+    </main>
+
+    <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMataba() {
+            const box = document.getElementById("infoMataba");
+            box.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

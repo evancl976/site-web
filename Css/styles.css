@@ -1,168 +1,550 @@
-/* STYLE GLOBAL */
+/* ==========================================
+   STYLE GLOBAL
+   ========================================== */
 body {
-margin: 0;
-background: linear-gradient(#001122, #000814);
-color: white;
-font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#001122, #000814);
+    color: white;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-
 
 .header {
-text-align: center;
-padding: 25px;
-border-bottom: 3px solid gold;
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 3px solid gold;
+    background: rgba(0, 8, 20, 0.8);
 }
-
 
 .title {
-font-size: 45px;
-color: gold;
-letter-spacing: 3px;
+    font-size: 45px;
+    color: gold;
+    letter-spacing: 3px;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
 
-
-/* SLIDESHOW */
-.slideshow {
-position: relative;
-text-align: center;
-margin-top: 20px;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 600px;
+.subtitle {
+    font-size: 18px;
+    color: #a0b0c0;
+    margin: 0;
+    font-style: italic;
 }
 
-
-.slideshow img {
-width: 35%;
-border: 5px solid gold;
-border-radius: 20px;
-display: block;
-margin: 0 auto;
+/* ==========================================
+   GLOBE 3D HYBRIDE (Version Finale Nettoyée)
+   ========================================== */
+.globe-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 700px;
 }
 
-
-.arrow {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-background: gold;
-border: none;
-padding: 15px;
-cursor: pointer;
-font-size: 22px;
-border-radius: 8px;
-z-index: 10;
+/* Le parent qui aligne les flèches et le globe côte à côte sans AUCUNE coupure */
+.globe-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px; /* Espace confortable de 40px pour laisser respirer le globe */
+    position: relative;
+    width: 100%;
 }
 
+/* Le Globe (Parfaitement rond et étanche) */
+.globe-container {
+    position: relative;
+    width: 390px; 
+    height: 390px;
+    border-radius: 50%;
+    background-image: url('../images/earth.jpg');
+    background-repeat: repeat-x;
+    background-color: #ffffff; /* Fond blanc pour les pôles */
+    box-shadow: inset -40px -40px 60px rgba(0,0,0,0.85), 0 0 30px rgba(0, 150, 255, 0.2);
+    overflow: hidden; /* Coupe la carte aux pôles, mais n'affecte plus les flèches ! */
+    flex-shrink: 0;   /* Empêche le globe de se déformer */
+}
 
-.left { left: 2%; }
-.right { right: 2%; }
+#globeCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    border-radius: 50%;
+    pointer-events: auto;
+}
 
+/* Style Unique et Propre pour tes flèches boutons */
+.arrow-btn {
+    background: linear-gradient(135deg, gold, #cca000);
+    color: black;
+    border: 2px solid white;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    transition: all 0.3s ease;
+    flex-shrink: 0; /* Empêche les boutons de s'aplatir sur petit écran */
+}
 
-/* SELECTEUR DE PAYS */
+/* Super effet au survol (devient blanc lumineux) */
+.arrow-btn:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+}
+
+.arrow-btn:active {
+    transform: scale(0.95);
+}
+
+/* Plus besoin de positionnement absolu manuel (géré proprement par le gap du wrapper) */
+.left-arrow, .right-arrow {
+    position: static;
+    transform: none;
+}
+
+#active-country-title {
+    font-size: 32px;
+    color: gold;
+    margin-top: 25px;
+    margin-bottom: 40px; /* Ajoute un espace propre de ~1cm pour repousser le globe vers le bas */
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    text-align: center;
+}
+
+.globe-tooltip {
+    position: absolute;
+    background: rgba(0, 15, 35, 0.95);
+    border: 2px solid gold;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    z-index: 100;
+    white-space: nowrap;
+}
+
+/* ==========================================
+   CENTRE DE NAVIGATION
+   ========================================== */
+.navigation-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 40px 0;
+}
+
 .country-selector {
-margin-top: 40px;
-text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    padding: 0 20px;
 }
-
 
 .country-selector button {
-background: gold;
-color: black;
-border: none;
-padding: 15px 25px;
-margin: 10px;
-font-size: 20px;
-cursor: pointer;
-border-radius: 10px;
-border-radius: 10px;
+    background: linear-gradient(135deg, #112233, #001122);
+    color: white;
+    border: 2px solid gold;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+.country-selector button:hover {
+    background: linear-gradient(135deg, gold, #cca000);
+    color: black;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
 
-/* FOOTER */
+/* ==========================================
+   FOOTER
+   ========================================== */
 .footer {
-background: #000814;
-border-top: 3px solid gold;
-margin-top: 50px;
-padding: 30px;
-text-align: center;
+    background: #00050f;
+    border-top: 3px solid gold;
+    padding: 35px 20px;
+    margin-top: auto;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
-
 
 .footer-content {
-max-width: 1200px;
-margin: 0 auto;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
-
 
 .footer-credit {
-font-size: 18px;
-margin: 10px 0;
-color: gold;
+    font-size: 18px;
+    margin: 0;
+    color: #ffffff;
+    letter-spacing: 1px;
 }
 
+.footer-credit strong {
+    color: gold;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
 
 .footer-links {
-margin: 20px 0;
-display: flex;
-justify-content: center;
-gap: 20px;
-flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
 }
-
 
 .footer-links a {
-color: white;
-text-decoration: none;
-font-size: 16px;
-padding: 10px 15px;
-border: 2px solid gold;
-border-radius: 8px;
-transition: all 0.3s;
+    color: #a0b0c0;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.02);
+    transition: all 0.3s ease;
 }
-
 
 .footer-links a:hover {
-background: gold;
-color: black;
+    background: gold;
+    color: black;
+    border-color: white;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
-
 
 .footer-info {
-margin: 20px 0 0 0;
-font-size: 14px;
-color: black;
+    margin: 10px 0 0 0;
+    font-size: 13px;
+    color: #607080;
+    letter-spacing: 0.5px;
 }
+
+/* ==========================================
+   STYLE POUR LES PAGES DES ÎLES
+   ========================================== */
 .mot-cliquable {
-    color: darkred;
+    color: gold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: color 0.3s;
+    text-decoration: underline;
 }
 
 .mot-cliquable:hover {
-    color: blue;
+    color: white;
 }
 
-/* Carte cachée */
 .info-cachee {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     transform: translateY(-10px);
     transition: all 0.5s ease;
-    background: #111; /* fond noir */
-    color: white; /* texte blanc */
+    background: rgba(0, 10, 25, 0.9);
+    color: white;
     padding: 0 15px;
-    border-left: 4px solid orange;
+    border-left: 4px solid gold;
     border-radius: 8px;
     margin-top: 10px;
 }
 
-/* Carte visible */
 .info-cachee.active {
-    max-height: 300px;
+    max-height: 600px;
     opacity: 1;
     transform: translateY(0);
     padding: 20px;
+}
+
+/* ==========================================
+   STYLE GUIDE GASTRONOMIQUE (Style Martinique.org)
+   ========================================== */
+
+/* --- 1. Grande Bannière Immersive (Hero) --- */
+.island-hero {
+    height: 60vh; /* Prend 60% de la hauteur de l'écran */
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Reste fluide au défilement */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    border-bottom: 3px solid gold;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-tag {
+    color: gold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.hero-title {
+    font-size: 55px;
+    color: white;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: #e0e8f0;
+    margin: 0;
+    font-style: italic;
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
+}
+
+/* --- 2. Conteneur Global du Guide --- */
+.tourism-guide {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Introduction textuelle */
+.guide-intro {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 60px auto;
+}
+
+.guide-intro h2 {
+    color: gold;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.guide-intro p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #b0c0d0;
+}
+
+/* --- 3. Présentation des Plats (Style Magazine) --- */
+.specialties-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.dish-showcase {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: rgba(35, 47, 100, 0.356);
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    flex-wrap: wrap; /* Aligne l'un sous l'autre sur mobile */
+}
+
+/* Classe optionnelle pour inverser l'ordre (image à droite, texte à gauche) pour le plat suivant */
+.dish-showcase.reverse {
+    flex-direction: row-reverse;
+}
+
+.dish-image-frame {
+    flex: 1;
+    min-width: 300px;
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.dish-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.dish-showcase:hover .dish-image-frame img {
+    transform: scale(1.04);
+}
+
+.dish-description {
+    flex: 1.2;
+    min-width: 300px;
+}
+
+.dish-category {
+    color: gold;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.dish-description h3 {
+    font-size: 30px;
+    color: white;
+    margin: 10px 0 20px 0;
+}
+
+.dish-description p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #e0e8f0;
+}
+
+/* Bouton interactif pour ouvrir les détails */
+.read-more-btn {
+    background: transparent;
+    border: none;
+    color: gold;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin: 15px 0;
+    display: inline-block;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.read-more-btn:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+/* --- 4. Section Restaurant Premium --- */
+.guide-restaurant {
+    margin: 80px 0;
+}
+
+.restaurant-card-premium {
+    background: linear-gradient(135deg, #001c3d, #000c1a);
+    border: 2px solid gold;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+}
+
+.restaurant-header h2 {
+    color: gold;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 5px 0;
+}
+
+.restaurant-header h3 {
+    font-size: 28px;
+    color: white;
+    margin: 0 0 20px 0;
+}
+
+.premium-contacts {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.premium-contacts li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.premium-tripadvisor {
+    display: inline-block;
+    background: gold;
+    color: black;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.premium-tripadvisor:hover {
+    background: white;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* --- 5. Bouton Retour Général --- */
+.guide-navigation {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.back-home-btn {
+    background: linear-gradient(135deg, #112233, #001122);
+    color: white;
+    border: 2px solid gold;
+    padding: 14px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.back-home-btn:hover {
+    background: linear-gradient(135deg, gold, #cca000);
+    color: black;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(255, 215, 0, 0.4);
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .hero-title { font-size: 38px; }
+    .dish-image-frame { height: 250px; }
+    .dish-showcase { padding: 20px; }
 }

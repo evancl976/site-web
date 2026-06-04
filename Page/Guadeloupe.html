@@ -2,100 +2,495 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Guadeloupe – Spécialités culinaires</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guadeloupe – Menu Culinaire Traditionnel</title>
     <link rel="stylesheet" href="../Css/styles.css">
+    <style>
+        .kayak-container {
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* === CONFIGURATION DU LAYOUT PRINCIPAL (STYLE IMAGE KAYAK) === */
+        .kayak-layout {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            align-items: flex-start;
+        }
+
+        /* 1. BLOC DE GAUCHE : PUB VERTICAL */
+        .kayak-pub-sidebar {
+            width: 300px;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .ads-frame-vertical {
+            width: 100%;
+            height: 520px;
+            background: #00040a;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+
+        .ads-frame-vertical img, .ads-frame-vertical video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .ads-frame-vertical .active-media {
+            display: block;
+        }
+
+        .ads-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffd700;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 10;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+        }
+
+        /* 2. BLOC DE DROITE : TITRE + SLIDER DE NOURRITURE */
+        .kayak-main-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .slider-header h2 {
+            font-size: 28px;
+            margin: 0;
+            color: #fff;
+        }
+
+        /* Conteneur global du Slider mécanique */
+        .food-slider-container {
+            position: relative;
+            width: 100%;
+        }
+
+        /* Rail de défilement horizontal */
+        .food-slider-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 5px 25px 5px;
+            scrollbar-width: none;
+        }
+
+        .food-slider-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Tuiles de nourriture */
+        .food-card {
+            flex: 0 0 300px;
+            width: 300px;
+            background: #000b18;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd700;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.15);
+        }
+
+        .food-img-slot {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .food-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 11, 24, 0.85);
+            color: #ffd700;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 6px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+
+        .food-details {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .food-title {
+            color: #fff;
+            margin: 0 0 8px 0;
+            font-size: 22px;
+        }
+
+        .food-desc {
+            color: #a0aec0;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .kayak-btn {
+            background: rgba(255, 215, 0, 0.05);
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .food-card:hover .kayak-btn {
+            background: #ffd700;
+            color: #000;
+            border-color: #ffd700;
+        }
+
+        .slider-controls-bottom {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .arrow-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #ffd700;
+            color: #ffd700;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+
+        .arrow-btn:hover {
+            background: #ffd700;
+            color: #000;
+        }
+
+        /* === CODES DES POP-UPS MODALES === */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 5, 15, 0.85);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .kayak-popup {
+            background: #000b18;
+            border: 2px solid #ffd700;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .kayak-popup {
+            transform: scale(1);
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .close-popup:hover {
+            color: #ffd700;
+        }
+    </style>
 </head>
-<script>
-function toggleColombo() {
-    const box = document.getElementById("infoColombo");
-    box.classList.toggle("active");
-}
-</script>
 <body>
 
-<header class="header">
-    <h1 class="title">Guadeloupe</h1>
-    <p class="subtitle">Saveurs créoles des Antilles</p>
-</header>
+    <!-- BANNIÈRE PRINCIPALE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.85)), url('../images/guadeloupe-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">L'Île Papillon</span>
+            <h1 class="hero-title">Gastronomie de la Guadeloupe</h1>
+            <p class="hero-subtitle">Explorez les recettes authentiques des Antilles</p>
+        </div>
+    </section>
 
-<main class="country-info">
+    <!-- ZONE STRATÉGIQUE -->
+    <main class="kayak-container">
+        <div class="kayak-layout">
+            
+            <!-- BLOC GAUCHE : PUBLICITÉ ET MÉDIAS -->
+            <aside class="kayak-pub-sidebar">
+                <span class="ads-label">Évasion Live ✈️</span>
+                <div class="ads-frame-vertical">
+                    <img id="ad-image" src="" alt="Paysage local">
+                    <video id="ad-video" muted playsinline></video>
+                </div>
+            </aside>
 
-    <article class="dish">
-        <h2>🍽️ Plat spécial : Colombo de poulet</h2>
-        <p>
-            Le <strong class="mot-cliquable" onclick="toggleColombo()">
-    colombo de poulet
-</strong> est un plat traditionnel des Antilles françaises,
-            notamment en Guadeloupe et en Martinique. Il est issu d’un mélange d’influences
-            indiennes, africaines et européennes.
-        </p>
-        <div id="infoColombo" class="info-cachee">
-    <h3> Qu’est-ce que le Colombo de poulet ?</h3> <p>
-    
-       Le colombo de poulet est un plat traditionnel emblématique de la cuisine antillaise, particulièrement présent en Guadeloupe et en Martinique. Il s’agit d’un ragoût de poulet mijoté longuement avec des épices, des légumes et une sauce parfumée, qui lui donne toute sa richesse et son identité culinaire. Ce plat est apprécié pour son goût savoureux, légèrement épicé et très parfumé, qui reflète le métissage culturel des îles des Caraïbes. <p>
+            <!-- BLOC DROITE : LE SLIDER DES PLATS TRADITIONNELS -->
+            <div class="kayak-main-content">
+                <div class="slider-header">
+                    <h2>Offres culinaires traditionnelles</h2>
+                </div>
 
-L’ingrédient principal du colombo est la poudre de colombo, un mélange d’épices typique composé généralement de curcuma, cumin, coriandre, fenugrec, graines de moutarde et parfois de piment. Ce mélange trouve son origine dans les influences indiennes arrivées aux Antilles au XIXᵉ siècle, apportées par les travailleurs engagés. <p> 
-    Au fil du temps, cette base d’épices a été adaptée aux produits locaux pour donner naissance à une recette unique et profondément ancrée dans la tradition créole. 
+                <!-- Fenêtre coulissante du Slider -->
+                <div class="food-slider-container">
+                    <div class="food-slider-track" id="foodTrack">
+                        
+                        <!-- PLAT 1 : COLOMBO POULET -->
+                        <div class="food-card" onclick="openFoodPopup('Colombo poulet', 'Le colombo de poulet est le plat national incontournable de la Guadeloupe, généreusement mijoté avec des légumes locaux et un mélange subtil d\'épices traditionnelles.', 'guadeloupe/colombo poulet.html')">
+                            <div class="food-img-slot" style="background-image: url('../images/colombo-plat.jpg');"></div>
+                            <span class="food-badge">Incontournable</span>
+                            <div class="food-details">
+                                <div>
+                                    <h3 class="food-title">Colombo poulet</h3>
+                                    <p class="food-desc">L'emblème de l'île mariant poulet fondant, légumes pays et épices douces.</p>
+                                </div>
+                                <div class="kayak-btn">Découvrir la fiche ➔</div>
+                            </div>
+                        </div>
 
-La préparation du colombo de poulet commence souvent par assaisonner les morceaux de poulet avec de l’ail, de l’oignon, du thym, du sel, du poivre et parfois du jus de citron vert. Le poulet est ensuite saisi dans une marmite pour développer ses arômes, puis on ajoute les épices, de l’eau ou du bouillon, ainsi que différents légumes.
-        Parmi les plus utilisés, on retrouve les pommes de terre, les aubergines, les courgettes ou encore le giraumon (courge).
+                        <!-- PLAT 2 : BOKIT -->
+                        <div class="food-card" onclick="openFoodPopup('Bokit', 'Le bokit est le sandwich traditionnel unique de la Guadeloupe, reconnaissable à son pain frit doré et croustillant, garni de morue, poulet ou jambon.', 'guadeloupe/bokit.html')">
+                            <div class="food-img-slot" style="background-image: url('../images/bokit.jpg');"></div>
+                            <span class="food-badge">Street Food</span>
+                            <div class="food-details">
+                                <div>
+                                    <h3 class="food-title">Bokit</h3>
+                                    <p class="food-desc">Le sandwich iconique croustillant, frit à la perfection et très gourmand.</p>
+                                </div>
+                                <div class="kayak-btn">Découvrir la fiche ➔</div>
+                            </div>
+                        </div>
 
-Le plat est ensuite laissé mijoter lentement, ce qui permet aux saveurs de se mélanger harmonieusement. La cuisson lente rend le poulet tendre et imprégné des épices, tandis que la sauce devient épaisse, parfumée et légèrement onctueuse. Le bois des traditions culinaires et le savoir-faire transmis de génération en génération jouent un rôle important dans la réussite de ce plat. 
+                        <!-- PLAT 3 : MATETE DE CRABE -->
+                        <div class="food-card" onclick="openFoodPopup('Matete de crabe', 'Le matété de crabe est le ragoût festif traditionnel préparé à Pâques et à la Pentecôte, mêlant riz épicé étouffé et crabes de terre savoureux.', 'guadeloupe/matete de crabe.html')">
+                            <div class="food-img-slot" style="background-image: url('../images/matete-crabe.jpg');"></div>
+                            <span class="food-badge">Plat Typique</span>
+                            <div class="food-details">
+                                <div>
+                                    <h3 class="food-title">Matete de crabe</h3>
+                                    <p class="food-desc">Le plat traditionnel des fêtes, associant crabe de terre et riz mijoté aux herbes.</p>
+                                </div>
+                                <div class="kayak-btn">Découvrir la fiche ➔</div>
+                            </div>
+                        </div>
 
-Le colombo de poulet est généralement servi avec du riz blanc, qui permet d’équilibrer les saveurs et d’absorber la sauce. Il peut aussi être accompagné de légumes, de salades ou de piments, selon les préférences. C’est un plat convivial, souvent préparé lors de repas en famille ou entre amis.
-    </p>
-</div>
-        <p>
-            Il s’agit d’un ragoût de poulet mijoté avec un mélange d’épices appelé
-            <em>colombo</em> (curcuma, coriandre, cumin, moutarde),
-            accompagné de légumes comme la pomme de terre, l’aubergine ou la christophine,
-            ainsi que de l’ail et de l’oignon.
-        </p>
-        <p>
-            Le colombo de poulet se distingue par son goût parfumé et légèrement épicé,
-            sans être trop piquant. Il est traditionnellement servi avec du riz blanc
-            et fait partie des plats emblématiques de la cuisine antillaise,
-            souvent préparé lors des repas familiaux et festifs.
-        </p>
-    </article>
+                        <!-- PLAT 4 : BOUDIN NOIR -->
+                        <div class="food-card" onclick="openFoodPopup('Boudin noir', 'Le boudin noir créole est une spécialité incontournable des tables antillaises, finement pimenté et parfumé aux épices locales, idéal pour l\'apéritif.', 'guadeloupe/boudin noir.html')">
+                            <div class="food-img-slot" style="background-image: url('../images/boudin-creole.jpg');"></div>
+                            <span class="food-badge">Authentique</span>
+                            <div class="food-details">
+                                <div>
+                                    <h3 class="food-title">Boudin noir</h3>
+                                    <p class="food-desc">Le roi de l'apéro créole, délicatement relevé et parfumé aux épices pays.</p>
+                                </div>
+                                <div class="kayak-btn">Découvrir la fiche ➔</div>
+                            </div>
+                        </div>
 
-    <article class="restaurant">
-        <h2>🍴 Restaurant recommandé</h2>
+                    </div>
+                </div>
 
-        <h3>Plato Kréyol</h3>
+                <div class="slider-controls-bottom">
+                    <button class="arrow-btn" onclick="slideHorizontal(-1)">❮</button>
+                    <button class="arrow-btn" onclick="slideHorizontal(1)">❯</button>
+                </div>
+            </div>
 
-        <ul class="restaurant-info">
-            <li><strong>📍 Adresse :</strong> Bd du Général de Gaulle, 97190 Le Gosier, Guadeloupe</li>
-            <li><strong>📞 Téléphone :</strong> 05 90 82 56 42</li>
-            <li>
-    <strong>🦉 Tripadvisor :</strong>
-    <a href="https://www.tripadvisor.com/Restaurant_Review-g644387-d8389279-Reviews-Plato_Kreyol-Le_Gosier_Grande_Terre_Island_Guadeloupe.html?m=69573"
-       target="_blank" rel="noopener noreferrer">
-        Voir la page Tripadvisor
-    </a>
-</li>
+        </div>
+    </main>
 
-        </ul>
+    <!-- SYSTEME DE POP-UP DÉTAILS -->
+    <div class="modal-overlay" id="foodModal" onclick="closeFoodPopup(event)">
+        <div class="kayak-popup" onclick="event.stopPropagation()">
+            <button class="close-popup" onclick="hidePopup()">×</button>
+            <h3 id="popup-title" style="color: #ffd700; font-size: 24px; margin-top: 0;">Nom du Plat</h3>
+            <p id="popup-desc" style="color: #e0e8f0; line-height: 1.6; margin: 20px 0; font-size: 15px;">Description...</p>
+            <div style="text-align: right;">
+                <a id="popup-link" style="display: inline-block; border: 1px solid gold; background: rgba(255,215,0,0.15); color: gold; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; text-decoration: none;">
+                    Ouvrir la recette complète ➔
+                </a>
+            </div>
+        </div>
+    </div>
 
-        <p>
-            <strong>Plato Kréyol</strong> est un restaurant créole situé au Gosier,
-            proposant une cuisine caraïbe authentique.
-        </p>
-        <p>
-            On y retrouve des spécialités locales telles que le colombo de poulet,
-            le poisson grillé et d’autres plats traditionnels,
-            servis dans une ambiance chaleureuse et conviviale,
-            aussi bien pour le déjeuner que pour le dîner.
-        </p>
-    </article>
+    <!-- FOOTER COMPLET -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <div class="footer-links">
+                <a href="../index.html">Accueil du Globe</a>
+                <a href="Mayotte.html">Mayotte</a>
+                <a href="Guyane.html">Guyane</a>
+                <a href="Martinique.html">Martinique</a>
+                <a href="La reunion.html">La Réunion</a>
+            </div>
+        </div>
+    </footer>
 
-    <button class="back" onclick="location.href='../index.html'">⬅ Retour à l’accueil</button>
+    <!-- INTERACTION ET SYSTÈMES AUTOMATIQUES -->
+    <script>
+        /* 1. APPAREIL DE NAVIGATION DU SLIDER HORIZONTAL */
+        function slideHorizontal(direction) {
+            const track = document.getElementById('foodTrack');
+            const scrollAmount = 320 * direction; 
+            track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
 
-</main>
+        /* 2. MANAGEMENT DU POP-UP INTÉGRÉ AVEC RECONNAISSANCE DE SESSION */
+        const modal = document.getElementById('foodModal');
+        const pTitle = document.getElementById('popup-title');
+        const pDesc = document.getElementById('popup-desc');
+        const pLink = document.getElementById('popup-link');
 
+        function openFoodPopup(title, description, targetPage) {
+            pTitle.innerText = title;
+            pDesc.innerText = description;
+            pLink.href = targetPage;
+            
+            // ÉTAPE DE VÉRIFICATION : Le plat a-t-il déjà été ouvert dans cette session ?
+            if (sessionStorage.getItem('deja_ouvert_' + title)) {
+                // Déjà cliqué : on reste dans le même onglet
+                pLink.setAttribute("target", "_self");
+            } else {
+                // Premier clic : on ouvre un nouvel onglet
+                pLink.setAttribute("target", "_blank");
+            }
+
+            // ACTION AU CLIC : On enregistre le plat dans la mémoire de session au moment où l'utilisateur clique sur le bouton
+            pLink.onclick = function() {
+                sessionStorage.setItem('deja_ouvert_' + title, 'true');
+            };
+
+            modal.classList.add('active');
+        }
+
+        function hidePopup() {
+            modal.classList.remove('active');
+        }
+
+        function closeFoodPopup(e) {
+            if(e.target === modal) hidePopup();
+        }
+
+        /* 3. ALGORITHME DE PARCOURS DES MÉDIAS (GAUCHE) */
+        const playlist = [
+            { type: 'image', url: '../images/guadeloupe-paysage1.jpg' },
+            { type: 'image', url: '../images/guadeloupe-paysage2.jpg' },
+            { type: 'video', url: '../videos/guadeloupe-trip.mp4' },
+            { type: 'image', url: '../images/guadeloupe-paysage3.jpg' },
+            { type: 'image', url: '../images/guadeloupe-paysage4.jpg' }
+        ];
+
+        let currentIndex = 0;
+        let imageTimer = null;
+
+        const imgTag = document.getElementById('ad-image');
+        const videoTag = document.getElementById('ad-video');
+
+        function playNextMedia() {
+            clearTimeout(imageTimer);
+            videoTag.onended = null;
+
+            imgTag.classList.remove('active-media');
+            videoTag.classList.remove('active-media');
+
+            const currentMedia = playlist[currentIndex];
+
+            if (currentMedia.type === 'image') {
+                imgTag.src = currentMedia.url;
+                imgTag.classList.add('active-media');
+                
+                imageTimer = setTimeout(() => {
+                    advanceIndex();
+                    playNextMedia();
+                }, 2000);
+
+            } else if (currentMedia.type === 'video') {
+                videoTag.src = currentMedia.url;
+                videoTag.classList.add('active-media');
+                videoTag.load();
+                videoTag.play().catch(err => console.log("Attente interaction utilisateur pour lecture vidéo."));
+
+                videoTag.onended = function() {
+                    advanceIndex();
+                    playNextMedia();
+                };
+            }
+        }
+
+        function advanceIndex() {
+            currentIndex++;
+            if (currentIndex >= playlist.length) currentIndex = 0;
+        }
+
+        window.addEventListener('DOMContentLoaded', playNextMedia);
+    </script>
 </body>
 </html>
-
-
-
-

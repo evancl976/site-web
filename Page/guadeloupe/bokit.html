@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guadeloupe/Bokit – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/styles.css">
+</head>
+<body>
+
+    <!-- BANNIÈRE IMMERSIVE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.9)), url('../../images/guadeloupe-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Destination Antilles</span>
+            <h1 class="hero-title">Gastronomie en Guadeloupe</h1>
+            <p class="hero-subtitle">Parfums de colombo, douceur créole et trésors de l'île papillon</p>
+        </div>
+    </section>
+
+    <!-- CONTENEUR PRINCIPAL DU GUIDE -->
+    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+        <!-- INTRODUCTION NARRATIVE -->
+        <section class="guide-intro">
+            <h2>Une symphonie de saveurs créoles</h2>
+            <p>
+                La cuisine guadeloupéenne est une invitation au voyage, où se mêlent harmonieusement les traditions amérindiennes, africaines, européennes et indiennes. Rythmée par les produits de la mer, les racines pays et le piment antillais, elle se distingue par sa génériosité et ses marinades savoureuses. Du marché de Pointe-à-Pitre aux tables de bord de mer, chaque plat raconte l'histoire et la convivialité de Karukera.
+            </p>
+        </section>
+
+        <!-- SECTION DE LA RECETTE ET SPÉCIALITÉ -->
+        <section class="specialties-container">
+            
+            <!-- LE BOKIT -->
+            <article class="dish-showcase">
+                <div class="dish-image-frame">
+                    <img src="../../images/bokit.jpg" alt="Bokit traditionnel de la Guadeloupe">
+                </div>
+                <div class="dish-description">
+                    <span class="dish-category">L'Incontournable Street Food</span>
+                    <h3>Le Bokit</h3>
+                    <p>
+                        Véritable pilier de la culture de rue guadeloupéenne, le <strong class="mot-cliquable" onclick="toggleBokit()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">bokit</strong> est un sandwich unique au monde. Sa particularité repose sur son pain fait d'une pâte fine sans levain, frite directement dans une huile bien chaude.
+                    </p>
+                    <p>
+                        Doré à souhait, croustillant à l’extérieur et d'un moelleux incomparable à l’intérieur, il se décline à l'infini en se garnissant de morue déchiquetée, de poulet boucané, de thon ou de jambon-fromage, toujours relevé d’une pointe de piment antillais.
+                    </p>
+                    
+                    <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
+                    <button class="read-more-btn" onclick="toggleBokit()">Découvrir son histoire et sa préparation ➔</button>
+
+                    <!-- CARTE ANIMÉE CACHÉE -->
+                    <div id="infoBokit" class="info-cachee">
+                        <h4>L'histoire et le secret du Bokit</h4>
+                        <p>Le bokit tire ses origines du milieu du XIXᵉ siècle, juste après l'abolition de l'esclavage. Les travailleurs les plus pauvres ne possédant pas de four inventèrent une alternative économique en faisant frire une simple galette d'eau, de farine et de sel dans une casserole d'huile. Cette technique s'inspire du <em>"johnny cake"</em> des îles anglophones voisines.</p>
+                        <p>Le secret absolu d'un bon bokit réside dans la maîtrise de sa friture. La pâte doit gonfler instantanément à la cuisson pour créer une poche d'air naturelle, idéale pour y glisser la garniture, sans pour autant absorber trop de matière grasse.</p>
+                        <p>Aujourd'hui, la garniture traditionnelle reste la chiquetaille de morue (morue séchée, dessalée, émiettée et assaisonnée à l'huile, à l'ail et aux piments pays), mais les versions modernes au poulet oignons ou "complet" (jambon, fromage, œuf) font fureur auprès des locaux et des voyageurs dès la tombée de la nuit.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- SECTION OÙ MANGER (Restaurant recommandé - Chez Jojo) -->
+        <section class="guide-restaurant" style="margin-top: 40px;">
+            <div class="restaurant-card-premium">
+                <div class="restaurant-header">
+                    <h2>🍴 Adresse Recommandée</h2>
+                    <h3>Bokit Center</h3>
+                </div>
+                <div class="restaurant-body">
+                    <p>Référence incontournable du bokit en Guadeloupe, BOKIT CENTER séduit ses visiteurs par la qualité de ses ingrédients, la générosité de ses portions et l'originalité de ses recettes. Les avis mettent en avant des bokits savoureux, des produits frais, des sauces maison appréciées et un accueil particulièrement chaleureux. Une adresse incontournable pour découvrir cette spécialité emblématique de la cuisine guadeloupéenne.</p>
+                    
+                    <ul class="premium-contacts">
+                        <li><strong>📍 Adresse :</strong> Immeuble Le Caducee Rue Roliere Arnoux Morne Vergain, Les Abymes 97139 Guadeloupe</li>
+                        <li><strong>📞 Téléphone :</strong> +590 690 58-5252</li>
+                    </ul>
+
+                    <a href="https://www.tripadvisor.fr/Restaurant_Review-g5009578-d28121757-Reviews-Bokit_Center-Les_Abymes_Grande_Terre_Island_Guadeloupe.html"
+                       target="_blank" rel="noopener noreferrer" class="premium-tripadvisor">
+                        Consulter les avis sur Tripadvisor ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION : AUTRES SPÉCIALITÉS DU PAYS -->
+        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de la Guadeloupe à découvrir :</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                
+                <!-- LE COLOMBO DE POULET -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='colombo poulet.html'">
+                    <div style="height: 140px; background: url('../../images/colombo-plat.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Colombo de Poulet</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">L'emblème de l'île mariant poulet fondant, légumes pays et épices douces indiennes.</p>
+                    </div>
+                </div>
+
+                <!-- LE MATETE DE CRABE -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='matete de crabe.html'">
+                    <div style="height: 140px; background: url('../../images/matete-crabe.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Matete de crabe</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le plat traditionnel des fêtes, associant crabe de terre et riz mijoté aux herbes.</p>
+                    </div>
+                </div>
+
+                <!-- LE BOUDIN NOIR -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='boudin noir.html'">
+                    <div style="height: 140px; background: url('../../images/boudin-creole.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Boudin noir</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le roi de l'apéro créole, délicatement relevé et parfumé aux épices pays.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
+        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="country-selector">
+                <button onclick="location.href='../Guadeloupe.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (Guadeloupe)</button>
+            </div>
+            <div class="country-selector">
+                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
+            </div>
+        </nav>
+
+    </main>
+
+    <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT INTERACTIF -->
+    <script>
+        function toggleBokit() {
+            const box = document.getElementById("infoBokit");
+            box.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guyane/Calalou – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/styles.css">
+</head>
+<body>
+
+    <!-- BANNIÈRE IMMERSIVE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.9)), url('../../images/guyane-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Destination Amazonie</span>
+            <h1 class="hero-title">Gastronomie en Guyane</h1>
+            <p class="hero-subtitle">Saveurs authentiques, traditions créoles et secrets du boucan</p>
+        </div>
+    </section>
+
+    <!-- CONTENEUR PRINCIPAL DU GUIDE -->
+    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+        <!-- INTRODUCTION NARRATIVE -->
+        <section class="guide-intro">
+            <h2>Un carrefour de cultures au cœur de la forêt</h2>
+            <p>
+                La gastronomie guyanaise est une aventure culinaire d'une incroyable richesse, forgée par le métissage unique de ses peuples : Amérindiens, Créoles, Bushinengues, Hmongs, Brésiliens et Européens. Entre les mystères de la forêt amazonienne et les ressources de ses grands fleuves, cette cuisine se distingue par ses épices endémiques, ses gibiers et des méthodes de cuisson ancestrales. Voyager en Guyane, c'est s'ouvrir à des parfums sauvages, rustiques et intensément généreux.
+            </p>
+        </section>
+
+        <!-- SECTION DE LA RECETTE ET SPÉCIALITÉ -->
+        <section class="specialties-container">
+            
+            <!-- LE CALALOU -->
+            <article class="dish-showcase">
+                <div class="dish-image-frame">
+                    <img src="../../images/calalou.jpg" alt="Calalou traditionnel de la Guyane">
+                </div>
+                <div class="dish-description">
+                    <span class="dish-category">L'Héritage Vert de l'Afrique</span>
+                    <h3>Le Calalou</h3>
+                    <p>
+                        Le <strong class="mot-cliquable" onclick="toggleCalalou()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">calalou</strong> est un ragoût vert emblématique, symbole du riche héritage afro-guyanais transmis à travers les générations. Ce plat complet et d'une grande profondeur aromatique repose sur la cuisson prolongée de feuilles vertes locales.
+                    </p>
+                    <p>
+                        Mijoté patiemment avec des herbes, des morceaux de porc salé, des crabes de terre et souvent rehaussé de viandes boucanées, le calalou offre une texture onctueuse et fondante unique, très représentative des repas dominicaux et des jours de fête en Guyane.
+                    </p>
+                    
+                    <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
+                    <button class="read-more-btn" onclick="toggleCalalou()">Découvrir son histoire et les secrets de ses plantes ➔</button>
+
+                    <!-- CARTE ANIMÉE CACHÉE -->
+                    <div id="infoCalalou" class="info-cachee">
+                        <h4>L'histoire et le secret du Calalou</h4>
+                        <p>Le calalou tire ses origines lointaines d'Afrique de l'Ouest, apporté dans les bagages culturels des populations déportées et préservé fièrement par les communautés marronnes (Bushinengues) et créoles. Le terme désignait à la fois la plante de base et le ragoût lui-même.</p>
+                        <p>Le secret technique de ce plat réside principalement dans le choix et la préparation des feuilles. Traditionnellement, on utilise les feuilles de la plante calalou (une variété d'amarante) ou des feuilles de taro (parfois appelées chou caraïbe). Elles doivent être lavées, triées, puis finement ciselées avant de subir une cuisson très longue à feu doux pour briser leurs fibres et éliminer toute amertume ou acidité naturelle.</p>
+                        <p>Un autre secret indispensable pour obtenir la signature gustative "péyi" est l'équilibre des textures et des apports terre-mer. Le jus libéré par le crabe de terre se mêle au gras des salaisons et au parfum fumé des boucanes, transformant le bouillon d'herbes en un jus onctueux et extrêmement savoureux.</p>
+                        <p>En Guyane, ce ragoût se sert traditionnellement bien chaud, nappé sur un lit de riz blanc, et s'accompagne d'un traditionnel pimentade pour les amateurs de sensations fortes.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- SECTION OÙ MANGER (Restaurant recommandé) -->
+        <section class="guide-restaurant" style="margin-top: 40px;">
+            <div class="restaurant-card-premium">
+                <div class="restaurant-header">
+                    <h2>🍴 Adresse Recommandée</h2>
+                    <h3>Oasis</h3>
+                </div>
+                <div class="restaurant-body">
+                    <p>Apprécié pour son cadre agréable en bord de mer et sa cuisine créole authentique, Oasis Plage séduit les visiteurs par la qualité de ses plats, la fraîcheur de ses produits et son accueil chaleureux. Les avis soulignent régulièrement l'ambiance conviviale, les saveurs locales bien maîtrisées et l'expérience agréable offerte aux amateurs de gastronomie guyanaise. Une adresse incontournable pour découvrir des spécialités traditionnelles comme le calalou.</p>
+                    
+                    <ul class="premium-contacts">
+                        <li><strong>📍 Adresse :</strong> 9 Avenue Saint Dominique, Remire-Montjoly 97354 Guyane Française</li>
+                        <li><strong>📞 Téléphone :</strong> +594 594 38 00 80</li>
+                    </ul>
+
+                    <a href="https://www.tripadvisor.fr/Restaurant_Review-g2317560-d3639532-Reviews-Oasis-Remire_Montjoly_Arrondissement_of_Cayenne.html"
+                       target="_blank" rel="noopener noreferrer" class="premium-tripadvisor">
+                        Consulter les avis sur Tripadvisor ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION : AUTRES SPÉCIALITÉS DU PAYS -->
+        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de la Guyane à découvrir :</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                
+                <!-- LES BOUCANÉS -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='boucanes.html'">
+                    <div style="height: 140px; background: url('../../images/boucanes.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Les Boucanés</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Viandes et poissons fumés de manière traditionnelle au bois d'Amazonie au goût boisé unique.</p>
+                    </div>
+                </div>
+
+                <!-- BLAFF DE POISSONS -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='blaff-de-poissons.html'">
+                    <div style="height: 140px; background: url('../../images/blaff-poissons.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Blaff de poissons</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Un court-bouillon de poisson ultra-frais, acidulé, poché avec du citron vert et des piments locaux.</p>
+                    </div>
+                </div>
+
+                <!-- GRATIN DE COUAC -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='gratin-de-couac.html'">
+                    <div style="height: 140px; background: url('../../images/gratin-couac.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Gratin de couac</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Un accompagnement onctueux et doré au four à base de la célèbre semoule de manioc locale.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
+        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="country-selector">
+                <button onclick="location.href='../Guyane.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (Guyane)</button>
+            </div>
+            <div class="country-selector">
+                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
+            </div>
+        </nav>
+
+    </main>
+
+    <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT INTERACTIF -->
+    <script>
+        function toggleCalalou() {
+            const box = document.getElementById("infoCalalou");
+            box.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guadeloupe/Matété de crabe – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/styles.css">
+</head>
+<body>
+
+    <!-- BANNIÈRE IMMERSIVE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.9)), url('../../images/guadeloupe-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Destination Antilles</span>
+            <h1 class="hero-title">Gastronomie en Guadeloupe</h1>
+            <p class="hero-subtitle">Parfums de colombo, douceur créole et trésors de l'île papillon</p>
+        </div>
+    </section>
+
+    <!-- CONTENEUR PRINCIPAL DU GUIDE -->
+    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+        <!-- INTRODUCTION NARRATIVE -->
+        <section class="guide-intro">
+            <h2>Une symphonie de saveurs créoles</h2>
+            <p>
+                La cuisine guadeloupéenne est une invitation au voyage, où se mêlent harmonieusement les traditions amérindiennes, africaines, européennes et indiennes. Rythmée par les produits de la mer, les racines pays et le piment antillais, elle se distingue par sa générosité et ses marinades savoureuses. Du marché de Pointe-à-Pitre aux tables de bord de mer, chaque plat raconte l'histoire et la convivialité de Karukera.
+            </p>
+        </section>
+
+        <!-- SECTION DE LA RECETTE ET SPÉCIALITÉ -->
+        <section class="specialties-container">
+            
+            <!-- LE MATÉTÉ DE CRABE -->
+            <article class="dish-showcase">
+                <div class="dish-image-frame">
+                    <img src="../../images/matete-crabe.jpg" alt="Matété de crabe traditionnel de Guadeloupe">
+                </div>
+                <div class="dish-description">
+                    <span class="dish-category">Le Plat Traditionnel des Fêtes</span>
+                    <h3>Le Matété de Crabe</h3>
+                    <p>
+                        Véritable rituel culinaire et social, le <strong class="mot-cliquable" onclick="toggleMatete()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">matété de crabe</strong> est le plat roi des célébrations de Pâques et de la Pentecôte en Guadeloupe. Ce ragoût festif et convivial réunit les familles sur les plages ou dans les jardins autour d'un savoir-faire ancestral.
+                    </p>
+                    <p>
+                        Il se compose de crabes de terre savoureusement épicés et mijotés, traditionnellement mélangés à un riz qui cuit lentement à l'étouffée dans le jus aromatique des crustacés, s'imprégnant ainsi de toutes leurs saveurs complexes.
+                    </p>
+                    
+                    <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
+                    <button class="read-more-btn" onclick="toggleMatete()">Découvrir son histoire et sa préparation rituelle ➔</button>
+
+                    <!-- CARTE ANIMÉE CACHÉE -->
+                    <div id="infoMatete" class="info-cachee">
+                        <h4>Le rituel et le secret du Matété</h4>
+                        <p>L'histoire du matété commence plusieurs semaines avant les fêtes avec la fameuse "chasse aux crabes". À l'aide de ratières (boîtes en bois artisanales), les Guadeloupéens capturent les crabes de terre gris. Ces derniers sont ensuite nourris et "purgés" à la maison avec du maïs, du piment, des herbes et des feuilles de patate douce pour purifier leur chair et leur donner un goût unique.</p>
+                        <p>Le secret d'un matété réussi réside dans le brossage minutieux des crabes et l'assaisonnement de leur carapace. On prépare une base intense (le roussi) avec des cives (oignons pays), de l'ail, du thym, du persil, du piment fort, des clous de girofle et parfois un morceau de lard fumé.</p>
+                        <p>Une fois les crabes bien dorés et imprégnés des épices, on ajoute le riz directement dans la marmite en fonte. La cuisson se fait à couvert et à feu doux : le riz doit absorber entièrement le bouillon parfumé tout en restant parfaitement grainé, offrant une explosion de saveurs typiquement antillaises.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- SECTION OÙ MANGER (Restaurant recommandé - Le Poisson d'Or) -->
+        <section class="guide-restaurant" style="margin-top: 40px;">
+            <div class="restaurant-card-premium">
+                <div class="restaurant-header">
+                    <h2>🍴 Adresse Recommandée</h2>
+                    <h3>Le Poisson d'Or</h3>
+                </div>
+                <div class="restaurant-body">
+                    <p>Situé sur le front de mer de Port-Louis, Le Poisson d'Or est une table authentique réputée pour sa maîtrise parfaite des recettes maritimes traditionnelles. Durant la période pascale et tout au long de la saison, l'établissement met à l'honneur un matété de crabe d'une justesse rare, cuit à l'ancienne dans le respect des traditions créoles. Le cadre idyllique face à la mer ajoute une touche de magie à cette dégustation mémorable.</p>
+                    
+                    <ul class="premium-contacts">
+                        <li><strong>📍 Adresse :</strong> Boulevard Front de Mer, 97117 Port-Louis, Guadeloupe</li>
+                        <li><strong>📞 Téléphone :</strong> +590 590 22-8863</li>
+                    </ul>
+
+                    <a href="https://www.tripadvisor.fr/Restaurant_Review-g5533771-d6022336-Reviews-Le_Poisson_D_Or-Port_Louis_Grande_Terre_Island_Guadeloupe.html"
+                       target="_blank" rel="noopener noreferrer" class="premium-tripadvisor">
+                        Consulter les avis sur Tripadvisor ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION : AUTRES SPÉCIALITÉS DU PAYS -->
+        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de la Guadeloupe à découvrir :</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                
+                <!-- LE COLOMBO DE POULET -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='colombo poulet.html'">
+                    <div style="height: 140px; background: url('../../images/colombo-plat.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Colombo de Poulet</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">L'emblème de l'île mariant poulet fondant, légumes pays et épices douces indiennes.</p>
+                    </div>
+                </div>
+
+                <!-- LE BOKIT -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='bokit.html'">
+                    <div style="height: 140px; background: url('../../images/bokit.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Bokit</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le sandwich iconique croustillant, frit à la perfection et généreusement garni.</p>
+                    </div>
+                </div>
+
+                <!-- LE BOUDIN NOIR -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='boudin noir.html'">
+                    <div style="height: 140px; background: url('../../images/boudin-creole.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Boudin noir</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le roi de l'apéro créole, délicatement relevé et parfumé aux épices pays.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
+        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="country-selector">
+                <button onclick="location.href='../Guadeloupe.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (Guadeloupe)</button>
+            </div>
+            <div class="country-selector">
+                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
+            </div>
+        </nav>
+
+    </main>
+
+    <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT INTERACTIF -->
+    <script>
+        function toggleMatete() {
+            const box = document.getElementById("infoMatete");
+            box.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

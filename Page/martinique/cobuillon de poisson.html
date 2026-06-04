@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martinique/Cobuillon de poisson – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/styles.css">
+</head>
+<body>
+
+    <!-- BANNIÈRE IMMERSIVE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.9)), url('../../images/martinique-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Destination Antilles</span>
+            <h1 class="hero-title">Gastronomie en Martinique</h1>
+            <p class="hero-subtitle">Plats typiques, traditions et douceur de vivre au cœur des Caraïbes</p>
+        </div>
+    </section>
+
+    <!-- CONTENEUR PRINCIPAL DU GUIDE -->
+    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+        <!-- INTRODUCTION NARRATIVE -->
+        <section class="guide-intro">
+            <h2>Une explosion de saveurs créoles</h2>
+            <p>
+                La gastronomie martiniquaise est une véritable célébration culturelle, mariant avec élégance les héritages amérindiens, africains, européens et indiens. Rythmée par les épices du marché, le rhum agricole et les trésors de la mer des Caraïbes, elle offre des plats généreux et intensément parfumés. S'asseoir à une table martiniquaise, c'est partager un moment de convivialité bercé par l'histoire de l'île aux fleurs.
+            </p>
+        </section>
+
+        <!-- SECTION DE LA RECETTE ET SPÉCIALITÉ -->
+        <section class="specialties-container">
+            
+            <!-- LE COBUILLON DE POISSON -->
+            <article class="dish-showcase">
+                <div class="dish-image-frame">
+                    <img src="../../images/court-bouillon.jpg" alt="Le Cobuillon de poisson traditionnel">
+                </div>
+                <div class="dish-description">
+                    <span class="dish-category">L'Incontournable de la Mer</span>
+                    <h3>Le Cobuillon de poisson</h3>
+                    <p>
+                        Incontournable des dimanches en famille, le <strong class="mot-cliquable" onclick="toggleCobuillon()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">cobuillon de poisson</strong> (ou court-bouillon) est un plat traditionnel où le poisson frais du jour est poché puis mijoté dans une sauce rouge intensément parfumée.
+                    </p>
+                    <p>
+                        Ce plat emblématique se distingue par sa juste acidité apportée par le citron vert, la douceur des tomates fraîches et le bouquet aromatique des épices locales qui subliment la finesse de la chair du poisson.
+                    </p>
+                    
+                    <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
+                    <button class="read-more-btn" onclick="toggleCobuillon()">Découvrir son histoire et sa préparation ➔</button>
+
+                    <!-- CARTE ANIMÉE CACHÉE -->
+                    <div id="infoCobuillon" class="info-cachee">
+                        <h4>Le secret de sa préparation</h4>
+                        <p>Le secret réside d'abord dans la marinade : le poisson frais (souvent du vivaneau, de la dorade ou du capitaine) est massé avec du sel, de l'ail écrasé, du jus de citron vert et une pointe de piment, puis laissé au frais pendant quelques heures pour s'imprégner des saveurs.</p>
+                        <p>La cuisson commence par la préparation de la sauce (le roussi) à base de cives (oignons pays), d'oignons, d'ail, de tomates fraîches concassées et de persil. On y dépose ensuite délicatement les morceaux de poisson avec leur marinade, avant de laisser pocher à feu doux pour garder la chair tendre et juteuse.</p>
+                        <p>Il est traditionnellement servi bien chaud, accompagné de riz blanc créole, de bananes jaunes ou de légumes-pays cuits à l'eau (igname, madère, manioc).</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- SECTION OÙ MANGER (Restaurant recommandé) -->
+        <section class="guide-restaurant" style="margin-top: 40px;">
+            <div class="restaurant-card-premium">
+                <div class="restaurant-header">
+                    <h2>🍴 Adresse Recommandée</h2>
+                    <h3>Kai Nono</h3>
+                </div>
+                <div class="restaurant-body">
+                    <p>Réputé pour sa cuisine créole authentique et ses produits frais, Kai Nono séduit les visiteurs par la qualité de ses plats de poisson, son accueil chaleureux et son ambiance conviviale. Les clients apprécient particulièrement les saveurs locales soigneusement préparées, faisant de l'établissement une adresse incontournable pour découvrir la gastronomie martiniquaise.</p>
+                    
+                    <ul class="premium-contacts">
+                        <li><strong>📍 Adresse :</strong> D6, Le Francois 97240 Martinique</li>
+                        <li><strong>📞 Téléphone :</strong> +596 596 54 32 76</li>
+                    </ul>
+
+                    <a href="https://www.tripadvisor.fr/Restaurant_Review-g1189183-d3961855-Reviews-Kai_Nono-Le_Francois_Arrondissement_of_Le_Marin_Martinique.html"
+                       target="_blank" rel="noopener noreferrer" class="premium-tripadvisor">
+                         Consulter les avis sur Tripadvisor ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION : AUTRES SPÉCIALITÉS DU PAYS -->
+        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de la Martinique à découvrir :</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                
+                <!-- ACCRAS DE MORUE -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='accras de morue.html'">
+                    <div style="height: 140px; background: url('../../images/accras-morue.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Accras de morue</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Délicieux beignets de poisson croustillants et dorés, parfaits pour l'apéritif.</p>
+                    </div>
+                </div>
+
+                <!-- DOMBRE -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='dombre.html'">
+                    <div style="height: 140px; background: url('../../images/dombres.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Dombre</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Boules de pâte consistantes mijotées lentement dans une sauce créole parfumée.</p>
+                    </div>
+                </div>
+
+                <!-- TINEN ET MORUE -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='tinen et morue.html'">
+                    <div style="height: 140px; background: url('../../images/ti-nain-morue.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Tinen et morue</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le plat traditionnel historique associant morue salée et bananes vertes.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
+        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="country-selector">
+                <button onclick="location.href='../Martinique.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (Martinique)</button>
+            </div>
+            <div class="country-selector">
+                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
+            </div>
+        </nav>
+
+    </main>
+
+    <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleCobuillon() {
+            const box = document.getElementById("infoCobuillon");
+            box.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

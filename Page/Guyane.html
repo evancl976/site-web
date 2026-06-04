@@ -2,99 +2,495 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Guyane – Spécialités culinaires</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guyane – Menu Culinaire Traditionnel</title>
     <link rel="stylesheet" href="../Css/styles.css">
-</head>
+    <style>
+        .kayak-container {
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
+        /* === CONFIGURATION DU LAYOUT PRINCIPAL (STYLE IMAGE KAYAK) === */
+        .kayak-layout {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            align-items: flex-start;
+        }
+
+        /* 1. BLOC DE GAUCHE : PUB VERTICAL */
+        .kayak-pub-sidebar {
+            width: 300px;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .ads-frame-vertical {
+            width: 100%;
+            height: 520px;
+            background: #00040a;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+
+        .ads-frame-vertical img, .ads-frame-vertical video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .ads-frame-vertical .active-media {
+            display: block;
+        }
+
+        .ads-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffd700;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 10;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+        }
+
+        /* 2. BLOC DE DROITE : TITRE + SLIDER DE NOURRITURE */
+        .kayak-main-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .slider-header h2 {
+            font-size: 28px;
+            margin: 0;
+            color: #fff;
+        }
+
+        /* Conteneur global du Slider mécanique */
+        .food-slider-container {
+            position: relative;
+            width: 100%;
+        }
+
+        /* Rail de défilement horizontal */
+        .food-slider-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 5px 25px 5px;
+            scrollbar-width: none;
+        }
+
+        .food-slider-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Tuiles de nourriture */
+        .food-card {
+            flex: 0 0 300px;
+            width: 300px;
+            background: #000b18;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd700;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.15);
+        }
+
+        .food-img-slot {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .food-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 11, 24, 0.85);
+            color: #ffd700;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 6px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+
+        .food-details {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .food-title {
+            color: #fff;
+            margin: 0 0 8px 0;
+            font-size: 22px;
+        }
+
+        .food-desc {
+            color: #a0aec0;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .kayak-btn {
+            background: rgba(255, 215, 0, 0.05);
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .food-card:hover .kayak-btn {
+            background: #ffd700;
+            color: #000;
+            border-color: #ffd700;
+        }
+
+        .slider-controls-bottom {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .arrow-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #ffd700;
+            color: #ffd700;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+
+        .arrow-btn:hover {
+            background: #ffd700;
+            color: #000;
+        }
+
+        /* === CODES DES POP-UPS MODALES === */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 5, 15, 0.85);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .kayak-popup {
+            background: #000b18;
+            border: 2px solid #ffd700;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .kayak-popup {
+            transform: scale(1);
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .close-popup:hover {
+            color: #ffd700;
+        }
+    </style>
+</head>
 <body>
 
-<header class="header">
-    <h1 class="title">Guyane</h1>
-    <p class="subtitle">Saveurs authentiques d’Amazonie</p>
-</header>
+    <!-- BANNIÈRE PRINCIPALE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.85)), url('../images/guyane-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Terre d'Amazonie</span>
+            <h1 class="hero-title">Gastronomie de la Guyane</h1>
+            <p class="hero-subtitle">Explorez la richesse des saveurs créoles, amérindiennes et bushinenguées</p>
+        </div>
+    </section>
 
-<main class="country-info">
+    <!-- ZONE STRATÉGIQUE -->
+    <main class="kayak-container">
+        <div class="kayak-layout">
+            
+            <!-- BLOC GAUCHE : PUBLICITÉ ET MÉDIAS -->
+            <aside class="kayak-pub-sidebar">
+                <span class="ads-label">Évasion Live ✈️</span>
+                <div class="ads-frame-vertical">
+                    <img id="ad-image" src="" alt="Paysage local">
+                    <video id="ad-video" muted playsinline></video>
+                </div>
+            </aside>
 
-    <article class="dish">
-        <h2>🍽️ Plat spécial : Boucanés</h2>
-        <p>
-            Les <strong class="mot-cliquable" onclick="toggleInfo()">
-    boucanés
-</strong>
- sont des viandes ou des poissons fumés,
-            typiques de la cuisine antillaise et guyanaise.
-            Le terme provient du mot <em>« boucan »</em>, qui désigne une méthode
-            traditionnelle de fumage au feu de bois.
-        </p>
-        <div id="infoBoucanes" class="info-cachee">
-    <h3> Qu’est-ce que les boucanés ?</h3>
-    <p>
-       Les boucanés sont des morceaux de viande ou de poisson qui ont été fumés selon une méthode traditionnelle appelée “boucanage”. Cette technique ancienne consiste à exposer les aliments à la fumée d’un feu de bois, généralement à basse température et pendant plusieurs heures, afin de leur donner un goût fumé très prononcé et une conservation plus longue. <p>
+            <!-- BLOC DROITE : LE SLIDER DES PLATS TRADITIONNELS -->
+            <div class="kayak-main-content">
+                <div class="slider-header">
+                    <h2>Offres culinaires traditionnelles</h2>
+                </div>
 
-Le boucanage est une méthode qui remonte à plusieurs siècles. Elle était utilisée à l’origine par les peuples autochtones des Caraïbes et d’Amérique, qui faisaient sécher et fumer la viande sur une grille en bois appelée “boucan” placée au-dessus d’un feu. La fumée permettait non seulement de parfumer la viande, mais aussi de la préserver plus longtemps, ce qui était très utile avant l’invention des 
-           réfrigérateurs. <p>
+                <!-- Fenêtre coulissante du Slider -->
+                <div class="food-slider-container">
+                    <div class="food-slider-track" id="foodTrack">
+                        
+                        <!-- PLAT 1 : BOUCANES -->
+                        <div class="food-card" onclick="openFoodPopup('Les Boucanés', 'Le boucanage est une méthode ancestrale de conservation et de cuisson. Les viandes (poulet, porc) ou les poissons sont lentement fumés au feu de bois, développant un arôme boisé unique, pilier de la cuisine guyanaise.', 'guyane/boucanes.html')">
+                            <div class="food-img-slot" style="background-image: url('../images/boucanes.jpg');"></div>
+                            <span class="food-badge">Incontournable</span>
+                            <div class="food-details">
+                                <div>
+                                    <h3 class="food-title">Boucanes</h3>
+                                    <p class="food-desc">Viandes et poissons fumés de manière traditionnelle au bois d'Amazonie.</p>
+                                </div>
+                                <div class="kayak-btn">Découvrir la fiche ➔</div>
+                            </div>
+                        </div>
 
-Les boucanés peuvent être préparés avec différents types d’aliments. Les plus connus sont souvent à base de porc, de poulet ou de poisson, mais on peut également trouver d’autres viandes fumées selon les traditions culinaires. Avant d’être fumée, la viande est parfois salée, marinée ou assaisonnée avec des épices, ce qui renforce encore plus les saveurs. <p>
+                        <!-- PLAT 2 : BLAFF DE POISSONS -->
+                        <div class="food-card" onclick="openFoodPopup('Blaff de poissons', 'Le blaff de poissons est une préparation de poisson ultra-frais poché dans un court-bouillon léger mais intensément relevé avec du citron vert, de l\'ail, du piment guyanais et des herbes aromatiques locales.', 'guyane/blaff-de-poissons.html')">
+                            <div class="food-img-slot" style="background-image: url('../images/blaff-poissons.jpg');"></div>
+                            <span class="food-badge">Fraîcheur</span>
+                            <div class="food-details">
+                                <div>
+                                    <h3 class="food-title">Blaff de poissons</h3>
+                                    <p class="food-desc">Un court-bouillon de poisson frais, acidulé et subtilement pimenté.</p>
+                                </div>
+                                <div class="kayak-btn">Découvrir la fiche ➔</div>
+                            </div>
+                        </div>
 
-Le processus de boucanage demande du temps, de la patience et un certain savoir-faire. Le bois utilisé pour produire la fumée joue aussi un rôle important dans le goût final. Certains bois donnent une fumée douce et parfumée, tandis que d’autres produisent une saveur plus intense et rustique. <p>
+                        <!-- PLAT 3 : CALALOU -->
+                        <div class="food-card" onclick="openFoodPopup('Calalou', 'Le calalou guyanais est un ragoût vert mijoté à base de feuilles de calalou (ou d\'épinards), agrémenté de crabes de terre, de morceaux de porc et de viandes boucanées. Un plat riche d\'histoire.', 'guyane/calalou.html')">
+                            <div class="food-img-slot" style="background-image: url('../images/calalou.jpg');"></div>
+                            <span class="food-badge">Plat Typique</span>
+                            <div class="food-details">
+                                <div>
+                                    <h3 class="food-title">Calalou</h3>
+                                    <p class="food-desc">Ragoût traditionnel de feuilles vertes aux herbes, viandes et crabes.</p>
+                                </div>
+                                <div class="kayak-btn">Découvrir la fiche ➔</div>
+                            </div>
+                        </div>
 
-Aujourd’hui, les boucanés sont très appréciés dans plusieurs cuisines du monde, notamment dans les cuisines créoles et caribéennes. Ils sont souvent utilisés dans des plats traditionnels, accompagnés de riz, de légumes ou de sauces épicées. Leur goût fumé apporte une saveur unique et authentique qui rappelle les méthodes de cuisine d’autrefois.
-    </p>
-</div>
+                        <!-- PLAT 4 : GRATIN DE COUAC -->
+                        <div class="food-card" onclick="openFoodPopup('Gratin de couac', 'Le couac est une semoule de manioc torréfiée typique de la région. Pour ce gratin réconfortant, le couac est réhydraté, puis mélangé à une crème onctueuse ou une béchamel avant d\'être généreusement doré au four.', 'guyane/gratin-de-couac.html')">
+                            <div class="food-img-slot" style="background-image: url('../images/gratin-couac.jpg');"></div>
+                            <span class="food-badge">Authentique</span>
+                            <div class="food-details">
+                                <div>
+                                    <h3 class="food-title">Gratin de couac</h3>
+                                    <p class="food-desc">Un savoureux gratin à base de la célèbre semoule de manioc locale.</p>
+                                </div>
+                                <div class="kayak-btn">Découvrir la fiche ➔</div>
+                            </div>
+                        </div>
 
-        <p>
-            Les aliments sont marinés avec des épices, de l’ail et du thym,
-            puis fumés lentement. Les plus connus sont le boucané de porc
-            et le boucané de poulet.
-        </p>
-        <p>
-            Les boucanés se distinguent par leur goût fumé intense et salé.
-            Ils sont souvent utilisés dans des plats comme le riz, les pois
-            ou le rougail, et sont très appréciés pour leur saveur authentique
-            et rustique.
-        </p>
-    </article>
+                    </div>
+                </div>
 
-    <article class="restaurant">
-        <h2>🍴 Restaurant recommandé</h2>
+                <div class="slider-controls-bottom">
+                    <button class="arrow-btn" onclick="slideHorizontal(-1)">❮</button>
+                    <button class="arrow-btn" onclick="slideHorizontal(1)">❯</button>
+                </div>
+            </div>
 
-        <h3>Kaz Mimi Cayenne</h3>
+        </div>
+    </main>
 
-        <ul class="restaurant-info">
-            <li><strong>📍 Adresse :</strong> 40 Chaussée Laussat, 97300 Cayenne </li>
-            <li><strong>📞 Téléphone :</strong> 05 94 38 59 45</li>
-           <li>
-            <strong>🦉 Tripadvisor :</strong>
-     <a href="https://www.tripadvisor.com/Restaurant_Review-g294076-d4756838-Reviews-Kaz_Mimi-Cayenne_Arrondissement_of_Cayenne.html?m=69573"
-       target="_blank" rel="noopener noreferrer">
-        Voir la page Tripadvisor
-    </a>
-</li>
+    <!-- SYSTEME DE POP-UP DÉTAILS -->
+    <div class="modal-overlay" id="foodModal" onclick="closeFoodPopup(event)">
+        <div class="kayak-popup" onclick="event.stopPropagation()">
+            <button class="close-popup" onclick="hidePopup()">×</button>
+            <h3 id="popup-title" style="color: #ffd700; font-size: 24px; margin-top: 0;">Nom du Plat</h3>
+            <p id="popup-desc" style="color: #e0e8f0; line-height: 1.6; margin: 20px 0; font-size: 15px;">Description...</p>
+            <div style="text-align: right;">
+                <a id="popup-link" style="display: inline-block; border: 1px solid gold; background: rgba(255,215,0,0.15); color: gold; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; text-decoration: none;">
+                    Ouvrir la recette complète ➔
+                </a>
+            </div>
+        </div>
+    </div>
 
-        </ul>       
+    <!-- FOOTER COMPLET -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <div class="footer-links">
+                <a href="../index.html">Accueil du Globe</a>
+                <a href="Mayotte.html">Mayotte</a>
+                <a href="Guadeloupe.html">Guadeloupe</a>
+                <a href="martinique.html">Martinique</a>
+                <a href="La reunion.html">La Réunion</a>
+            </div>
+        </div>
+    </footer>
 
-        <p>
-            <strong>Kaz Mimi Cayenne</strong> est un restaurant situé au cœur de Cayenne.
-            Installé dans une maison créole restaurée, il propose une cuisine
-            guyanaise et antillaise authentique.
-        </p>
-        <p>
-            Réputé pour son ambiance chaleureuse et ses saveurs locales,
-            c’est une adresse emblématique pour découvrir la richesse
-            gastronomique et culturelle de la Guyane.
-        </p>
-    </article>
+    <!-- INTERACTION ET SYSTÈMES AUTOMATIQUES -->
+    <script>
+        /* 1. APPAREIL DE NAVIGATION DU SLIDER HORIZONTAL */
+        function slideHorizontal(direction) {
+            const track = document.getElementById('foodTrack');
+            const scrollAmount = 320 * direction; 
+            track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
 
-    <button class="back" onclick="location.href='../index.html'">⬅ Retour à l’accueil</button>
+        /* 2. MANAGEMENT DU POP-UP INTÉGRÉ AVEC RECONNAISSANCE DE SESSION */
+        const modal = document.getElementById('foodModal');
+        const pTitle = document.getElementById('popup-title');
+        const pDesc = document.getElementById('popup-desc');
+        const pLink = document.getElementById('popup-link');
 
-</main>
-<script>
-function toggleInfo() {
-    const box = document.getElementById("infoBoucanes");
-    box.classList.toggle("active");
-}
-</script>
+        function openFoodPopup(title, description, targetPage) {
+            pTitle.innerText = title;
+            pDesc.innerText = description;
+            pLink.href = targetPage;
+            
+            // ÉTAPE DE VÉRIFICATION : Le plat a-t-il déjà été ouvert dans cette session ?
+            if (sessionStorage.getItem('deja_ouvert_' + title)) {
+                // Déjà cliqué : on reste dans le même onglet
+                pLink.setAttribute("target", "_self");
+            } else {
+                // Premier clic : on ouvre un nouvel onglet
+                pLink.setAttribute("target", "_blank");
+            }
 
+            // ACTION AU CLIC : On enregistre le plat dans la mémoire de session au moment où l'utilisateur clique sur le bouton
+            pLink.onclick = function() {
+                sessionStorage.setItem('deja_ouvert_' + title, 'true');
+            };
+
+            modal.classList.add('active');
+        }
+
+        function hidePopup() {
+            modal.classList.remove('active');
+        }
+
+        function closeFoodPopup(e) {
+            if(e.target === modal) hidePopup();
+        }
+
+        /* 3. ALGORITHME DE PARCOURS DES MÉDIAS (GAUCHE) */
+        const playlist = [
+            { type: 'image', url: '../images/guyane-paysage1.jpg' },
+            { type: 'image', url: '../images/guyane-paysage2.jpg' },
+            { type: 'video', url: '../videos/guyane-trip.mp4' },
+            { type: 'image', url: '../images/guyane-paysage3.jpg' },
+            { type: 'image', url: '../images/guyane-paysage4.jpg' }
+        ];
+
+        let currentIndex = 0;
+        let imageTimer = null;
+
+        const imgTag = document.getElementById('ad-image');
+        const videoTag = document.getElementById('ad-video');
+
+        function playNextMedia() {
+            clearTimeout(imageTimer);
+            videoTag.onended = null;
+
+            imgTag.classList.remove('active-media');
+            videoTag.classList.remove('active-media');
+
+            const currentMedia = playlist[currentIndex];
+
+            if (currentMedia.type === 'image') {
+                imgTag.src = currentMedia.url;
+                imgTag.classList.add('active-media');
+                
+                imageTimer = setTimeout(() => {
+                    advanceIndex();
+                    playNextMedia();
+                }, 2000);
+
+            } else if (currentMedia.type === 'video') {
+                videoTag.src = currentMedia.url;
+                videoTag.classList.add('active-media');
+                videoTag.load();
+                videoTag.play().catch(err => console.log("Attente interaction utilisateur pour lecture vidéo."));
+
+                videoTag.onended = function() {
+                    advanceIndex();
+                    playNextMedia();
+                };
+            }
+        }
+
+        function advanceIndex() {
+            currentIndex++;
+            if (currentIndex >= playlist.length) currentIndex = 0;
+        }
+
+        window.addEventListener('DOMContentLoaded', playNextMedia);
+    </script>
 </body>
 </html>
-

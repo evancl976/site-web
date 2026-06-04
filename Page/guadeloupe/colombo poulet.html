@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guadeloupe/Colombo – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/styles.css">
+</head>
+<body>
+
+    <!-- BANNIÈRE IMMERSIVE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.9)), url('../../images/guadeloupe-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Destination Antilles</span>
+            <h1 class="hero-title">Gastronomie en Guadeloupe</h1>
+            <p class="hero-subtitle">Parfums de colombo, douceur créole et trésors de l'île papillon</p>
+        </div>
+    </section>
+
+    <!-- CONTENEUR PRINCIPAL DU GUIDE -->
+    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+        <!-- INTRODUCTION NARRATIVE -->
+        <section class="guide-intro">
+            <h2>Une symphonie de saveurs créoles</h2>
+            <p>
+                La cuisine guadeloupéenne est une invitation au voyage, où se mêlent harmonieusement les traditions amérindiennes, africaines, européennes et indiennes. Rythmée par les produits de la mer, les racines pays et le piment antillais, elle se distingue par sa générosité et ses marinades savoureuses. Du marché de Pointe-à-Pitre aux tables de bord de mer, chaque plat raconte l'histoire et la convivialité de Karukera.
+            </p>
+        </section>
+
+        <!-- SECTION DE LA RECETTE ET SPÉCIALITÉ -->
+        <section class="specialties-container">
+            
+            <!-- LE COLOMBO DE POULET -->
+            <article class="dish-showcase">
+                <div class="dish-image-frame">
+                    <img src="../../images/colombo-plat.jpg" alt="Colombo de poulet traditionnel">
+                </div>
+                <div class="dish-description">
+                    <span class="dish-category">Le Plat Traditionnel</span>
+                    <h3>Le Colombo de Poulet</h3>
+                    <p>
+                        Incontournable de la table antillaise, le <strong class="mot-cliquable" onclick="toggleColombo()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">colombo de poulet</strong> est un ragoût réconfortant qui marie à la perfection épices douces et légumes locaux (aubergines, pommes de terre, giraumon). 
+                    </p>
+                    <p>
+                        Hérité des vagues d'immigration indienne au XIXᵉ siècle, ce plat emblématique s'est enraciné dans l'identité créole pour devenir le symbole des repas familiaux et festifs de l'île.
+                    </p>
+                    
+                    <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
+                    <button class="read-more-btn" onclick="toggleColombo()">Découvrir son histoire et ses secrets de fabrication ➔</button>
+
+                    <!-- CARTE ANIMÉE CACHÉE -->
+                    <div id="infoColombo" class="info-cachee">
+                        <h4>Qu’est-ce que le Colombo de poulet ?</h4>
+                        <p>Le colombo de poulet est un ragoût de poulet mijoté longuement avec des épices, des légumes et une sauce parfumée, qui lui donne toute sa richesse. Ce plat est apprécié pour son goût savoureux, légèrement épicé et très parfumé, qui reflète le métissage culturel des îles des Caraïbes.</p>
+                        <p>L’ingrédient principal est la poudre de colombo, un mélange d’épices typique composé généralement de curcuma, cumin, coriandre, fenugrec, graines de moutarde et parfois de piment. Ce mélange trouve son origine dans les influences indiennes apportées par les travailleurs engagés. Au fil du temps, cette base a été adaptée aux produits locaux pour donner naissance à une recette unique.</p>
+                        <p>La préparation commence par l'assaisonnement du poulet avec de l’ail, de l’oignon, du thym et du jus de citron vert. Le poulet est ensuite saisi dans une marmite, puis on ajoute les épices, du bouillon et les légumes traditionnels (courgettes, aubergines, pommes de terre ou christophines).</p>
+                        <p>La cuisson lente permet au poulet de devenir incroyablement tendre et imprégné d’épices, tandis que la sauce s'épaissit pour devenir onctueuse. Il est traditionnellement servi avec du riz blanc pour absorber cette sauce parfumée.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- SECTION OÙ MANGER (Restaurant recommandé) -->
+        <section class="guide-restaurant" style="margin-top: 40px;">
+            <div class="restaurant-card-premium">
+                <div class="restaurant-header">
+                    <h2>🍴 Adresse Recommandée</h2>
+                    <h3>Plato Kréyol</h3>
+                </div>
+                <div class="restaurant-body">
+                    <p>Idéalement situé au Gosier, Plato Kréyol est une escale incontournable pour savourer une cuisine caraïbe authentique. Réputé pour son accueil chaleureux, cet établissement met à l'honneur les grandes spécialités locales comme le colombo de poulet ou le poisson grillé, préparés avec des produits frais du marché dans une ambiance conviviale et rythmée par la douceur des îles.</p>
+                    
+                    <ul class="premium-contacts">
+                        <li><strong>📍 Adresse :</strong> Bd du Général de Gaulle, 97190 Le Gosier, Guadeloupe</li>
+                        <li><strong>📞 Téléphone :</strong> +590 590 82 56 42</li>
+                    </ul>
+
+                    <a href="https://www.tripadvisor.com/Restaurant_Review-g644387-d8389279-Reviews-Plato_Kreyol-Le_Gosier_Grande_Terre_Island_Guadeloupe.html?m=69573"
+                       target="_blank" rel="noopener noreferrer" class="premium-tripadvisor">
+                        Consulter les avis sur Tripadvisor ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION : AUTRES SPÉCIALITÉS DU PAYS -->
+        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de la Guadeloupe à découvrir :</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                
+                <!-- LE BOKIT -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='bokit.html'">
+                    <div style="height: 140px; background: url('../../images/bokit.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Bokit</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le sandwich iconique croustillant, frit à la perfection et généreusement garni.</p>
+                    </div>
+                </div>
+
+                <!-- LE MATETE DE CRABE -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='matete de crabe.html'">
+                    <div style="height: 140px; background: url('../../images/matete-crabe.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Matete de crabe</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le plat traditionnel des fêtes, associant crabe de terre et riz mijoté aux herbes.</p>
+                    </div>
+                </div>
+
+                <!-- LE BOUDIN NOIR -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='boudin noir.html'">
+                    <div style="height: 140px; background: url('../../images/boudin-creole.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Boudin noir</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le roi de l'apéro créole, délicatement relevé et parfumé aux épices pays.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
+        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="country-selector">
+                <button onclick="location.href='../Guadeloupe.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (Guadeloupe)</button>
+            </div>
+            <div class="country-selector">
+                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
+            </div>
+        </nav>
+
+    </main>
+
+    <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT INTERACTIF -->
+    <script>
+        function toggleColombo() {
+            const box = document.getElementById("infoColombo");
+            box.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guyane/Boucanés – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/styles.css">
+</head>
+<body>
+
+    <!-- BANNIÈRE IMMERSIVE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.9)), url('../../images/guyane-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Destination Amazonie</span>
+            <h1 class="hero-title">Gastronomie en Guyane</h1>
+            <p class="hero-subtitle">Saveurs authentiques, traditions créoles et secrets du boucan</p>
+        </div>
+    </section>
+
+    <!-- CONTENEUR PRINCIPAL DU GUIDE -->
+    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+        <!-- INTRODUCTION NARRATIVE -->
+        <section class="guide-intro">
+            <h2>Un carrefour de cultures au cœur de la forêt</h2>
+            <p>
+                La gastronomie guyanaise est une aventure culinaire d'une incroyable richesse, forgée par le métissage unique de ses peuples : Amérindiens, Créoles, Bushinengues, Hmongs, Brésiliens et Européens. Entre les mystères de la forêt amazonienne et les ressources de ses grands fleuves, cette cuisine se distingue par ses épices endémiques, ses gibiers et des méthodes de cuisson ancestrales. Voyager en Guyane, c'est s'ouvrir à des parfums sauvages, rustiques et intensément généreux.
+            </p>
+        </section>
+
+        <!-- SECTION DE LA RECETTE ET SPÉCIALITÉ -->
+        <section class="specialties-container">
+            
+            <!-- LES BOUCANÉS -->
+            <article class="dish-showcase">
+                <div class="dish-image-frame">
+                    <img src="../../images/boucanes.jpg" alt="Poulet et porc boucanés traditionnels">
+                </div>
+                <div class="dish-description">
+                    <span class="dish-category">La Tradition du Fumage</span>
+                    <h3>Les Boucanés</h3>
+                    <p>
+                        Incontournables de la table guyanaise, les <strong class="mot-cliquable" onclick="toggleBoucanes()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">boucanés</strong> sont des viandes ou des poissons fumés au goût intensément boisé. Ce mode de préparation unique provient du terme ancestral <em>« boucan »</em>, qui désigne la grille en bois traditionnelle suspendue au-dessus d'un feu de bois.
+                    </p>
+                    <p>
+                        Marinés avec soin avec de l'ail, du thym et des épices avant d'être fumés lentement pendant plusieurs heures, les boucanés de poulet ou de porc se distinguent par leur goût prononcé et leur caractère rustique.
+                    </p>
+                    
+                    <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
+                    <button class="read-more-btn" onclick="toggleBoucanes()">Découvrir l'origine et les secrets du boucanage ➔</button>
+
+                    <!-- CARTE ANIMÉE CACHÉE -->
+                    <div id="infoBoucanes" class="info-cachee">
+                        <h4>L'histoire et le secret du Boucanage</h4>
+                        <p>Les boucanés sont des morceaux de viande ou de poisson qui ont été fumés selon une méthode traditionnelle appelée “boucanage”. Cette technique ancienne consiste à exposer les aliments à la fumée d’un feu de bois, généralement à basse température et pendant plusieurs heures, afin de leur donner un goût fumé très prononcé et une conservation plus longue.</p>
+                        <p>Le boucanage est une méthode qui remonte à plusieurs siècles. Elle était utilisée à l’origine par les peuples autochtones des Caraïbes et d’Amérique, qui faisaient sécher et fumer la viande sur une grille en bois appelée “boucan” placée au-dessus d’un feu. La fumée permettait non seulement de parfumer la viande, mais aussi de la préserver plus longtemps, ce qui était essentiel avant l’avènement de la réfrigération.</p>
+                        <p>Le processus de boucanage demande du temps, de la patience et un certain savoir-faire. Le choix du bois utilisé pour produire la fumée joue un rôle capital dans la signature gustative finale : certains bois donnent une fumée douce et parfumée, tandis que d’autres produisent une saveur mais plus brute et boisée.</p>
+                        <p>Aujourd’hui, les boucanés sont particulièrement appréciés dans la cuisine guyanaise. Ils sont souvent incorporés dans des plats traditionnels, mijotés avec du riz, des haricots (pois) ou cuisinés en rougail pour apporter une puissance aromatique unique qui rappelle les méthodes de cuisine d’autrefois.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- SECTION OÙ MANGER (Restaurant recommandé) -->
+        <section class="guide-restaurant" style="margin-top: 40px;">
+            <div class="restaurant-card-premium">
+                <div class="restaurant-header">
+                    <h2>🍴 Adresse Recommandée</h2>
+                    <h3>Kaz Mimi Cayenne</h3>
+                </div>
+                <div class="restaurant-body">
+                    <p>Installé au cœur de Cayenne dans une magnifique maison créole restaurée, Kaz Mimi est une adresse emblématique de la ville. Ce restaurant chaleureux vous invite à découvrir toute la richesse du patrimoine culinaire guyanais et antillais à travers des plats traditionnels généreux, cuisinés avec passion et servis dans une ambiance particulièrement conviviale.</p>
+                    
+                    <ul class="premium-contacts">
+                        <li><strong>📍 Adresse :</strong> 40 Chaussée Laussat, 97300 Cayenne</li>
+                        <li><strong>📞 Téléphone :</strong> +594 594 38 59 45</li>
+                    </ul>
+
+                    <a href="https://www.tripadvisor.com/Restaurant_Review-g294076-d4756838-Reviews-Kaz_Mimi-Cayenne_Arrondissement_of_Cayenne.html?m=69573"
+                       target="_blank" rel="noopener noreferrer" class="premium-tripadvisor">
+                        Consulter les avis sur Tripadvisor ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION : AUTRES SPÉCIALITÉS DU PAYS -->
+        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de la Guyane à découvrir :</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                
+                <!-- BLAFF DE POISSONS -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='blaff-de-poissons.html'">
+                    <div style="height: 140px; background: url('../../images/blaff-poissons.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Blaff de poissons</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Un court-bouillon de poisson ultra-frais, acidulé, poché avec du citron vert et des piments locaux.</p>
+                    </div>
+                </div>
+
+                <!-- LE CALALOU -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='calalou.html'">
+                    <div style="height: 140px; background: url('../../images/calalou.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Calalou</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Un ragoût traditionnel de feuilles vertes mijoté patiemment avec du crabe et du porc.</p>
+                    </div>
+                </div>
+
+                <!-- GRATIN DE COUAC -->
+                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='gratin-de-couac.html'">
+                    <div style="height: 140px; background: url('../../images/gratin-couac.jpg') center/cover;"></div>
+                    <div style="padding: 15px;">
+                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Gratin de couac</h4>
+                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Un accompagnement onctueux et doré au four à base de la célèbre semoule de manioc locale.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
+        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="country-selector">
+                <button onclick="location.href='../Guyane.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (Guyane)</button>
+            </div>
+            <div class="country-selector">
+                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
+            </div>
+        </nav>
+
+    </main>
+
+    <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
+            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT INTERACTIF -->
+    <script>
+        function toggleBoucanes() {
+            const box = document.getElementById("infoBoucanes");
+            box.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
