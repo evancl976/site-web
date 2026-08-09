@@ -6,7 +6,7 @@
     <title>Apprendre à créer un site web — de A à Z</title>
     <link rel="icon" href="../images/logo.png" type="image/png">
 
-    <link rel="stylesheet" href="../Css/main.css?v=14">
+    <link rel="stylesheet" href="../Css/main.css?v=15">
 </head>
 <body>
 
@@ -64,7 +64,25 @@
         </ol>
     </nav>
 
-    <main class="tuto-main">
+    <!-- ============ SELECTEUR MODE : ecrit / video ============ -->
+    <div class="mode-switch" role="tablist" aria-label="Choisissez le format">
+        <button class="mode-btn active" id="btnEcrit" onclick="showMode('ecrit')" aria-selected="true">📝 Version écrite</button>
+        <button class="mode-btn" id="btnVideo" onclick="showMode('video')" aria-selected="false">📺 Version vidéo</button>
+    </div>
+
+    <!-- Panneau video (cache par defaut) -->
+    <div class="mode-panel" id="video" hidden>
+        <div class="home-section__head">
+            <p class="home-section__kicker">Expliqué par une personne</p>
+            <h2 class="home-section__title">La vidéo complète (1 h)</h2>
+            <p class="home-section__intro">Si tu préfères écouter plutôt que lire, cette vidéo résume HTML, CSS et JavaScript en 1 heure.</p>
+        </div>
+        <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/L_w2QSze5z0" title="Apprendre HTML, CSS et JavaScript en 1 heure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <main class="tuto-main" id="ecrit">
 
         <!-- LEÇON 1 -->
         <section class="lesson" id="lecon1">
@@ -385,45 +403,38 @@ body { background: var(--bg); color: var(--text); }</code></pre>
             </div>
         </section>
 
-        <!-- LEÇON 9 -->
+        <!-- LEÇON 9 : EXERCICES PAR NIVEAUX -->
         <section class="lesson" id="lecon9">
             <div class="lesson__head">
                 <span class="lesson__num">9</span>
                 <h2>Exercices à faire</h2>
             </div>
-            <p>Pour t'entraîner, réalise ces défis dans l'ordre :</p>
-            <ol class="exo-list">
-                <li>Crée une page avec un titre, 2 paragraphes et une image.</li>
-                <li>Ajoute un fichier CSS : mets le titre en orange et centre tout.</li>
-                <li>Ajoute un bouton qui affiche <code>alert("Coucou !")</code> au clic.</li>
-                <li>Crée 2 pages reliées par un lien (page « Accueil » et page « À propos »).</li>
-                <li>Ajoute un bouton de thème clair/sombre comme sur ce site.</li>
-                <li>Inspire-toi de ce site : fais une page sur ta région avec 3 spécialités en cartes.</li>
-            </ol>
-            <div class="callout callout--tip">
-                🏆 Défi final : reconstruis une mini-version de « Cuisine d'Outre-Mer » avec le globe,
-                les cartes de plats et le mode sombre. Tu as tout le code d'exemple dans ce guide !
+            <p>Entraîne-toi en progressant niveau par niveau. Commence par le HTML seul, ajoute le CSS, puis le JavaScript.</p>
+
+            <h3>Niveau 1 — HTML seul</h3>
+            <div class="exercise">
+                <p><strong>Exercice 1 :</strong> Crée une page <code>index.html</code> avec un titre <code>&lt;h1&gt;</code> « Mon premier site », un paragraphe de présentation et une liste à puces de 3 de tes hobbies.</p>
+                <p><strong>Exercice 2 :</strong> Ajoute un lien vers <code>https://www.w3schools.com</code> et une image de ton choix.</p>
             </div>
-            <div class="tuto-cta">
-                <a class="btn-primary" href="../index.html">↩ Retour au site</a>
-                <a class="btn-ghost" href="../Page/Info.html">Voir la fiche technique du projet</a>
+
+            <h3>Niveau 2 — HTML + CSS</h3>
+            <div class="exercise">
+                <p><strong>Exercice 3 :</strong> Dans un fichier <code>style.css</code> lié à ta page, donne une couleur de fond, change la police du <code>&lt;h1&gt;</code> et centre le texte de la page.</p>
+                <p><strong>Exercice 4 :</strong> Crée une carte (une <code>&lt;div&gt;</code> avec bord, ombre et coins arrondis) contenant une photo et un titre.</p>
+            </div>
+
+            <h3>Niveau 3 — HTML + CSS + JavaScript</h3>
+            <div class="exercise">
+                <p><strong>Exercice 5 :</strong> Ajoute un bouton qui, au clic, change la couleur de fond de la page (utilise <code>document.querySelector</code> et un écouteur d'événement).</p>
+                <p><strong>Exercice 6 :</strong> Crée un compteur : un bouton « +1 » qui augmente un nombre affiché à l'écran à chaque clic.</p>
             </div>
         </section>
+
 
     </main>
 
 
-    <!-- Video explicative (si le cours ecrit ne suffit pas) -->
-    <section class="home-section video-section">
-        <div class="home-section__head">
-            <p class="home-section__kicker">Tu prefères une explication a voix haute ?</p>
-            <h2 class="home-section__title">Regarde la video</h2>
-            <p class="home-section__intro">Si tu n'as pas tout compris en lisant, cette video te resume HTML, CSS et JavaScript en 1 heure, explique par une personne.</p>
-        </div>
-        <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/L_w2QSze5z0" title="Apprendre HTML, CSS et JavaScript en 1 heure" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-    </section>
+    
 
     <footer class="footer">
         <div class="footer-content">
@@ -438,6 +449,24 @@ body { background: var(--bg); color: var(--text); }</code></pre>
         </div>
     </footer>
 
-    <script src="../Script/theme.js"></script>
+    <script src="../Script/theme.js">
+function showMode(mode) {
+  var ecrit = document.getElementById('ecrit');
+  var video = document.getElementById('video');
+  var btnE = document.getElementById('btnEcrit');
+  var btnV = document.getElementById('btnVideo');
+  if (mode === 'video') {
+    if (ecrit) ecrit.hidden = true;
+    if (video) video.hidden = false;
+    if (btnE) { btnE.classList.remove('active'); btnE.setAttribute('aria-selected','false'); }
+    if (btnV) { btnV.classList.add('active'); btnV.setAttribute('aria-selected','true'); }
+  } else {
+    if (ecrit) ecrit.hidden = false;
+    if (video) video.hidden = true;
+    if (btnV) { btnV.classList.remove('active'); btnV.setAttribute('aria-selected','false'); }
+    if (btnE) { btnE.classList.add('active'); btnE.setAttribute('aria-selected','true'); }
+  }
+}
+</script>
 </body>
 </html>
