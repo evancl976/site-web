@@ -6,7 +6,7 @@
     <title>Apprendre à créer un site web — de A à Z</title>
     <link rel="icon" href="../images/logo.png" type="image/png">
 
-    <link rel="stylesheet" href="../Css/styles.css?v=26">
+    <link rel="stylesheet" href="../Css/styles.css?v=27">
 </head>
 <body>
 
@@ -79,10 +79,12 @@
             <h2 class="home-section__title">La vidéo complète (1 h)</h2>
             <p class="home-section__intro">Si tu préfères écouter plutôt que lire, cette vidéo résume HTML, CSS et JavaScript en 1 heure.</p>
         </div>
-        <div class="video-frame">
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/L_w2QSze5z0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></iframe>
-        </div>
-    </div>
+                <div class="video-frame video-link-frame">
+            <a class="btn-youtube" href="https://www.youtube.com/watch?v=L_w2QSze5z0" target="_blank" rel="noopener">
+                ▶ Regarder la vidéo sur YouTube
+            </a>
+            <p class="video-note">La vidéo s'ouvre dans un nouvel onglet (lecteur YouTube direct, sans erreur).</p>
+        </div></div>
 
     <main hidden class="tuto-main" id="ecrit">
 
@@ -456,7 +458,6 @@ body { background: var(--bg); color: var(--text); }</code></pre>
 
     <script src="../Script/theme.js"></script>
 <script>
-var VIDEO_URL = "https://www.youtube-nocookie.com/embed/L_w2QSze5z0";
 function showMode(mode) {
   var ecrit = document.getElementById('ecrit');
   var video = document.getElementById('video');
@@ -466,10 +467,6 @@ function showMode(mode) {
   var btnV = document.getElementById('btnVideo');
   if (mode === 'video') {
     if (video) { video.hidden = false; video.classList.add('mode-fade'); }
-    var frame = document.getElementById('videoFrame');
-    if (frame && !frame.querySelector('iframe')) {
-      frame.innerHTML = '<iframe width="560" height="315" src="' + VIDEO_URL + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
-    }
     if (ecrit) ecrit.hidden = true;
     if (som) som.hidden = true;
     if (btnE) { btnE.classList.remove('active'); btnE.setAttribute('aria-selected','false'); }
