@@ -7,6 +7,15 @@ Fait par **Evan Colo** et **Enzo Adam Maltese**.
 
 ---
 
+## 🖼️ Logo du site web
+
+![Logo du site](images/logo.png)
+
+Le logo du site se trouve dans le dossier `images/logo.png`.
+Il est affiché en haut à gauche de la barre de navigation sur toutes les pages, et sert d'icône (favicon) au site.
+
+---
+
 ## 📖 Présentation
 
 Ce projet est un **site web statique** (HTML / CSS / JavaScript) conçu pour l'oral de Evan Colo.
@@ -31,6 +40,19 @@ Une vidéo explique comment récupérer et lancer le site sur votre ordinateur :
 ▶️ **Lien YouTube :** https://youtu.be/G7WfCrGu0-U
 
 Dans cette vidéo, vous verrez étape par étape comment obtenir le site web et le lancer chez vous.
+
+---
+
+## 📚 Vidéo pédagogique — Apprendre à créer un site (HTML / CSS / JS)
+
+La page **« Apprendre »** du site propose un cours pour créer un site web de zéro.
+Elle donne le choix entre une **version écrite** (leçons pas à pas) et une **version vidéo**.
+
+⚠️ Sur le site, la vidéo est proposée via un **lien « Regarder sur YouTube »** (le lecteur intégré peut être bloqué par YouTube dans certains navigations). Voici le lien direct de la vidéo pédagogique :
+
+▶️ **Vidéo cours HTML/CSS/JS (1 h) :** https://www.youtube.com/watch?v=L_w2QSze5z0
+
+Cette vidéo résume HTML, CSS et JavaScript en 1 heure, expliquée par une personne.
 
 ---
 
@@ -79,23 +101,13 @@ http://localhost:8099/index.html
 
 ---
 
-## 🖼️ Logo du site web
-
-Le logo du site se trouve dans le dossier `images/` :
-
-- `images/logo.png`
-
-Il est affiché en haut à gauche de la barre de navigation sur toutes les pages.
-
----
-
 ## 📁 Structure du projet
 
 ```
 site-web/
 ├── index.html              # Page d'accueil (globe, plats, recettes préférées)
 ├── Css/
-│   └── main.css            # Toute la mise en forme (thème jour / nuit)
+│   └── style.css           # Toute la mise en forme (thème jour / nuit)
 ├── Script/
 │   ├── globe.js            # Globe interactif et navigation vers les îles
 │   ├── theme.js            # Bascule du thème clair / sombre
@@ -106,7 +118,7 @@ site-web/
 │   ├── Guadeloupe.html
 │   ├── Martinique.html
 │   ├── La-reunion.html
-│   ├── Apprendre.html      # Page « Apprendre »
+│   ├── Apprendre.html      # Page « Apprendre » (cours : version écrite OU vidéo)
 │   ├── Info.html           # Fiche technique
 │   ├── recherche.html      # Recherche
 │   ├── mayotte/            # Recettes de Mayotte
@@ -122,9 +134,10 @@ site-web/
 ## ✨ Fonctionnalités
 
 - **Globe interactif** : une vraie Terre qui tourne, avec un bouton par île (drapeau + halo aux couleurs du drapeau).
+- **Page « Apprendre »** : choix entre version **écrite** (cours pas à pas) et version **vidéo** pour apprendre à créer un site web.
 - **Navigation par îles** : chaque page île affiche la section active dans la barre de navigation.
 - **Thème jour / nuit** : confort visuel pour présenter l'oral.
-- **Catégories de plats** : Entrées, Plats, Desserts, Boissons, Accompaniements.
+- **Catégories de plats** : Entrées, Plats, Desserts, Boissons, Accompanements.
 - **Recettes préférées** : cartes cliquables vers les recettes.
 - **Recherche** intégrée.
 - **Pages manquantes** : une fenêtre indique proprement quand une page n'est pas encore disponible.
