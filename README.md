@@ -7,12 +7,7 @@ Fait par **Evan Colo** et **Enzo Adam Maltese**.
 
 ---
 
-## 🖼️ Logo du site web
-
 ![Logo du site](images/logo.png)
-
-Le logo du site se trouve dans le dossier `images/logo.png`.
-Il est affiché en haut à gauche de la barre de navigation sur toutes les pages, et sert d'icône (favicon) au site.
 
 ---
 
