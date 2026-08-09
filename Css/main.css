@@ -567,9 +567,9 @@ body {
   --bg-mid: #001f3f;
   --panel: #000b18;
   --panel-2: #001c3d;
-  --text: #2a2622;
-  --text-soft: #cbd5e0;
-  --text-muted: #a0b0c0;
+  --text: #f5f5f5;
+  --text-soft: #e2e8f0;
+  --text-muted: #cbd5e0;
 
   /* Rayons & ombres */
   --radius-sm: 8px;
@@ -1445,9 +1445,9 @@ body {
   --bg-deep: #000814;
   --panel: #000b18;
   --panel-2: #001c3d;
-  --text: #2a2622;
-  --text-soft: #cbd5e0;
-  --text-muted: #a0b0c0;
+  --text: #f5f5f5;
+  --text-soft: #e2e8f0;
+  --text-muted: #cbd5e0;
   --page-bg: linear-gradient(#001122, #000814);
   --nav-bg: rgba(0, 8, 20, 0.65);
   --card-bg: #000b18;
@@ -1466,7 +1466,7 @@ body {
   --bg-deep: #efe7d6;
   --panel: #fbf6ec;
   --panel-2: #f3ead9;
-  --text: #2a2622;
+  --text: #f5f5f5;
   --text-soft: #4a443d;
   --text-muted: #6b635a;
   --page-bg: linear-gradient(#faf6ee, #f1e9d8);
@@ -2448,3 +2448,53 @@ table code { background: var(--bg-deep); color: var(--gold); padding: 1px 5px; b
   0%, 100% { box-shadow: 0 0 14px var(--globe-glow); }
   50% { box-shadow: 0 0 26px var(--accent); }
 }
+
+
+/* ===== Mode sombre : texte gris sombre -> blanc, axes importants -> jaune ===== */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] .title,
+html[data-theme="dark"] .hero-title,
+html[data-theme="dark"] .section-title,
+html[data-theme="dark"] .card-title,
+html[data-theme="dark"] .menucat-title,
+html[data-theme="dark"] .food-title,
+html[data-theme="dark"] .popup-title,
+html[data-theme="dark"] .active-country-title,
+html[data-theme="dark"] .slider-header h2,
+html[data-theme="dark"] .other-local-dishes > h2,
+html[data-theme="dark"] .accordion-trigger h2,
+html[data-theme="dark"] .restaurant-header h2,
+html[data-theme="dark"] .restaurant-header h3,
+html[data-theme="dark"] .dish-description h3,
+html[data-theme="dark"] .guide-intro h2,
+html[data-theme="dark"] .info-hero h1,
+html[data-theme="dark"] .preview-card h2,
+html[data-theme="dark"] .modal-box h2,
+html[data-theme="dark"] .tuto-toc h2,
+html[data-theme="dark"] .lesson__head h2,
+html[data-theme="dark"] .mini-card h3,
+html[data-theme="dark"] .search-hero h1 {
+  color: var(--gold) !important;
+}
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 { color: #ffffff !important; }
+html[data-theme="dark"] p,
+html[data-theme="dark"] li,
+html[data-theme="dark"] span,
+html[data-theme="dark"] label,
+html[data-theme="dark"] a,
+html[data-theme="dark"] td,
+html[data-theme="dark"] th,
+html[data-theme="dark"] small,
+html[data-theme="dark"] strong,
+html[data-theme="dark"] em { color: var(--text) !important; }
+html[data-theme="dark"] .hero-subtitle,
+html[data-theme="dark"] .subtitle,
+html[data-theme="dark"] .popup-desc,
+html[data-theme="dark"] .guide-intro p,
+html[data-theme="dark"] .dish-description p { color: var(--text-soft) !important; }
