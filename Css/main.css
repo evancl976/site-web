@@ -20,6 +20,7 @@ body {
 }
 
 .title {
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
     font-size: 45px;
     color: gold;
     letter-spacing: 3px;
@@ -2429,7 +2430,7 @@ table code { background: var(--bg-deep); color: var(--gold); padding: 1px 5px; b
   color: var(--text);
 }
 .menucat-title {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   font-size: 38px;
   font-weight: 700;
   color: var(--text);
