@@ -5,28 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apprendre à créer un site web — de A à Z</title>
     <link rel="icon" href="../images/logo.png" type="image/png">
-
-    <link rel="stylesheet" href="../Css/style.css?v=31">
+    <link rel="stylesheet" href="../Css/style.css?v=32">
 </head>
 <body>
 
     <!-- ============ NAVBAR ============ -->
-                <nav class="site-nav">
-        <a class="site-nav__brand" href="../index.html"><img class="site-nav__logo" src="../images/logo.png" alt="Les Cuisines d'Outre-Mer"></a>
-        <button class="site-nav__toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    <nav class="site-nav">
+        <a class="site-nav__brand" href="../index.html">
+            <img class="site-nav__logo" src="../images/logo.png" alt="Les Cuisines d'Outre-Mer">
+        </a>
+        <button type="button" class="site-nav__toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
         <div class="site-nav__links" id="navLinks">
             <a href="../index.html">🏠 Accueil</a>
             <a href="../Page/Apprendre.html" class="active">🎨 Apprendre</a>
             <a href="../Page/Info.html">🛠️ Fiche technique</a>
         </div>
         <div class="site-nav__actions">
-            <button class="site-nav__fav" title="Mes favoris">⭐</button>
-            <button class="site-nav__account" title="Mon compte">👤</button>
+            <button type="button" class="site-nav__fav" title="Mes favoris">⭐</button>
+            <button type="button" class="site-nav__account" title="Mon compte">👤</button>
             <form class="site-nav__search" action="../Page/recherche.html" method="get">
                 <input type="text" name="q" class="site-nav__search-input" placeholder="🔍 Rechercher…" aria-label="Rechercher">
                 <button type="submit" class="site-nav__search-btn" aria-label="Lancer la recherche">🔍</button>
             </form>
-            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer le thème">☀️</button>
+            <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer le thème">☀️</button>
         </div>
     </nav>
 
@@ -48,14 +49,15 @@
         </div>
     </header>
 
-    <!-- ============ TABLE DES MATIERES ============ -->
+    <!-- ============ SELECTEUR MODE ============ -->
     <p class="mode-intro">Choisis comment apprendre — écrit ou en vidéo :</p>
     <div class="mode-switch" role="tablist" aria-label="Choisissez le format">
-        <div class="kayak-btn" id="btnEcrit" role="button" tabindex="0" onclick="showMode('ecrit')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showMode('ecrit');}" aria-selected="false">📝 Version écrite</div>
-        <div class="kayak-btn" id="btnVideo" role="button" tabindex="0" onclick="showMode('video')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showMode('video');}" aria-selected="false">📺 Version vidéo</div>
+        <button type="button" class="kayak-btn" id="btnEcrit" role="tab" aria-selected="false" onclick="showMode('ecrit')">📝 Version écrite</button>
+        <button type="button" class="kayak-btn" id="btnVideo" role="tab" aria-selected="false" onclick="showMode('video')">📺 Version vidéo</button>
     </div>
 
-<nav class="tuto-toc" id="sommaire" hidden>
+    <!-- ============ SOMMAIRE ============ -->
+    <nav class="tuto-toc" id="sommaire" hidden>
         <h2>Sommaire</h2>
         <ol>
             <li><a href="#lecon1">Qu'est-ce qu'un site web ?</a></li>
@@ -66,28 +68,38 @@
             <li><a href="#lecon6">Exemple complet : un mini-site</a></li>
             <li><a href="#lecon7">Le mode clair / sombre</a></li>
             <li><a href="#lecon8">Héberger son site</a></li>
-            <li><a href="#lecon9">Exercices à faire</a></li>
+            <li><a href="#exo">Exercices à faire</a></li>
         </ol>
     </nav>
 
-    <!-- ============ SELECTEUR MODE : ecrit / video ============ -->
-    
-    <!-- Panneau video (cache par defaut) -->
+    <!-- Panneau Vidéo -->
     <div class="mode-panel" id="video" hidden>
         <div class="home-section__head">
             <p class="home-section__kicker">Expliqué par une personne</p>
             <h2 class="home-section__title">La vidéo complète (1 h)</h2>
             <p class="home-section__intro">Si tu préfères écouter plutôt que lire, cette vidéo résume HTML, CSS et JavaScript en 1 heure.</p>
         </div>
-                <div class="video-frame video-link-frame">
+        <div class="video-frame video-link-frame">
+            <iframe 
+                class="video-embed" 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/L_w2QSze5z0" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
             <a class="btn-youtube" href="https://www.youtube.com/watch?v=L_w2QSze5z0" target="_blank" rel="noopener">
                 ▶ Regarder la vidéo sur YouTube
             </a>
-            <iframe class="video-embed" width="560" height="315" src="https://www.youtube.com/embed/L_w2QSze5z0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <p class="video-note">La vidéo s'ouvre aussi dans un nouvel onglet via le bouton ci-dessus.</p>
-        </div></div>
+        </div>
+    </div>
 
-    <main hidden class="tuto-main" id="ecrit">
+    <!-- Contenu Écrit -->
+    <main class="tuto-main" id="ecrit" hidden>
 
         <!-- LEÇON 1 -->
         <section class="lesson" id="lecon1">
@@ -214,7 +226,7 @@
                 <h2>CSS : donner le style</h2>
             </div>
             <p>
-                Le CSS se écrit dans un fichier à part (ex : <code>style.css</code>) relié à la page
+                Le CSS s'écrit dans un fichier à part (ex : <code>style.css</code>) relié à la page
                 avec <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>. Il fonctionne par
                 <strong>règles</strong> : on cible une balise, puis on donne des propriétés.
             </p>
@@ -289,7 +301,7 @@ document.querySelector("h1").style.color = "orange";</code></pre>
             </div>
             <p>
                 On assemble tout. Voici un mini-site « Carte de visite » en 3 fichiers. Tu peux le copier
-                et le personnaliser.
+                et le personaliser.
             </p>
             <div class="code-block">
                 <div class="code-block__title">index.html</div>
@@ -408,49 +420,43 @@ body { background: var(--bg); color: var(--text); }</code></pre>
             </div>
         </section>
 
-        
-
-
     </main>
-    <!-- EXERCICES : toujours visibles -->
-<!-- LEÇON 9 : EXERCICES PAR NIVEAUX -->
-        <section class="lesson" id="exo" hidden>
-            <div class="lesson__head">
-                <span class="lesson__num">9</span>
-                <h2>Exercices à faire</h2>
-            </div>
-            <p>Entraîne-toi en progressant niveau par niveau. Commence par le HTML seul, ajoute le CSS, puis le JavaScript.</p>
 
-            <h3>Niveau 1 — HTML seul</h3>
-            <div class="exercise">
-                <p><strong>Exercice 1 :</strong> Crée une page <code>index.html</code> avec un titre <code>&lt;h1&gt;</code> « Mon premier site », un paragraphe de présentation et une liste à puces de 3 de tes hobbies.</p>
-                <p><strong>Exercice 2 :</strong> Ajoute un lien vers <code>https://www.w3schools.com</code> et une image de ton choix.</p>
-            </div>
+    <!-- EXERCICES PAR NIVEAUX -->
+    <section class="lesson" id="exo" hidden>
+        <div class="lesson__head">
+            <span class="lesson__num">9</span>
+            <h2>Exercices à faire</h2>
+        </div>
+        <p>Entraîne-toi en progressant niveau par niveau. Commence par le HTML seul, ajoute le CSS, puis le JavaScript.</p>
 
-            <h3>Niveau 2 — HTML + CSS</h3>
-            <div class="exercise">
-                <p><strong>Exercice 3 :</strong> Dans un fichier <code>style.css</code> lié à ta page, donne une couleur de fond, change la police du <code>&lt;h1&gt;</code> et centre le texte de la page.</p>
-                <p><strong>Exercice 4 :</strong> Crée une carte (une <code>&lt;div&gt;</code> avec bord, ombre et coins arrondis) contenant une photo et un titre.</p>
-            </div>
+        <h3>Niveau 1 — HTML seul</h3>
+        <div class="exercise">
+            <p><strong>Exercice 1 :</strong> Crée une page <code>index.html</code> avec un titre <code>&lt;h1&gt;</code> « Mon premier site », un paragraphe de présentation et une liste à puces de 3 de tes hobbies.</p>
+            <p><strong>Exercice 2 :</strong> Ajoute un lien vers <code>https://www.w3schools.com</code> et une image de ton choix.</p>
+        </div>
 
-            <h3>Niveau 3 — HTML + CSS + JavaScript</h3>
-            <div class="exercise">
-                <p><strong>Exercice 5 :</strong> Ajoute un bouton qui, au clic, change la couleur de fond de la page (utilise <code>document.querySelector</code> et un écouteur d'événement).</p>
-                <p><strong>Exercice 6 :</strong> Crée un compteur : un bouton « +1 » qui augmente un nombre affiché à l'écran à chaque clic.</p>
-            </div>
-        </section>
+        <h3>Niveau 2 — HTML + CSS</h3>
+        <div class="exercise">
+            <p><strong>Exercice 3 :</strong> Dans un fichier <code>style.css</code> lié à ta page, donne une couleur de fond, change la police du <code>&lt;h1&gt;</code> et centre le texte de la page.</p>
+            <p><strong>Exercice 4 :</strong> Crée une carte (une <code>&lt;div&gt;</code> avec bord, ombre et coins arrondis) contenant une photo et un titre.</p>
+        </div>
 
+        <h3>Niveau 3 — HTML + CSS + JavaScript</h3>
+        <div class="exercise">
+            <p><strong>Exercice 5 :</strong> Ajoute un bouton qui, au clic, change la couleur de fond de la page (utilise <code>document.querySelector</code> et un écouteur d'événement).</p>
+            <p><strong>Exercice 6 :</strong> Crée un compteur : un bouton « +1 » qui augmente un nombre affiché à l'écran à chaque clic.</p>
+        </div>
+    </section>
 
-
-    
-
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
             <p class="footer-credit">Créé avec passion par <strong>Evan Colo</strong></p>
             <div class="footer-links">
-                <a href="https://twitter.com" target="_blank" title="Twitter">𝕏 Twitter</a>
-                <a href="https://facebook.com" target="_blank" title="Facebook">📘 Facebook</a>
-                <a href="https://www.instagram.com/evan_976_/" target="_blank" title="Instagram">📷 Instagram</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener" title="Twitter">𝕏 Twitter</a>
+                <a href="https://facebook.com" target="_blank" rel="noopener" title="Facebook">📘 Facebook</a>
+                <a href="https://www.instagram.com/evan_976_/" target="_blank" rel="noopener" title="Instagram">📷 Instagram</a>
                 <a href="mailto:evancolo0@email.com" title="Email">✉️ Email</a>
             </div>
             <p class="footer-info">© 2025 World Food Explorer - Tous droits réservés - Présentation Oral BAC</p>
@@ -458,31 +464,31 @@ body { background: var(--bg); color: var(--text); }</code></pre>
     </footer>
 
     <script src="../Script/theme.js"></script>
-<script>
-function showMode(mode) {
-  var ecrit = document.getElementById('ecrit');
-  var video = document.getElementById('video');
-  var exo = document.getElementById('exo');
-  var som = document.getElementById('sommaire');
-  var btnE = document.getElementById('btnEcrit');
-  var btnV = document.getElementById('btnVideo');
-  if (mode === 'video') {
-    if (video) { video.hidden = false; video.classList.add('mode-fade'); }
-    if (ecrit) ecrit.hidden = true;
-    if (som) som.hidden = true;
-    if (btnE) { btnE.classList.remove('active'); btnE.setAttribute('aria-selected','false'); }
-    if (btnV) { btnV.classList.add('active'); btnV.setAttribute('aria-selected','true'); }
-    if (exo) { exo.hidden = false; exo.classList.add('mode-fade'); }
-  } else {
-    if (ecrit) { ecrit.hidden = false; ecrit.classList.add('mode-fade'); }
-    if (som) { som.hidden = false; som.classList.add('mode-fade'); }
-    if (video) video.hidden = true;
-    if (som) som.hidden = false;
-    if (btnV) { btnV.classList.remove('active'); btnV.setAttribute('aria-selected','false'); }
-    if (btnE) { btnE.classList.add('active'); btnE.setAttribute('aria-selected','true'); }
-    if (exo) { exo.hidden = false; exo.classList.add('mode-fade'); }
-  }
-}
-</script>
+    <script>
+    function showMode(mode) {
+        var ecrit = document.getElementById('ecrit');
+        var video = document.getElementById('video');
+        var exo = document.getElementById('exo');
+        var som = document.getElementById('sommaire');
+        var btnE = document.getElementById('btnEcrit');
+        var btnV = document.getElementById('btnVideo');
+
+        if (mode === 'video') {
+            if (video) { video.hidden = false; video.classList.add('mode-fade'); }
+            if (ecrit) ecrit.hidden = true;
+            if (som) som.hidden = true;
+            if (btnE) { btnE.classList.remove('active'); btnE.setAttribute('aria-selected', 'false'); }
+            if (btnV) { btnV.classList.add('active'); btnV.setAttribute('aria-selected', 'true'); }
+            if (exo) { exo.hidden = false; exo.classList.add('mode-fade'); }
+        } else {
+            if (ecrit) { ecrit.hidden = false; ecrit.classList.add('mode-fade'); }
+            if (som) { som.hidden = false; som.classList.add('mode-fade'); }
+            if (video) video.hidden = true;
+            if (btnV) { btnV.classList.remove('active'); btnV.setAttribute('aria-selected', 'false'); }
+            if (btnE) { btnE.classList.add('active'); btnE.setAttribute('aria-selected', 'true'); }
+            if (exo) { exo.hidden = false; exo.classList.add('mode-fade'); }
+        }
+    }
+    </script>
 </body>
 </html>
