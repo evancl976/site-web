@@ -567,7 +567,7 @@ body {
   --bg-mid: #001f3f;
   --panel: #000b18;
   --panel-2: #001c3d;
-  --text: #ffffff;
+  --text: #2a2622;
   --text-soft: #cbd5e0;
   --text-muted: #a0b0c0;
 
@@ -777,7 +777,7 @@ body {
   top: 16px;
   left: 16px;
   background: rgba(0, 0, 0, 0.8);
-  color: var(--gold);
+  color: #ffffff;
   padding: 6px 12px;
   border-radius: var(--radius-sm);
   font-size: 11px;
@@ -1445,7 +1445,7 @@ body {
   --bg-deep: #000814;
   --panel: #000b18;
   --panel-2: #001c3d;
-  --text: #ffffff;
+  --text: #2a2622;
   --text-soft: #cbd5e0;
   --text-muted: #a0b0c0;
   --page-bg: linear-gradient(#001122, #000814);
@@ -1520,7 +1520,7 @@ body { background: var(--page-bg); color: var(--text); }
 [data-theme="light"] .premium-tripadvisor { background: var(--accent) !important; color: var(--text) !important; }
 [data-theme="light"] .arrow-btn { background: rgba(224, 123, 57, 0.1) !important; border-color: var(--accent) !important; color: var(--accent) !important; }
 [data-theme="light"] .arrow-btn:hover { background: var(--accent) !important; color: var(--text) !important; }
-[data-theme="light"] .ads-label { background: rgba(0,0,0,0.6) !important; color: var(--gold) !important; border-color: var(--accent) !important; }
+[data-theme="light"] .ads-label { background: rgba(0,0,0,0.6) !important; color: #ffffff !important; border-color: var(--accent) !important; }
 [data-theme="light"] .site-nav__brand { color: var(--accent) !important; }
 [data-theme="light"] .site-nav__links a:hover,
 [data-theme="light"] .site-nav__links a.active { background: var(--accent) !important; color: var(--text) !important; }
