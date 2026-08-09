@@ -1329,13 +1329,13 @@ body {
   color: #e2e8f0;
 }
 .arbo-container {
-  background: rgba(0, 5, 12, 0.7);
+  background: #0d1117;
   border: 1px solid rgba(224, 123, 57, 0.2);
   border-radius: 8px;
   padding: 20px;
   font-family: monospace;
   font-size: 14px;
-  color: var(--text-soft);
+  color: #e6edf3;
   line-height: 1.7;
 }
 .arbo-folder { color: var(--gold); font-weight: 700; }
@@ -1601,9 +1601,9 @@ body { background: var(--page-bg); color: var(--text); }
   border-color: var(--border-soft) !important;
 }
 [data-theme="light"] .arbo-container {
-  background: #f6f0e4 !important;
-  color: var(--text-soft) !important;
-  border-color: var(--border-soft) !important;
+  background: #0d1117 !important;
+  color: #e6edf3 !important;
+  border-color: rgba(224, 123, 57, 0.2) !important;
 }
 [data-theme="light"] .modal-overlay {
   background: rgba(40, 30, 15, 0.5) !important;
@@ -1721,7 +1721,7 @@ body { background: var(--page-bg); color: var(--text); }
   border-top-color: var(--gold) !important;
 }
 [data-theme="light"] .info-hero { background: var(--panel-2) !important; }
-[data-theme="light"] .arbo-container { background: #f3ead9 !important; }
+[data-theme="light"] .arbo-container { background: #0d1117 !important; color: #e6edf3 !important; }
 
 /* ============================================================
    ACCUEIL ENRICHI (home) — hero + sections découverte
@@ -2105,11 +2105,11 @@ body { background: var(--page-bg); color: var(--text); }
 .lesson__head h2 { margin: 0; font-size: 28px; color: var(--accent); }
 .lesson p { line-height: 1.7; color: var(--text); margin: 12px 0; }
 .lesson code {
-  background: var(--bg-deep); color: var(--gold);
+  background: #0d1117; color: #e6edf3;
   padding: 2px 7px; border-radius: 6px; font-size: 0.9em;
   font-family: 'Courier New', monospace;
 }
-[data-theme="light"] .lesson code { color: var(--accent); }
+[data-theme="light"] .lesson code { color: #e6edf3 !important; background: #0d1117 !important; }
 
 .cards-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 18px 0; }
 .mini-card { background: var(--panel); border: 1px solid var(--border-soft); border-radius: 14px; padding: 20px; text-align: center; }
@@ -2140,15 +2140,15 @@ body { background: var(--page-bg); color: var(--text); }
 [data-theme="dark"] .callout--warn, .callout--warn { color: #6b4e10; }
 
 .code-block {
-  background: #0d1117; border-radius: 12px; overflow: hidden;
+  background: #0d1117; color: #e6edf3; border-radius: 12px; overflow: hidden;
   margin: 16px 0; border: 1px solid #1f2630;
 }
 .code-block__title {
-  background: #161b22; color: #8b949e; font-size: 13px; font-family: monospace;
+  background: #161b22; color: #e6edf3; font-size: 13px; font-family: monospace;
   padding: 8px 14px; border-bottom: 1px solid #1f2630;
 }
 .code-block pre { margin: 0; padding: 16px; overflow-x: auto; }
-.code-block code { color: #c9d1d9; background: none; padding: 0; font-size: 13.5px; line-height: 1.5; font-family: 'Courier New', monospace; }
+.code-block code { color: #e6edf3; background: none; padding: 0; font-size: 13.5px; line-height: 1.5; font-family: 'Courier New', monospace; }
 .code-block .code-block code { white-space: pre; }
 
 .table-wrap { overflow-x: auto; margin: 16px 0; }
