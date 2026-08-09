@@ -6,7 +6,7 @@
     <title>Apprendre à créer un site web — de A à Z</title>
     <link rel="icon" href="../images/logo.png" type="image/png">
 
-    <link rel="stylesheet" href="../Css/styles.css?v=23">
+    <link rel="stylesheet" href="../Css/styles.css?v=24">
 </head>
 <body>
 
@@ -51,8 +51,8 @@
     <!-- ============ TABLE DES MATIERES ============ -->
     <p class="mode-intro">Choisis comment apprendre — écrit ou en vidéo :</p>
     <div class="mode-switch" role="tablist" aria-label="Choisissez le format">
-        <button class="mode-btn site-nav__highlight" id="btnEcrit" onclick="showMode('ecrit')" aria-selected="false">📝 Version écrite</button>
-        <button class="mode-btn site-nav__highlight" id="btnVideo" onclick="showMode('video')" aria-selected="false">📺 Version vidéo</button>
+        <div class="mode-btn site-nav__highlight" id="btnEcrit" role="button" tabindex="0" onclick="showMode('ecrit')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showMode('ecrit');}" aria-selected="false">📝 Version écrite</div>
+        <div class="mode-btn site-nav__highlight" id="btnVideo" role="button" tabindex="0" onclick="showMode('video')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showMode('video');}" aria-selected="false">📺 Version vidéo</div>
     </div>
 
 <nav class="tuto-toc" id="sommaire" hidden>
