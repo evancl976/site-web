@@ -6,7 +6,7 @@
     <title>Apprendre à créer un site web — de A à Z</title>
     <link rel="icon" href="../images/logo.png" type="image/png">
 
-    <link rel="stylesheet" href="../Css/main.css?v=16">
+    <link rel="stylesheet" href="../Css/main.css?v=17">
 </head>
 <body>
 
@@ -49,7 +49,7 @@
     </header>
 
     <!-- ============ TABLE DES MATIERES ============ -->
-    <nav class="tuto-toc">
+    <nav class="tuto-toc" id="sommaire" hidden>
         <h2>Sommaire</h2>
         <ol>
             <li><a href="#lecon1">Qu'est-ce qu'un site web ?</a></li>
@@ -410,7 +410,7 @@ body { background: var(--bg); color: var(--text); }</code></pre>
     </main>
     <!-- EXERCICES : toujours visibles -->
 <!-- LEÇON 9 : EXERCICES PAR NIVEAUX -->
-        <section class="lesson" id="lecon9">
+        <section class="lesson" id="exo" hidden>
             <div class="lesson__head">
                 <span class="lesson__num">9</span>
                 <h2>Exercices à faire</h2>
@@ -457,18 +457,24 @@ body { background: var(--bg); color: var(--text); }</code></pre>
 function showMode(mode) {
   var ecrit = document.getElementById('ecrit');
   var video = document.getElementById('video');
+  var exo = document.getElementById('exo');
+  var som = document.getElementById('sommaire');
   var btnE = document.getElementById('btnEcrit');
   var btnV = document.getElementById('btnVideo');
   if (mode === 'video') {
-    if (ecrit) ecrit.hidden = true;
     if (video) video.hidden = false;
+    if (ecrit) ecrit.hidden = true;
+    if (som) som.hidden = true;
     if (btnE) { btnE.classList.remove('active'); btnE.setAttribute('aria-selected','false'); }
     if (btnV) { btnV.classList.add('active'); btnV.setAttribute('aria-selected','true'); }
+    if (exo) exo.hidden = false;
   } else {
     if (ecrit) ecrit.hidden = false;
     if (video) video.hidden = true;
+    if (som) som.hidden = false;
     if (btnV) { btnV.classList.remove('active'); btnV.setAttribute('aria-selected','false'); }
     if (btnE) { btnE.classList.add('active'); btnE.setAttribute('aria-selected','true'); }
+    if (exo) exo.hidden = false;
   }
 }
 </script>
