@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Réunion/Rougail saucisse – Guide Gastronomique et Spécialités</title>
-    <link rel="stylesheet" href="../../Css/styles.css">
-</head>
+    <title>La Réunion/Rougail-saucisse – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/main.css?v=7">
+    </head>
 <body>
 
     <!-- BANNIÈRE IMMERSIVE -->
@@ -18,7 +18,7 @@
     </section>
 
     <!-- CONTENEUR PRINCIPAL DU GUIDE -->
-    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+    <main class="tourism-guide">
 
         <!-- INTRODUCTION NARRATIVE -->
         <section class="guide-intro">
@@ -34,20 +34,20 @@
             <!-- LE ROUGAIL SAUCISSE -->
             <article class="dish-showcase">
                 <div class="dish-image-frame">
-                    <img src="../../images/rougail-saucisse.jpg" alt="Rougail saucisse traditionnel réunionnais">
+                    <img src="../../images/rougail-saucisse.jpg" alt="Rougail-saucisse traditionnel réunionnais">
                 </div>
                 <div class="dish-description">
                     <span class="dish-category">L'Incontournable Créole</span>
-                    <h3>Le Rougail saucisse</h3>
+                    <h3>Le Rougail-saucisse</h3>
                     <p>
-                        Le <strong class="mot-cliquable" onclick="toggleRougail()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">rougail saucisse</strong> est sans conteste le roi absolu des tables réunionnaises. Des pique-niques dominicaux dans les Hauts aux grandes réceptions familiales, ce plat unique incarne à lui seul la convivialité, le partage et l'identité culinaire de l'île Intense.
+                        Le <strong class="mot-cliquable" onclick="toggleDish('infoRougail')" style="cursor: pointer; text-decoration: underline;">rougail saucisse</strong> est sans conteste le roi absolu des tables réunionnaises. Des pique-niques dominicaux dans les Hauts aux grandes réceptions familiales, ce plat unique incarne à lui seul la convivialité, le partage et l'identité culinaire de l'île Intense.
                     </p>
                     <p>
                         Il se compose de saucisses de porc ou de volaille (fraîches ou fumées), découpées en morceaux puis rissolées, avant d'être longuement mijotées dans une sauce concentrée et piquante à base de tomates fraîches, d'oignons, d'ail et de gingembre.
                     </p>
                     
                     <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
-                    <button class="read-more-btn" onclick="toggleRougail()">Découvrir l'histoire du rougail et ses secrets de cuisson ➔</button>
+                    <button class="read-more-btn" onclick="toggleDish('infoRougail')">Découvrir l'histoire du rougail et ses secrets de cuisson ➔</button>
 
                     <!-- CARTE ANIMÉE CACHÉE -->
                     <div id="infoRougail" class="info-cachee">
@@ -63,7 +63,7 @@
         </section>
 
         <!-- SECTION OÙ MANGER (Restaurant recommandé) -->
-        <section class="guide-restaurant" style="margin-top: 40px;">
+        <section class="guide-restaurant">
             <div class="restaurant-card-premium">
                 <div class="restaurant-header">
                     <h2>🍴 Adresse Recommandée</h2>
@@ -86,35 +86,35 @@
         </section>
 
         <!-- SECTION : AUTRES SPÉCIALITÉS DE L'ÎLE -->
-        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
-            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de La Réunion à découvrir :</h2>
+        <section class="other-local-dishes">
+            <h2>Autres spécialités de La Réunion à découvrir :</h2>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="dish-grid">
                 
                 <!-- CABRI MASSALÉ -->
-                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='cabri massale.html'">
-                    <div style="height: 140px; background: url('../../images/massale-plat.jpg') center/cover;"></div>
-                    <div style="padding: 15px;">
-                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Cabri massalé</h4>
-                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Un savoureux ragoût de chèvre longuement mijoté aux épices massalé et caloupilé.</p>
+                <div class="dish-mini-card" onclick="location.href='cabri-massale.html'">
+                    <div class="thumb" style="background: url('../../images/massale-plat.jpg') center/cover;"></div>
+                    <div class="body">
+                        <h4>Cabri massalé</h4>
+                        <p>Un savoureux ragoût de chèvre longuement mijoté aux épices massalé et caloupilé.</p>
                     </div>
                 </div>
 
                 <!-- BONBONS PIMENTS -->
-                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='Bonbons piments.html'">
-                    <div style="height: 140px; background: url('../../images/bonbons-piments.jpg') center/cover;"></div>
-                    <div style="padding: 15px;">
-                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Bonbons piments</h4>
-                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Croquettes croustillantes et épicées à base de pois du Cap frits aux herbes.</p>
+                <div class="dish-mini-card" onclick="location.href='Bonbons-piments.html'">
+                    <div class="thumb" style="background: url('../../images/bonbons-piments.jpg') center/cover;"></div>
+                    <div class="body">
+                        <h4>Bonbons-piments</h4>
+                        <p>Croquettes croustillantes et épicées à base de pois du Cap frits aux herbes.</p>
                     </div>
                 </div>
 
                 <!-- CIVET ZOURITE -->
-                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='Civet zourite.html'">
-                    <div style="height: 140px; background: url('../../images/civet-zourite.jpg') center/cover;"></div>
-                    <div style="padding: 15px;">
-                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Civet zourite</h4>
-                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Un civet de poulpe fondant mijoté au vin rouge, clous de girofle et aromates.</p>
+                <div class="dish-mini-card" onclick="location.href='Civet-zourite.html'">
+                    <div class="thumb" style="background: url('../../images/civet-zourite.jpg') center/cover;"></div>
+                    <div class="body">
+                        <h4>Civet-zourite</h4>
+                        <p>Un civet de poulpe fondant mijoté au vin rouge, clous de girofle et aromates.</p>
                     </div>
                 </div>
 
@@ -122,22 +122,40 @@
         </section>
 
         <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
-        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <div class="country-selector">
-                <button onclick="location.href='../la reunion.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (La Réunion)</button>
-            </div>
-            <div class="country-selector">
-                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
-            </div>
-        </nav>
+                        <nav class="site-nav">
+        <a class="site-nav__brand" href="../../index.html"><img class="site-nav__logo" src="../../images/logo.png" alt="Les Cuisines d'Outre-Mer"></a>
+        <button class="site-nav__toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+        <div class="site-nav__links" id="navLinks">
+            <a href="../../index.html">🏠 Accueil</a>
+            <a href="../../Page/Mayotte.html">🇾🇹 Mayotte</a>
+            <a href="../../Page/Guyane.html">🇬🇫 Guyane</a>
+            <a href="../../Page/Guadeloupe.html">🇬🇵 Guadeloupe</a>
+            <a href="../../Page/Martinique.html">🇲🇶 Martinique</a>
+            <a class="active" href="../../Page/La-reunion.html">🇷🇪 La Réunion</a>
+        </div>
+        <div class="site-nav__actions">
+            <button class="site-nav__fav" title="Mes favoris">⭐</button>
+            <button class="site-nav__account" title="Mon compte">👤</button>
+            <form class="site-nav__search" action="../../Page/recherche.html" method="get">
+                <input type="text" name="q" class="site-nav__search-input" placeholder="🔍 Rechercher…" aria-label="Rechercher">
+                <button type="submit" class="site-nav__search-btn" aria-label="Lancer la recherche">🔍</button>
+            </form>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer le thème">☀️</button>
+        </div>
+    </nav>
 
     </main>
 
     <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
-    <footer class="footer" style="margin-top: 80px;">
+        <footer class="footer" style="margin-top: 80px;">
         <div class="footer-content">
-            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
-            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+            <p class="footer-credit">Cuisine d'Outre-Mer — Voyage culinaire</p>
+            <div class="footer-links footer-social">
+                <a href="https://twitter.com" target="_blank" title="Twitter">𝕏 Twitter</a>
+                <a href="https://www.instagram.com/evan_976_/" target="_blank" title="Instagram">📷 Instagram</a>
+                <a href="mailto:evancolo0@email.com" title="Email">✉️ Email</a>
+            </div>
+            <p class="footer-info">© 2025 World Food Explorer - Présentation Oral BAC</p>
         </div>
     </footer>
 
@@ -148,5 +166,7 @@
             box.classList.toggle("active");
         }
     </script>
+<script src="../../Script/dish.js"></script>
+<script src="../../Script/theme.js"></script>
 </body>
 </html>

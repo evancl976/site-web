@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche — Cuisine d'Outre-Mer</title>
+    <link rel="stylesheet" href="../Css/main.css?v=7">
+</head>
+<body>
+
+    <!-- ============ NAVBAR ============ -->
+                <nav class="site-nav">
+        <a class="site-nav__brand" href="../index.html"><img class="site-nav__logo" src="../images/logo.png" alt="Les Cuisines d'Outre-Mer"></a>
+        <button class="site-nav__toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+        <div class="site-nav__links" id="navLinks">
+            <a href="../index.html">🏠 Accueil</a>
+            <a href="../Page/Apprendre.html">🎨 Apprendre</a>
+            <a href="../Page/Info.html">🛠️ Fiche technique</a>
+        </div>
+        <div class="site-nav__actions">
+            <button class="site-nav__fav" title="Mes favoris">⭐</button>
+            <button class="site-nav__account" title="Mon compte">👤</button>
+            <form class="site-nav__search" action="../Page/recherche.html" method="get">
+                <input type="text" name="q" class="site-nav__search-input" placeholder="🔍 Rechercher…" aria-label="Rechercher">
+                <button type="submit" class="site-nav__search-btn" aria-label="Lancer la recherche">🔍</button>
+            </form>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer le thème">☀️</button>
+        </div>
+    </nav>
+
+    <!-- ============ HERO RECHERCHE ============ -->
+    <header class="search-hero">
+        <div class="search-hero__inner">
+            <h1>🔍 Recherche</h1>
+            <p class="search-hero__sub">Trouve une île, une recette ou une page du site.</p>
+            <form class="search-form" onsubmit="return goSearch()">
+                <input type="text" id="q" class="search-input" placeholder="Ex : rougail, bokit, La Réunion, apprendre…" autocomplete="off">
+                <button type="submit" class="search-submit">Rechercher</button>
+            </form>
+        </div>
+    </header>
+
+    <main class="search-main">
+        <div id="results" class="search-results"></div>
+        <p id="empty" class="search-empty" style="display:none;">Aucun résultat. Essaie un autre mot-clé.</p>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-credit">Créé avec passion par <strong>Evan Colo</strong></p>
+            <div class="footer-links">
+                <a href="https://twitter.com" target="_blank" title="Twitter">𝕏 Twitter</a>
+                <a href="https://facebook.com" target="_blank" title="Facebook">📘 Facebook</a>
+                <a href="https://www.instagram.com/evan_976_/" target="_blank" title="Instagram">📷 Instagram</a>
+                <a href="mailto:evancolo0@email.com" title="Email">✉️ Email</a>
+            </div>
+            <p class="footer-info">© 2025 World Food Explorer - Tous droits réservés - Présentation Oral BAC</p>
+        </div>
+    </footer>
+
+    <script src="../Script/theme.js"></script>
+    <script>
+    const SITE_PAGES = [
+      {"url":"Apprendre.html","title":"Apprendre à créer un site web — de A à Z","text":"apprendre créer site web html css javascript cours tuto débutant héberger github pages thème sombre"},
+      {"url":"Page/Info.html","title":"Dans les Coulisses du Code – Fiche Technique","text":"fiche technique projet code globe 3d javascript architecture html sémantique bac"},
+      {"url":"Page/Guadeloupe.html","title":"Guadeloupe – Menu Culinaire Traditionnel","text":"guadeloupe antilles bokit colombo accras recettes île"},
+      {"url":"Page/Martinique.html","title":"Martinique – Menu Culinaire Traditionnel","text":"martinique antilles accras colombo recettes île"},
+      {"url":"Page/La-reunion.html","title":"La Réunion – Menu Culinaire Traditionnel","text":"réunion océan indien rougail saucisse recettes île"},
+      {"url":"Page/Guyane.html","title":"Guyane – Menu Culinaire Traditionnel","text":"guyane amazonie blaff boucanes recettes île"},
+      {"url":"Page/Mayotte.html","title":"Mayotte – Menu Culinaire Traditionnel","text":"mayotte mayotte océan indien mataba recettes île"},
+      {"url":"Page/guadeloupe/bokit.html","title":"Le Bokit — Guadeloupe","text":"bokit guadeloupe sandwich frit street food"},
+      {"url":"Page/guadeloupe/boudin-noir.html","title":"Boudin Noir — Guadeloupe","text":"boudin-noir guadeloupe recette"},
+      {"url":"Page/guadeloupe/colombo-poulet.html","title":"Colombo de Poulet — Guadeloupe","text":"colombo-poulet guadeloupe épices ragoût"},
+      {"url":"Page/guadeloupe/Matete de crabe.html","title":"Matété de Crabe — Guadeloupe","text":"matété crabe guadeloupe riz"},
+      {"url":"Page/guyane/blaff-de-poissons.html","title":"Blaff de Poissons — Guyane","text":"blaff poissons guyane citron piment"},
+      {"url":"Page/guyane/boucanes.html","title":"Boucanés — Guyane","text":"boucané guyane viande fumée"},
+      {"url":"Page/guyane/calalou.html","title":"Calalou — Guyane","text":"calalou guyane épinards crabe"},
+      {"url":"Page/guyane/gratin-de-couac.html","title":"Gratin de Couac — Guyane","text":"gratin couac guyane manioc"},
+      {"url":"Page/la-reunion/Bonbons-piments.html","title":"Bonbons Piments — La Réunion","text":"bonbons piments réunion frit"},
+      {"url":"Page/la-reunion/cabri-massale.html","title":"Cabri Massalé — La Réunion","text":"cabri massalé réunion curry"},
+      {"url":"Page/la-reunion/Civet-zourite.html","title":"Civet Zourite — La Réunion","text":"civet zourite réunion octopus"},
+      {"url":"Page/la-reunion/Rougail-saucisse.html","title":"Rougail Saucisse — La Réunion","text":"rougail saucisse réunion plat épices"},
+      {"url":"Page/martinique/accras-de-morue.html","title":"Accras de Morue — Martinique","text":"accras morue martinique beignet"},
+      {"url":"Page/martinique/cobuillon-de-poisson.html","title":"Court-Bouillon de Poisson — Martinique","text":"court bouillon poisson martinique"},
+      {"url":"Page/martinique/dombre.html","title":"Dombre — Martinique","text":"dombre martinique pâte"},
+      {"url":"Page/martinique/tinen-et-morue.html","title":"Ti-Nain et Morue — Martinique","text":"ti nain morue martinique banane"},
+      {"url":"Page/mayotte/brochettes.html","title":"Brochettes — Mayotte","text":"brochettes mayotte viande"},
+      {"url":"Page/mayotte/kangue.html","title":"Kangue — Mayotte","text":"kangue mayotte tortue"},
+      {"url":"Page/mayotte/mataba.html","title":"Mataba — Mayotte","text":"mataba mayotte manioc crabe"},
+      {"url":"Page/mayotte/pilao.html","title":"Pilao — Mayotte","text":"pilao mayotte riz épices"}
+    ];
+
+    function goSearch() {
+      const q = document.getElementById('q').value.trim();
+      if (q) location.href = 'recherche.html?q=' + encodeURIComponent(q);
+      return false;
+    }
+
+    function render(q) {
+      q = (q || '').toLowerCase().trim();
+      const res = document.getElementById('results');
+      const empty = document.getElementById('empty');
+      res.innerHTML = '';
+      if (!q) {
+        res.innerHTML = '<p class="search-hint">Tape un mot-clé ci-dessus pour lancer la recherche.</p>';
+        empty.style.display = 'none';
+        return;
+      }
+      const found = SITE_PAGES.filter(p =>
+        p.title.toLowerCase().includes(q) || p.text.toLowerCase().includes(q) || p.url.toLowerCase().includes(q)
+      );
+      if (found.length === 0) {
+        empty.style.display = 'block';
+        return;
+      }
+      empty.style.display = 'none';
+      found.forEach(p => {
+        const a = document.createElement('a');
+        a.className = 'search-result';
+        a.href = p.url;
+        a.innerHTML = '<span class="search-result__title">🔗 ' + p.title + '</span><span class="search-result__url">' + p.url + '</span>';
+        res.appendChild(a);
+      });
+    }
+
+    // Lit ?q= dans l'URL au chargement
+    const params = new URLSearchParams(location.search);
+    const q = params.get('q') || '';
+    document.getElementById('q').value = q;
+    render(q);
+    </script>
+</body>
+</html>

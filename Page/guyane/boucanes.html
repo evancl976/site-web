@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guyane/Boucanés – Guide Gastronomique et Spécialités</title>
-    <link rel="stylesheet" href="../../Css/styles.css">
-</head>
+    <link rel="stylesheet" href="../../Css/main.css?v=7">
+    </head>
 <body>
 
     <!-- BANNIÈRE IMMERSIVE -->
@@ -18,7 +18,7 @@
     </section>
 
     <!-- CONTENEUR PRINCIPAL DU GUIDE -->
-    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+    <main class="tourism-guide">
 
         <!-- INTRODUCTION NARRATIVE -->
         <section class="guide-intro">
@@ -40,14 +40,14 @@
                     <span class="dish-category">La Tradition du Fumage</span>
                     <h3>Les Boucanés</h3>
                     <p>
-                        Incontournables de la table guyanaise, les <strong class="mot-cliquable" onclick="toggleBoucanes()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">boucanés</strong> sont des viandes ou des poissons fumés au goût intensément boisé. Ce mode de préparation unique provient du terme ancestral <em>« boucan »</em>, qui désigne la grille en bois traditionnelle suspendue au-dessus d'un feu de bois.
+                        Incontournables de la table guyanaise, les <strong class="mot-cliquable" onclick="toggleDish('infoBoucanes')" style="cursor: pointer; text-decoration: underline;">boucanés</strong> sont des viandes ou des poissons fumés au goût intensément boisé. Ce mode de préparation unique provient du terme ancestral <em>« boucan »</em>, qui désigne la grille en bois traditionnelle suspendue au-dessus d'un feu de bois.
                     </p>
                     <p>
                         Marinés avec soin avec de l'ail, du thym et des épices avant d'être fumés lentement pendant plusieurs heures, les boucanés de poulet ou de porc se distinguent par leur goût prononcé et leur caractère rustique.
                     </p>
                     
                     <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
-                    <button class="read-more-btn" onclick="toggleBoucanes()">Découvrir l'origine et les secrets du boucanage ➔</button>
+                    <button class="read-more-btn" onclick="toggleDish('infoBoucanes')">Découvrir l'origine et les secrets du boucanage ➔</button>
 
                     <!-- CARTE ANIMÉE CACHÉE -->
                     <div id="infoBoucanes" class="info-cachee">
@@ -63,7 +63,7 @@
         </section>
 
         <!-- SECTION OÙ MANGER (Restaurant recommandé) -->
-        <section class="guide-restaurant" style="margin-top: 40px;">
+        <section class="guide-restaurant">
             <div class="restaurant-card-premium">
                 <div class="restaurant-header">
                     <h2>🍴 Adresse Recommandée</h2>
@@ -86,35 +86,35 @@
         </section>
 
         <!-- SECTION : AUTRES SPÉCIALITÉS DU PAYS -->
-        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
-            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de la Guyane à découvrir :</h2>
+        <section class="other-local-dishes">
+            <h2>Autres spécialités de la Guyane à découvrir :</h2>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="dish-grid">
                 
                 <!-- BLAFF DE POISSONS -->
-                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='blaff-de-poissons.html'">
-                    <div style="height: 140px; background: url('../../images/blaff-poissons.jpg') center/cover;"></div>
-                    <div style="padding: 15px;">
-                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Blaff de poissons</h4>
-                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Un court-bouillon de poisson ultra-frais, acidulé, poché avec du citron vert et des piments locaux.</p>
+                <div class="dish-mini-card" onclick="location.href='blaff-de-poissons.html'">
+                    <div class="thumb" style="background: url('../../images/blaff-poissons.jpg') center/cover;"></div>
+                    <div class="body">
+                        <h4>Le Blaff de poissons</h4>
+                        <p>Un court-bouillon de poisson ultra-frais, acidulé, poché avec du citron vert et des piments locaux.</p>
                     </div>
                 </div>
 
                 <!-- LE CALALOU -->
-                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='calalou.html'">
-                    <div style="height: 140px; background: url('../../images/calalou.jpg') center/cover;"></div>
-                    <div style="padding: 15px;">
-                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Calalou</h4>
-                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Un ragoût traditionnel de feuilles vertes mijoté patiemment avec du crabe et du porc.</p>
+                <div class="dish-mini-card" onclick="location.href='calalou.html'">
+                    <div class="thumb" style="background: url('../../images/calalou.jpg') center/cover;"></div>
+                    <div class="body">
+                        <h4>Le Calalou</h4>
+                        <p>Un ragoût traditionnel de feuilles vertes mijoté patiemment avec du crabe et du porc.</p>
                     </div>
                 </div>
 
                 <!-- GRATIN DE COUAC -->
-                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='gratin-de-couac.html'">
-                    <div style="height: 140px; background: url('../../images/gratin-couac.jpg') center/cover;"></div>
-                    <div style="padding: 15px;">
-                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Gratin de couac</h4>
-                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Un accompagnement onctueux et doré au four à base de la célèbre semoule de manioc locale.</p>
+                <div class="dish-mini-card" onclick="location.href='gratin-de-couac.html'">
+                    <div class="thumb" style="background: url('../../images/gratin-couac.jpg') center/cover;"></div>
+                    <div class="body">
+                        <h4>Le Gratin de couac</h4>
+                        <p>Un accompagnement onctueux et doré au four à base de la célèbre semoule de manioc locale.</p>
                     </div>
                 </div>
 
@@ -122,22 +122,40 @@
         </section>
 
         <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
-        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <div class="country-selector">
-                <button onclick="location.href='../Guyane.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (Guyane)</button>
-            </div>
-            <div class="country-selector">
-                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
-            </div>
-        </nav>
+                        <nav class="site-nav">
+        <a class="site-nav__brand" href="../../index.html"><img class="site-nav__logo" src="../../images/logo.png" alt="Les Cuisines d'Outre-Mer"></a>
+        <button class="site-nav__toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+        <div class="site-nav__links" id="navLinks">
+            <a href="../../index.html">🏠 Accueil</a>
+            <a href="../../Page/Mayotte.html">🇾🇹 Mayotte</a>
+            <a class="active" href="../../Page/Guyane.html">🇬🇫 Guyane</a>
+            <a href="../../Page/Guadeloupe.html">🇬🇵 Guadeloupe</a>
+            <a href="../../Page/Martinique.html">🇲🇶 Martinique</a>
+            <a href="../../Page/La-reunion.html">🇷🇪 La Réunion</a>
+        </div>
+        <div class="site-nav__actions">
+            <button class="site-nav__fav" title="Mes favoris">⭐</button>
+            <button class="site-nav__account" title="Mon compte">👤</button>
+            <form class="site-nav__search" action="../../Page/recherche.html" method="get">
+                <input type="text" name="q" class="site-nav__search-input" placeholder="🔍 Rechercher…" aria-label="Rechercher">
+                <button type="submit" class="site-nav__search-btn" aria-label="Lancer la recherche">🔍</button>
+            </form>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer le thème">☀️</button>
+        </div>
+    </nav>
 
     </main>
 
     <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
-    <footer class="footer" style="margin-top: 80px;">
+        <footer class="footer" style="margin-top: 80px;">
         <div class="footer-content">
-            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
-            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+            <p class="footer-credit">Cuisine d'Outre-Mer — Voyage culinaire</p>
+            <div class="footer-links footer-social">
+                <a href="https://twitter.com" target="_blank" title="Twitter">𝕏 Twitter</a>
+                <a href="https://www.instagram.com/evan_976_/" target="_blank" title="Instagram">📷 Instagram</a>
+                <a href="mailto:evancolo0@email.com" title="Email">✉️ Email</a>
+            </div>
+            <p class="footer-info">© 2025 World Food Explorer - Présentation Oral BAC</p>
         </div>
     </footer>
 
@@ -148,5 +166,7 @@
             box.classList.toggle("active");
         }
     </script>
+<script src="../../Script/dish.js"></script>
+<script src="../../Script/theme.js"></script>
 </body>
 </html>

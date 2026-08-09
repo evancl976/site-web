@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guyane/Le Civis de poisson – Guide Gastronomique et Spécialités</title>
+    <link rel="stylesheet" href="../../Css/main.css?v=7">
+    </head>
+<body>
+
+    <!-- BANNIÈRE IMMERSIVE -->
+    <section class="island-hero" style="background-image: linear-gradient(rgba(0, 8, 20, 0.4), rgba(0, 8, 20, 0.9)), url('../../images/guyane-banner.jpg');">
+        <div class="hero-content">
+            <span class="hero-tag">Destination Amazonie</span>
+            <h1 class="hero-title">Gastronomie en Guyane</h1>
+            <p class="hero-subtitle">Saveurs authentiques, traditions créoles et secrets du fleuve</p>
+        </div>
+    </section>
+
+    <!-- CONTENEUR PRINCIPAL DU GUIDE -->
+    <main class="tourism-guide">
+
+        <!-- INTRODUCTION NARRATIVE -->
+        <section class="guide-intro">
+            <h2>Un carrefour de cultures au cœur de la forêt</h2>
+            <p>
+                La gastronomie guyanaise est une aventure culinaire d'une incroyable richesse, forgée par le métissage unique de ses peuples : Amérindiens, Créoles, Bushinengues, Hmongs, Brésiliens et Européens. Entre les mystères de la forêt amazonienne et les ressources de ses grands fleuves, cette cuisine se distingue par ses épices endémiques, ses gibiers et des méthodes de cuisson ancestrales. Voyager en Guyane, c'est s'ouvrir à des parfums sauvages, rustiques et intensément généreux.
+            </p>
+        </section>
+
+        <!-- SECTION DE LA RECETTE ET SPÉCIALITÉ -->
+        <section class="specialties-container">
+
+            <!-- LE CIVIS DE POISSON -->
+            <article class="dish-showcase">
+                <div class="dish-image-frame">
+                    <img src="../../images/blaff-poissons.jpg" alt="Civis de poisson traditionnel guyanais" onerror="this.onerror=null;this.src='../../images/no-photo.jpg'">
+                </div>
+                <div class="dish-description">
+                    <span class="dish-category">La Fraîcheur des Fleuves</span>
+                    <h3>Le Civis de poisson</h3>
+                    <p>
+                        Le <strong class="mot-cliquable" onclick="toggleDish('infoCivis')" style="cursor: pointer; text-decoration: underline;">civis de poisson</strong> est une spécialité guyanaise proche du blaff : le poisson (souvent du machoiran, du rouge ou du capitaine) est taillé en darnes puis macéré dans un mélange de jus de citron vert, d'ail, de cive et de piment avant d'être poché rapidement dans un court-bouillon parfumé.
+                    </p>
+                    <p>
+                        Frais et limpide, le civis met en valeur la délicatesse des poissons du fleuve et de la côte. Le citron vert et le piment guyanais y tiennent le premier rôle, pour une entrée à la fois vive, acidulée et légèrement relevée.
+                    </p>
+
+                    <!-- BOUTON INTERACTIF -->
+                    <button class="read-more-btn" onclick="toggleDish('infoCivis')">Découvrir son histoire et le secret de sa marinade ➔</button>
+
+                    <!-- CARTE ANIMÉE CACHÉE -->
+                    <div id="infoCivis" class="info-cachee">
+                        <h4>L'histoire et le secret du Civis</h4>
+                        <p>Le civis tire son nom du verbe créole « civé » (macérer, mariner) : le poisson ne se cuit pas longtemps, il s'imprègne d'abord des arômes du citron et des herbes avant un pochage très bref qui préserve sa texture fondante.</p>
+                        <p>À l'origine, c'était le plat des pêcheurs, préparé sur la berge ou à bord de la pirogue avec le poisson tout juste sorti du filet, du citron cueilli à proximité et du piment frais. Une cuisson minute qui permet de savourer le produit à peine pêché.</p>
+                        <p>Le secret d'un civis réussi repose sur l'ultra-fraîcheur du poisson et la maîtrise de la marinade : on laisse les darnes reposer dans le jus de citron vert, l'ail écrasé, la cive et le piment, puis on les plonge dans l'eau frémissante quelques minutes à peine. Le citron vert est ajouté en fin de cuisson pour garder toute sa vivacité.</p>
+                        <p>Traditionnellement, le civis se déguste bien chaud, accompagné de riz blanc, de dachine ou de manioc, souvent dès le matin par les amateurs de saveurs matinales relevées.</p>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- SECTION OÙ MANGER -->
+        <section class="guide-restaurant">
+            <div class="restaurant-card-premium">
+                <div class="restaurant-header">
+                    <h2>🍴 Adresse Recommandée</h2>
+                    <h3>Restaurant La Marinière</h3>
+                </div>
+                <div class="restaurant-body">
+                    <p>La Marinière, le restaurant des spécialités marines Guyanaises et Métropolitaines à Montjoly. La carte propose une grande variété de Poissons, Fruits de Mer et Crrustacés cuisinés avec simplicité pour préserver l'authenticité des saveurs marines de ces produits.</p>
+                    <ul class="premium-contacts">
+                        <li><strong>📍 Adresse :</strong> 1074 Route de Remire, Remire-Montjoly 97354 Guyane Française</li>
+                        <li><strong>📞 Téléphone :</strong> +594 594 35 91 76</li>
+                    </ul>
+                    <a href="https://www.tripadvisor.fr/Restaurant_Review-g2317560-d12006329-Reviews-Restaurant_La_Mariniere-Remire_Montjoly_Arrondissement_of_Cayenne.html" target="_blank" rel="noopener noreferrer" class="premium-tripadvisor">Consulter les avis sur Tripadvisor ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- AUTRES SPÉCIALITÉS -->
+        <section class="other-local-dishes">
+            <h2>Autres spécialités de la Guyane à découvrir :</h2>
+            <div class="dish-grid">
+                <div class="dish-mini-card" onclick="location.href='boucanes.html'">
+                    <div class="thumb" style="background: url('../../images/boucanes.jpg') center/cover;"></div>
+                    <div class="body"><h4>Les Boucanés</h4><p>Viandes et poissons fumés de manière traditionnelle au bois d'Amazonie.</p></div>
+                </div>
+                <div class="dish-mini-card" onclick="location.href='calalou.html'">
+                    <div class="thumb" style="background: url('../../images/calalou.jpg') center/cover;"></div>
+                    <div class="body"><h4>Le Calalou</h4><p>Un ragoût de feuilles vertes mijoté avec du crabe et du porc.</p></div>
+                </div>
+                <div class="dish-mini-card" onclick="location.href='gratin-de-couac.html'">
+                    <div class="thumb" style="background: url('../../images/gratin-couac.jpg') center/cover;"></div>
+                    <div class="body"><h4>Le Gratin de couac</h4><p>Un accompagnement onctueux au four à base de semoule de manioc.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NAVBAR DE RETOUR -->
+        <nav class="site-nav">
+            <a class="site-nav__brand" href="../../index.html"><img class="site-nav__logo" src="../../images/logo.png" alt="Les Cuisines d'Outre-Mer" onerror="this.onerror=null;this.src='../../images/no-photo.jpg'"></a>
+            <button class="site-nav__toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+            <div class="site-nav__links" id="navLinks">
+            <a href="../../index.html">🏠 Accueil</a>
+            <a href="../../Page/Mayotte.html">🇾🇹 Mayotte</a>
+            <a class="active" href="../../Page/Guyane.html">🇬🇫 Guyane</a>
+            <a href="../../Page/Guadeloupe.html">🇬🇵 Guadeloupe</a>
+            <a href="../../Page/Martinique.html">🇲🇶 Martinique</a>
+            <a href="../../Page/La-reunion.html">🇷🇪 La Réunion</a>
+        </div>
+        </nav>
+
+    </main>
+
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-content">
+            <p class="footer-credit">Cuisine d'Outre-Mer — Voyage culinaire</p>
+            <div class="footer-links footer-social">
+                <a href="https://twitter.com" target="_blank" title="Twitter">𝕏 Twitter</a>
+                <a href="https://www.instagram.com/evan_976_/" target="_blank" title="Instagram">📷 Instagram</a>
+                <a href="mailto:evancolo0@email.com" title="Email">✉️ Email</a>
+            </div>
+            <p class="footer-info">© 2025 World Food Explorer - Présentation Oral BAC</p>
+        </div>
+    </footer>
+
+    <script src="../../Script/dish.js"></script>
+    <script src="../../Script/theme.js"></script>
+</body>
+</html>

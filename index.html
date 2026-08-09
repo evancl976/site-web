@@ -3,133 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuisine d'outre mer</title>
-    <link rel="stylesheet" href="Css/styles.css">
+    <title>Cuisine d'outre mer — Voyage culinaire à travers nos îles</title>
+    <link rel="stylesheet" href="Css/main.css?v=7">
     <style>
-        /* --- Styles pour l'encadré Fiche Technique --- */
-        .project-preview-section {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 0 20px;
+        /* Survol des ronds "Les Plats" : grossissement + contour qui change */
+        #plats a:hover {
+            transform: translateY(-6px) scale(1.06);
+            text-decoration: none;
         }
-
-        .preview-card {
-            background: #000b18;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: border-color 0.3s ease;
+        #plats a:hover img {
+            border-color: var(--island-active, var(--accent));
+            box-shadow: 0 10px 30px var(--globe-glow);
+            transform: scale(1.05);
         }
-
-        .preview-card:hover {
-            border-color: #ffd700;
+        #plats a:hover div {
+            color: var(--island-active, var(--accent));
         }
-
-        .preview-card h2 {
-            color: #ffd700;
-            font-size: 22px;
-            margin-top: 0;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-        }
-
-        .preview-card p {
-            color: #cbd5e0;
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        /* Bouton Premium vers la page Info */
-        .explore-tech-btn {
-            background: rgba(255, 215, 0, 0.05);
-            color: #ffd700;
-            border: 1px solid #ffd700;
-            padding: 12px 28px;
-            font-size: 15px;
-            font-weight: bold;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
-        }
-
-        .explore-tech-btn:hover {
-            background: #ffd700;
-            color: #000;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
-        }
-
-        /* Amélioration esthétique des boutons flèches du Globe */
-        .arrow-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid #ffd700;
-            color: #ffd700;
-            font-size: 22px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .arrow-btn:hover {
-            background: #ffd700;
-            color: #000;
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        /* Transition douce */
+        #plats a, #plats a img, #plats a div {
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <h1 class="title">Cuisine d'outre mer</h1>
-        <p class="subtitle">Voyage culinaire à travers nos îles</p>
-    </header>
-
-    <section class="globe-section">
-        <h2 id="active-country-title"></h2>
-
-        <div class="globe-wrapper">
-            <button class="arrow-btn left-arrow" onclick="prevCountry()" aria-label="Pays précédent">❮</button>
-
-            <div class="globe-container">
-                <canvas id="globeCanvas"></canvas>
-                <div id="globeTooltip" class="globe-tooltip"></div>
-            </div>
-
-            <button class="arrow-btn right-arrow" onclick="nextCountry()" aria-label="Pays suivant">❯</button>
+    <!-- ============ NAVBAR ============ -->
+    <nav class="site-nav">
+        <a class="site-nav__brand" href="index.html"><img class="site-nav__logo" src="images/logo.png" alt="Les Cuisines d'Outre-Mer" onerror="this.onerror=null;this.src='images/no-photo.jpg'"></a>
+        <button class="site-nav__toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+        <div class="site-nav__links" id="navLinks">
+            <a href="#iles">🗺️ Les Îles</a>
+            <a href="#plats">🍽️ Les Plats</a>
+            <a href="#preferees">⭐ Recettes préférées</a>
+            <a href="#" onclick="openLearnPopup(); return false;">🎨 Apprendre</a>
+            <a href="#" onclick="openTechPopup(); return false;">🛠️ Fiche technique</a>
         </div>
-    </section>
-
-    <nav class="navigation-center">
-        <div class="country-selector">
-            <button onclick="location.href='Page/Mayotte.html'">🇾🇹 Mayotte</button>
-            <button onclick="location.href='Page/Guyane.html'">🇬🇫 Guyane</button>
-            <button onclick="location.href='Page/Guadeloupe.html'">🇬🇵 Guadeloupe</button>
-            <button onclick="location.href='Page/Martinique.html'">🇲🇶 Martinique</button>
-            <button onclick="location.href='Page/La reunion.html'">🇷🇪 La Réunion</button>
+        <div class="site-nav__actions">
+            <button class="site-nav__fav" title="Mes favoris">⭐</button>
+            <button class="site-nav__account" title="Mon compte">👤</button>
+            <form class="site-nav__search" action="Page/recherche.html" method="get">
+                <input type="text" name="q" class="site-nav__search-input" placeholder="🔍 Rechercher…" aria-label="Rechercher">
+                <button type="submit" class="site-nav__search-btn" aria-label="Lancer la recherche">🔍</button>
+            </form>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer le thème">☀️</button>
         </div>
     </nav>
 
-    <!-- EMPLACEMENT SPÉCIAL ENCADRÉ AVEC BOUTON VERS INFO.HTML -->
-    <section class="project-preview-section">
-        <div class="preview-card">
-            <h2>🛠️ Fiche Technique du Projet</h2>
-            <p>
-                Découvrez les coulisses du développement de cette application pour l'oral du BAC : de l'architecture sémantique HTML à la logique du globe 3D interactif.
+    <!-- ============ HERO ============ -->
+    <header class="home-hero">
+        <div class="home-hero__inner">
+            <span class="home-hero__eyebrow">🌴 Voyage culinaire</span>
+            <h1 class="home-hero__title">La Cuisine d'Outre-Mer</h1>
+            <p class="home-hero__subtitle">
+                Partez à la découverte des saveurs des îles françaises :
+                un mélange unique de cultures, d'épices et de soleil dans chaque assiette.
             </p>
-            <button class="explore-tech-btn" onclick="window.open('Page/Info.html', '_blank')">
-                Consulter les détails de fabrication ➔
-            </button>
+            <div class="home-hero__cta">
+                <a class="btn-primary" href="#iles">Explorer nos îles</a>
+                <a class="btn-ghost" href="#plats">Découvrir les plats</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ 1. LES ÎLES (avec la terre) ============ -->
+    <section class="home-section" id="iles">
+        <div class="home-section__head">
+            <p class="home-section__kicker">Voyage interactif</p>
+            <h2 class="home-section__title">Explorez nos îles</h2>
+            <p class="home-section__intro">
+                Faites tourner le globe et choisissez une île : sa carte s'affiche, et l'île active est mise en avant.
+                Cliquez sur le globe ou sur une île pour lancer l'exploration.
+            </p>
+        </div>
+
+                <section class="globe-section">
+            <h2 id="active-country-title" class="globe-active-title"></h2>
+            <div class="globe-wrapper">
+                <button class="arrow-btn left-arrow" onclick="prevCountry()" aria-label="Pays précédent">❮</button>
+
+                <div class="globe-container">
+                    <canvas id="globeCanvas"></canvas>
+                    <div id="globeTooltip" class="globe-tooltip"></div>
+                </div>
+
+                <button class="arrow-btn right-arrow" onclick="nextCountry()" aria-label="Pays suivant">❯</button>
+            </div>
+        </section>
+
+        <nav class="navigation-center">
+            <div class="country-selector">
+                <button class="island-btn-flag" onclick="islandClick(0)" ondblclick="openIslandPage(0)" style="display:flex; flex-direction:column; align-items:center; gap:6px; background:var(--card-bg); border:2px solid var(--gold); padding:10px 14px; border-radius:12px; cursor:pointer; color:var(--text); font-weight:600; transition:transform .2s ease, box-shadow .2s ease;">
+                    <img src="images/mayotte.png" alt="Mayotte" style="width:48px; height:32px; object-fit:cover; border-radius:4px;" onerror="this.onerror=null;this.src='images/no-photo.jpg'"><span>Mayotte</span>
+                </button>
+                <button class="island-btn-flag" onclick="islandClick(1)" ondblclick="openIslandPage(1)" style="display:flex; flex-direction:column; align-items:center; gap:6px; background:var(--card-bg); border:2px solid var(--gold); padding:10px 14px; border-radius:12px; cursor:pointer; color:var(--text); font-weight:600; transition:transform .2s ease, box-shadow .2s ease;">
+                    <img src="images/guyane.png" alt="Guyane" style="width:48px; height:32px; object-fit:cover; border-radius:4px;" onerror="this.onerror=null;this.src='images/no-photo.jpg'"><span>Guyane</span>
+                </button>
+                <button class="island-btn-flag" onclick="islandClick(2)" ondblclick="openIslandPage(2)" style="display:flex; flex-direction:column; align-items:center; gap:6px; background:var(--card-bg); border:2px solid var(--gold); padding:10px 14px; border-radius:12px; cursor:pointer; color:var(--text); font-weight:600; transition:transform .2s ease, box-shadow .2s ease;">
+                    <img src="images/guadeloupe.png" alt="Guadeloupe" style="width:48px; height:32px; object-fit:cover; border-radius:4px;" onerror="this.onerror=null;this.src='images/no-photo.jpg'"><span>Guadeloupe</span>
+                </button>
+                <button class="island-btn-flag" onclick="islandClick(3)" ondblclick="openIslandPage(3)" style="display:flex; flex-direction:column; align-items:center; gap:6px; background:var(--card-bg); border:2px solid var(--gold); padding:10px 14px; border-radius:12px; cursor:pointer; color:var(--text); font-weight:600; transition:transform .2s ease, box-shadow .2s ease;">
+                    <img src="images/martinique.png" alt="Martinique" style="width:48px; height:32px; object-fit:cover; border-radius:4px;" onerror="this.onerror=null;this.src='images/no-photo.jpg'"><span>Martinique</span>
+                </button>
+                <button class="island-btn-flag" onclick="islandClick(4)" ondblclick="openIslandPage(4)" style="display:flex; flex-direction:column; align-items:center; gap:6px; background:var(--card-bg); border:2px solid var(--gold); padding:10px 14px; border-radius:12px; cursor:pointer; color:var(--text); font-weight:600; transition:transform .2s ease, box-shadow .2s ease;">
+                    <img src="images/reunion.png" alt="La Réunion" style="width:48px; height:32px; object-fit:cover; border-radius:4px;" onerror="this.onerror=null;this.src='images/no-photo.jpg'"><span>La Réunion</span>
+                </button>
+            </div>
+        </nav>
+
+    </section>
+
+        <!-- ============ 2. LES PLATS (ronds image + nom, styles inline) ============ -->
+    <section class="home-section" id="plats" style="text-align:center; padding:40px 20px;">
+        <h2 style="font-family:Georgia,serif; font-size:38px; font-weight:700; color:var(--text); margin-bottom:6px;">Qu'allez-vous cuisiner&nbsp;?</h2>
+        <p style="color:var(--text-soft); max-width:640px; margin:0 auto 30px; line-height:1.6;">
+            Entrées, plats, desserts, boissons et accompagnements : explorez chaque catégorie
+            et découvrez les spécialités qui font le charme de nos îles.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:34px;">
+            <a href="#" onclick="goToPage('Page/entrees.html'); return false;" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; color:var(--text); width:160px;">
+                <img src="images/entre.png" alt="Entrées" style="width:150px; height:150px; border-radius:50%; object-fit:cover; border:3px solid var(--gold); box-shadow:0 6px 18px var(--shadow-soft);" onerror="this.onerror=null;this.src='images/no-photo.jpg'">
+                <div style="margin-top:14px; font-weight:800; font-size:15px; letter-spacing:1px; text-transform:uppercase;">Entrées</div>
+            </a>
+            <a href="#" onclick="goToPage('Page/plats.html'); return false;" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; color:var(--text); width:160px;">
+                <img src="images/civet-zourite.jpg" alt="Plats" style="width:150px; height:150px; border-radius:50%; object-fit:cover; border:3px solid var(--gold); box-shadow:0 6px 18px var(--shadow-soft);" onerror="this.onerror=null;this.src='images/no-photo.jpg'">
+                <div style="margin-top:14px; font-weight:800; font-size:15px; letter-spacing:1px; text-transform:uppercase;">Plats</div>
+            </a>
+            <a href="#" onclick="goToPage('Page/desserts.html'); return false;" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; color:var(--text); width:160px;">
+                <img src="images/dessert.jpg" alt="Desserts" style="width:150px; height:150px; border-radius:50%; object-fit:cover; border:3px solid var(--gold); box-shadow:0 6px 18px var(--shadow-soft);" onerror="this.onerror=null;this.src='images/no-photo.jpg'">
+                <div style="margin-top:14px; font-weight:800; font-size:15px; letter-spacing:1px; text-transform:uppercase;">Desserts</div>
+            </a>
+            <a href="#" onclick="goToPage('Page/boissons.html'); return false;" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; color:var(--text); width:160px;">
+                <img src="images/boisson.png" alt="Boissons" style="width:150px; height:150px; border-radius:50%; object-fit:cover; border:3px solid var(--gold); box-shadow:0 6px 18px var(--shadow-soft);" onerror="this.onerror=null;this.src='images/no-photo.jpg'">
+                <div style="margin-top:14px; font-weight:800; font-size:15px; letter-spacing:1px; text-transform:uppercase;">Boissons</div>
+            </a>
+            <a href="#" onclick="goToPage('Page/accompagnements.html'); return false;" style="display:flex; flex-direction:column; align-items:center; text-decoration:none; color:var(--text); width:160px;">
+                <img src="images/accompagnement.jpg" alt="Accompagnements" style="width:150px; height:150px; border-radius:50%; object-fit:cover; border:3px solid var(--gold); box-shadow:0 6px 18px var(--shadow-soft);" onerror="this.onerror=null;this.src='images/no-photo.jpg'">
+                <div style="margin-top:14px; font-weight:800; font-size:15px; letter-spacing:1px; text-transform:uppercase;">Accompagnements</div>
+            </a>
+        </div>
+    </section>
+
+        <!-- ============ 3. RECETTES PRÉFÉRÉES (cartes, styles inline) ============ -->
+    <section class="home-section" id="preferees" style="text-align:center; padding:40px 20px;">
+        <p style="font-size:14px; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin:0 0 6px;">Coups de cœur</p>
+        <h2 style="font-family:Georgia,serif; font-size:34px; font-weight:700; color:var(--text); margin:0 0 8px;">Recettes préférées</h2>
+        <p style="color:var(--text-soft); max-width:640px; margin:0 auto 30px; line-height:1.6;">
+            Nos recettes favorites à travers les îles. Certaines pages sont encore en préparation :
+            un clic vous préviendra si la recette n'est pas encore en ligne.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:24px;">
+            <a href="Page/guadeloupe/bokit.html" style="display:block; width:250px; background:var(--card-bg); border:1px solid var(--border-soft); border-radius:14px; overflow:hidden; text-decoration:none; color:var(--text); box-shadow:0 4px 14px var(--shadow-soft); transition:transform .25s ease, box-shadow .25s ease;">
+                <img src="images/bokit.jpg" alt="Le Bokit" style="width:100%; height:170px; object-fit:cover; display:block;" onerror="this.onerror=null;this.src='images/no-photo.jpg'">
+                <div style="padding:14px 16px 18px;">
+                    <div style="font-size:13px; color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:.5px;">Guadeloupe</div>
+                    <h3 style="margin:6px 0 8px; font-size:19px;">Le Bokit</h3>
+                    <p style="margin:0; font-size:14px; color:var(--text-soft); line-height:1.5;">Le sandwich croustillant et généreux de la Guadeloupe, frit et garni à volonté.</p>
+                </div>
+            </a>
+            <a href="Page/martinique/accras-de-morue.html" style="display:block; width:250px; background:var(--card-bg); border:1px solid var(--border-soft); border-radius:14px; overflow:hidden; text-decoration:none; color:var(--text); box-shadow:0 4px 14px var(--shadow-soft); transition:transform .25s ease, box-shadow .25s ease;">
+                <img src="images/accras-morue.jpg" alt="Accras de morue" style="width:100%; height:170px; object-fit:cover; display:block;" onerror="this.onerror=null;this.src='images/no-photo.jpg'">
+                <div style="padding:14px 16px 18px;">
+                    <div style="font-size:13px; color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:.5px;">Martinique</div>
+                    <h3 style="margin:6px 0 8px; font-size:19px;">Accras de morue</h3>
+                    <p style="margin:0; font-size:14px; color:var(--text-soft); line-height:1.5;">Des beignets dorés et parfumés, incontournables de l'apéritif antillais.</p>
+                </div>
+            </a>
+            <a href="#" onclick="goToPage('Page/la-reunion/cari-poulet.html'); return false;" style="display:block; width:250px; background:var(--card-bg); border:1px solid var(--border-soft); border-radius:14px; overflow:hidden; text-decoration:none; color:var(--text); box-shadow:0 4px 14px var(--shadow-soft); transition:transform .25s ease, box-shadow .25s ease;">
+                <img src="images/cari-poulet.jpg" alt="Cari poulet" style="width:100%; height:170px; object-fit:cover; display:block;" onerror="this.onerror=null;this.src='images/no-photo.jpg'">
+                <div style="padding:14px 16px 18px;">
+                    <div style="font-size:13px; color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:.5px;">La Réunion</div>
+                    <h3 style="margin:6px 0 8px; font-size:19px;">Cari poulet</h3>
+                    <p style="margin:0; font-size:14px; color:var(--text-soft); line-height:1.5;">Un plat mijoté aux épices, doux et parfumé, servi avec du riz.</p>
+                </div>
+            </a>
+            <a href="#" onclick="goToPage('Page/guyane/civis-de-poisson.html'); return false;" style="display:block; width:250px; background:var(--card-bg); border:1px solid var(--border-soft); border-radius:14px; overflow:hidden; text-decoration:none; color:var(--text); box-shadow:0 4px 14px var(--shadow-soft); transition:transform .25s ease, box-shadow .25s ease;">
+                <img src="images/civis-poisson.jpg" alt="Civis de poisson" style="width:100%; height:170px; object-fit:cover; display:block;" onerror="this.onerror=null;this.src='images/no-photo.jpg'">
+                <div style="padding:14px 16px 18px;">
+                    <div style="font-size:13px; color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:.5px;">Guyane</div>
+                    <h3 style="margin:6px 0 8px; font-size:19px;">Civis de poisson</h3>
+                    <p style="margin:0; font-size:14px; color:var(--text-soft); line-height:1.5;">Poisson macéré aux légumes et épices, fraîcheur et saveurs du fleuve.</p>
+                </div>
+            </a>
+            <a href="Page/mayotte/mataba.html" style="display:block; width:250px; background:var(--card-bg); border:1px solid var(--border-soft); border-radius:14px; overflow:hidden; text-decoration:none; color:var(--text); box-shadow:0 4px 14px var(--shadow-soft); transition:transform .25s ease, box-shadow .25s ease;">
+                <img src="images/mataba.jpg" alt="Le Mataba" style="width:100%; height:170px; object-fit:cover; display:block;" onerror="this.onerror=null;this.src='images/no-photo.jpg'">
+                <div style="padding:14px 16px 18px;">
+                    <div style="font-size:13px; color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:.5px;">Mayotte</div>
+                    <h3 style="margin:6px 0 8px; font-size:19px;">Le Mataba</h3>
+                    <p style="margin:0; font-size:14px; color:var(--text-soft); line-height:1.5;">Feuilles de manioc cuites au piment, un classique du coin comorien.</p>
+                </div>
+            </a>
+            <a href="Page/guadeloupe/colombo-poulet.html" ; style="display:block; width:250px; background:var(--card-bg); border:1px solid var(--border-soft); border-radius:14px; overflow:hidden; text-decoration:none; color:var(--text); box-shadow:0 4px 14px var(--shadow-soft); transition:transform .25s ease, box-shadow .25s ease;">
+                <img src="images/colombo-plat.jpg" alt="Colombo de poulet" style="width:100%; height:170px; object-fit:cover; display:block;" onerror="this.onerror=null;this.src='images/no-photo.jpg'">
+                <div style="padding:14px 16px 18px;">
+                    <div style="font-size:13px; color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:.5px;">Guadeloupe</div>
+                    <h3 style="margin:6px 0 8px; font-size:19px;">Colombo de poulet</h3>
+                    <p style="margin:0; font-size:14px; color:var(--text-soft); line-height:1.5;">Le curry antillais par excellence, riche en garam massala maison.</p>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -141,12 +211,88 @@
                 <a href="https://facebook.com" target="_blank" title="Facebook">📘 Facebook</a>
                 <a href="https://www.instagram.com/evan_976_/" target="_blank" title="Instagram">📷 Instagram</a>
                 <a href="mailto:evancolo0@email.com" title="Email">✉️ Email</a>
-                <!-- Le bouton "À propos" du footer a été enlevé d'ici comme demandé -->
             </div>
             <p class="footer-info">© 2025 World Food Explorer - Tous droits réservés - Présentation Oral BAC</p>
         </div>
     </footer>
 
-    <script src="Script/globe.js"></script>
+    <!-- ============ POPUP FICHE TECHNIQUE ============ -->
+    <div class="modal-overlay" id="techModal" onclick="if(event.target===this)closeTechPopup()">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeTechPopup()" aria-label="Fermer">✕</button>
+            <div class="modal-icon">🛠️</div>
+            <h2>Fiche Technique du Projet</h2>
+            <p>Découvrez les coulisses du développement : architecture HTML sémantique, globe 3D interactif et logique JavaScript du voyage culinaire.</p>
+            <div class="modal-actions">
+                <a class="btn-primary" href="Page/Info.html">Consulter la fiche ➔</a>
+                <button class="btn-ghost" onclick="closeTechPopup()">Rester sur l'accueil</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ POPUP APPRENDRE ============ -->
+    <div class="modal-overlay" id="learnModal" onclick="if(event.target===this)closeLearnPopup()">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeLearnPopup()" aria-label="Fermer">✕</button>
+            <div class="modal-icon">🎨</div>
+            <h2>Apprendre à créer un site web</h2>
+            <p>Un cours complet de A à Z pour découvrir HTML, CSS et JavaScript et construire ton propre site, comme celui-ci.</p>
+            <div class="modal-actions">
+                <a class="btn-primary" href="Page/Apprendre.html">Consulter le cours ➔</a>
+                <button class="btn-ghost" onclick="closeLearnPopup()">Rester sur l'accueil</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ POPUP PAGE MANQUANTE ============ -->
+    <div class="modal-overlay" id="missingModal" onclick="if(event.target===this)closeMissingPopup()">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeMissingPopup()" aria-label="Fermer">✕</button>
+            <div class="modal-icon">🚧</div>
+            <h2>Page pas encore disponible</h2>
+            <p id="missingMsg">Cette page n'existe pas encore. Veuillez attendre la prochaine mise à jour du site web !</p>
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="closeMissingPopup()">Compris, j'attends la suite</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ SCRIPTS ============ -->
+    <script src="Script/globe.js?v=7"></script>
+    <script src="Script/theme.js?v=7"></script>
+    <script>
+        // --- Popups existantes ---
+        function openTechPopup() { document.getElementById('techModal').classList.add('open'); }
+        function closeTechPopup() { document.getElementById('techModal').classList.remove('open'); }
+        function openLearnPopup() { document.getElementById('learnModal').classList.add('open'); }
+        function closeLearnPopup() { document.getElementById('learnModal').classList.remove('open'); }
+
+        // --- Système de pages manquantes ---
+        function openMissingPopup(msg) {
+            if (msg) document.getElementById('missingMsg').textContent = msg;
+            document.getElementById('missingModal').classList.add('open');
+        }
+        function closeMissingPopup() { document.getElementById('missingModal').classList.remove('open'); }
+
+        // Redirige vers une page si elle existe, sinon affiche la popup "pas encore créée"
+        function goToPage(url) {
+            fetch(url, { method: 'HEAD' })
+                .then(function (r) {
+                    if (r.ok) { window.location.href = url; }
+                    else { openMissingPopup("La page \"" + url + "\" n'existe pas encore. Veuillez attendre la mise à jour du site web !"); }
+                })
+                .catch(function () { openMissingPopup("La page \"" + url + "\" n'existe pas encore. Veuillez attendre la mise à jour du site web !"); });
+        }
+
+        // Visiter l'île active (utilise l'index courant du globe si dispo)
+        function goToIsland() {
+            var map = [
+                'Page/Mayotte.html', 'Page/Guyane.html', 'Page/Guadeloupe.html',
+                'Page/Martinique.html', 'Page/La-reunion.html'
+            ];
+            var idx = (window.currentIslandIndex !== undefined) ? window.currentIslandIndex : 0;
+            goToPage(map[idx]);
+        }
+    </script>
 </body>
 </html>

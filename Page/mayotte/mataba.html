@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mayotte/Mataba – Guide Gastronomique et Spécialités</title>
-    <link rel="stylesheet" href="../../Css/styles.css">
-</head>
+    <link rel="stylesheet" href="../../Css/main.css?v=7">
+    </head>
 <body>
 
     <!-- BANNIÈRE IMMERSIVE -->
@@ -18,7 +18,7 @@
     </section>
 
     <!-- CONTENEUR PRINCIPAL DU GUIDE -->
-    <main class="tourism-guide" style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+    <main class="tourism-guide">
 
         <!-- INTRODUCTION NARRATIVE -->
         <section class="guide-intro">
@@ -40,14 +40,14 @@
                     <span class="dish-category">L'Incontournable</span>
                     <h3>Le Mataba</h3>
                     <p>
-                        C’est le pilier de la table mahoraise. Le <strong class="mot-cliquable" onclick="toggleMataba()" style="color: #ffd700; cursor: pointer; text-decoration: underline;">mataba</strong> est un ragoût doux et onctueux préparé à base de jeunes feuilles de manioc finement pilées au pilon traditionnel, puis mijotées de longues heures dans du lait de coco frais.
+                        C’est le pilier de la table mahoraise. Le <strong class="mot-cliquable" onclick="toggleDish('infoMataba')" style="cursor: pointer; text-decoration: underline;">mataba</strong> est un ragoût doux et onctueux préparé à base de jeunes feuilles de manioc finement pilées au pilon traditionnel, puis mijotées de longues heures dans du lait de coco frais.
                     </p>
                     <p>
                         Ce plat convivial se distingue par sa texture veloutée et son parfum unique apporté par les épices de l'île (ail, gingembre, curcuma).
                     </p>
                     
                     <!-- BOUTON INTERACTIF / EN SAVOIR PLUS -->
-                    <button class="read-more-btn" onclick="toggleMataba()">Découvrir son histoire et sa préparation ➔</button>
+                    <button class="read-more-btn" onclick="toggleDish('infoMataba')">Découvrir son histoire et sa préparation ➔</button>
 
                     <!-- CARTE ANIMÉE CACHÉE -->
                     <div id="infoMataba" class="info-cachee">
@@ -61,7 +61,7 @@
         </section>
 
         <!-- SECTION OÙ MANGER (Restaurant recommandé) -->
-        <section class="guide-restaurant" style="margin-top: 40px;">
+        <section class="guide-restaurant">
             <div class="restaurant-card-premium">
                 <div class="restaurant-header">
                     <h2>🍴 Adresse Recommandée</h2>
@@ -84,35 +84,35 @@
         </section>
 
 <!-- SECTION : AUTRES SPÉCIALITÉS DU PAYS (AVEC LE PILAO REVENU EN FORCE !) -->
-        <section class="other-local-dishes" style="margin-top: 60px; border-top: 1px solid rgba(255, 215, 0, 0.2); padding-top: 40px;">
-            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">Autres spécialités de Mayotte à découvrir :</h2>
+        <section class="other-local-dishes">
+            <h2>Autres spécialités de Mayotte à découvrir :</h2>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="dish-grid">
                 
                 <!-- LE PILAO -->
-                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='pilao.html'">
-                    <div style="height: 140px; background: url('../../images/pilao.jpg') center/cover;"></div>
-                    <div style="padding: 15px;">
-                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Pilao</h4>
-                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Le célèbre riz festif parfumé aux épices et accompagné de viandes dorées.</p>
+                <div class="dish-mini-card" onclick="location.href='pilao.html'">
+                    <div class="thumb" style="background: url('../../images/pilao.jpg') center/cover;"></div>
+                    <div class="body">
+                        <h4>Le Pilao</h4>
+                        <p>Le célèbre riz festif parfumé aux épices et accompagné de viandes dorées.</p>
                     </div>
                 </div>
 
                 <!-- LE KANGUÉ -->
-                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='kangue.html'">
-                    <div style="height: 140px; background: url('../../images/kangue.jpg') center/cover;"></div>
-                    <div style="padding: 15px;">
-                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Le Kangué</h4>
-                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Ragoût traditionnel de bœuf fondant cuit lentement à l'étouffée dans son jus.</p>
+                <div class="dish-mini-card" onclick="location.href='kangue.html'">
+                    <div class="thumb" style="background: url('../../images/kangue.jpg') center/cover;"></div>
+                    <div class="body">
+                        <h4>Le Kangué</h4>
+                        <p>Ragoût traditionnel de bœuf fondant cuit lentement à l'étouffée dans son jus.</p>
                     </div>
                 </div>
 
                 <!-- LES BROCHETTES -->
-                <div style="background: #000b18; border: 1px solid rgba(255, 215, 0, 0.15); border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s;" onclick="location.href='brochettes.html'">
-                    <div style="height: 140px; background: url('../../images/brochettes.jpg') center/cover;"></div>
-                    <div style="padding: 15px;">
-                        <h4 style="color: #ffd700; margin: 0 0 5px 0; font-size: 18px;">Mamas Brochettes</h4>
-                        <p style="color: #a0aec0; font-size: 13px; margin: 0; line-height: 1.4;">Délicieuses grillades de bœuf marinées aux épices, cuites au feu de bois.</p>
+                <div class="dish-mini-card" onclick="location.href='brochettes.html'">
+                    <div class="thumb" style="background: url('../../images/brochettes.jpg') center/cover;"></div>
+                    <div class="body">
+                        <h4>Mamas Brochettes</h4>
+                        <p>Délicieuses grillades de bœuf marinées aux épices, cuites au feu de bois.</p>
                     </div>
                 </div>
 
@@ -120,22 +120,40 @@
         </section>
 
         <!-- ZONE DOUBLE BOUTONS DE RETOUR -->
-        <nav class="navigation-center" style="margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <div class="country-selector">
-                <button onclick="location.href='../Mayotte.html'" style="padding: 12px 24px; min-width: 200px;">⬅ Retour à l'île (Mayotte)</button>
-            </div>
-            <div class="country-selector">
-                <button onclick="location.href='../../index.html'" style="padding: 12px 24px; min-width: 200px;">🏠 Retour à l’accueil</button>
-            </div>
-        </nav>
+                        <nav class="site-nav">
+        <a class="site-nav__brand" href="../../index.html"><img class="site-nav__logo" src="../../images/logo.png" alt="Les Cuisines d'Outre-Mer"></a>
+        <button class="site-nav__toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+        <div class="site-nav__links" id="navLinks">
+            <a href="../../index.html">🏠 Accueil</a>
+            <a class="active" href="../../Page/Mayotte.html">🇾🇹 Mayotte</a>
+            <a href="../../Page/Guyane.html">🇬🇫 Guyane</a>
+            <a href="../../Page/Guadeloupe.html">🇬🇵 Guadeloupe</a>
+            <a href="../../Page/Martinique.html">🇲🇶 Martinique</a>
+            <a href="../../Page/La-reunion.html">🇷🇪 La Réunion</a>
+        </div>
+        <div class="site-nav__actions">
+            <button class="site-nav__fav" title="Mes favoris">⭐</button>
+            <button class="site-nav__account" title="Mon compte">👤</button>
+            <form class="site-nav__search" action="../../Page/recherche.html" method="get">
+                <input type="text" name="q" class="site-nav__search-input" placeholder="🔍 Rechercher…" aria-label="Rechercher">
+                <button type="submit" class="site-nav__search-btn" aria-label="Lancer la recherche">🔍</button>
+            </form>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer le thème">☀️</button>
+        </div>
+    </nav>
 
     </main>
 
     <!-- FOOTER NETTOYÉ SANS LES ACCÈS AUX AUTRES ÎLES -->
-    <footer class="footer" style="margin-top: 80px;">
+        <footer class="footer" style="margin-top: 80px;">
         <div class="footer-content">
-            <p class="footer-credit">Guide Culinaire développé par <strong>Cuisine d'Outre-Mer</strong></p>
-            <p class="footer-info" style="margin-top: 10px;">Explorez les spécialités culinaires des îles – Voyagez à travers nos saveurs</p>
+            <p class="footer-credit">Cuisine d'Outre-Mer — Voyage culinaire</p>
+            <div class="footer-links footer-social">
+                <a href="https://twitter.com" target="_blank" title="Twitter">𝕏 Twitter</a>
+                <a href="https://www.instagram.com/evan_976_/" target="_blank" title="Instagram">📷 Instagram</a>
+                <a href="mailto:evancolo0@email.com" title="Email">✉️ Email</a>
+            </div>
+            <p class="footer-info">© 2025 World Food Explorer - Présentation Oral BAC</p>
         </div>
     </footer>
 
@@ -145,5 +163,7 @@
             box.classList.toggle("active");
         }
     </script>
+<script src="../../Script/dish.js"></script>
+<script src="../../Script/theme.js"></script>
 </body>
 </html>
