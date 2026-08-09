@@ -6,7 +6,7 @@
     <title>Apprendre à créer un site web — de A à Z</title>
     <link rel="icon" href="../images/logo.png" type="image/png">
 
-    <link rel="stylesheet" href="../Css/main.css?v=18">
+    <link rel="stylesheet" href="../Css/main.css?v=19">
 </head>
 <body>
 
@@ -49,7 +49,13 @@
     </header>
 
     <!-- ============ TABLE DES MATIERES ============ -->
-    <nav class="tuto-toc" id="sommaire" hidden>
+    <p class="mode-intro">Choisis comment apprendre — écrit ou en vidéo :</p>
+    <div class="mode-switch" role="tablist" aria-label="Choisissez le format">
+        <button class="mode-btn" id="btnEcrit" onclick="showMode('ecrit')" aria-selected="false">📝 Version écrite</button>
+        <button class="mode-btn" id="btnVideo" onclick="showMode('video')" aria-selected="false">📺 Version vidéo</button>
+    </div>
+
+<nav class="tuto-toc" id="sommaire" hidden>
         <h2>Sommaire</h2>
         <ol>
             <li><a href="#lecon1">Qu'est-ce qu'un site web ?</a></li>
@@ -65,12 +71,7 @@
     </nav>
 
     <!-- ============ SELECTEUR MODE : ecrit / video ============ -->
-    <p class="mode-intro">Choisis comment apprendre — écrit ou en vidéo :</p>
-    <div class="mode-switch" role="tablist" aria-label="Choisissez le format">
-        <button class="mode-btn" id="btnEcrit" onclick="showMode('ecrit')" aria-selected="false">📝 Version écrite</button>
-        <button class="mode-btn" id="btnVideo" onclick="showMode('video')" aria-selected="false">📺 Version vidéo</button>
-    </div>
-
+    
     <!-- Panneau video (cache par defaut) -->
     <div class="mode-panel" id="video" hidden>
         <div class="home-section__head">
@@ -463,19 +464,20 @@ function showMode(mode) {
   var btnE = document.getElementById('btnEcrit');
   var btnV = document.getElementById('btnVideo');
   if (mode === 'video') {
-    if (video) video.hidden = false;
+    if (video) { video.hidden = false; video.classList.add('mode-fade'); }
     if (ecrit) ecrit.hidden = true;
     if (som) som.hidden = true;
     if (btnE) { btnE.classList.remove('active'); btnE.setAttribute('aria-selected','false'); }
     if (btnV) { btnV.classList.add('active'); btnV.setAttribute('aria-selected','true'); }
-    if (exo) exo.hidden = false;
+    if (exo) { exo.hidden = false; exo.classList.add('mode-fade'); }
   } else {
-    if (ecrit) ecrit.hidden = false;
+    if (ecrit) { ecrit.hidden = false; ecrit.classList.add('mode-fade'); }
+    if (som) { som.hidden = false; som.classList.add('mode-fade'); }
     if (video) video.hidden = true;
     if (som) som.hidden = false;
     if (btnV) { btnV.classList.remove('active'); btnV.setAttribute('aria-selected','false'); }
     if (btnE) { btnE.classList.add('active'); btnE.setAttribute('aria-selected','true'); }
-    if (exo) exo.hidden = false;
+    if (exo) { exo.hidden = false; exo.classList.add('mode-fade'); }
   }
 }
 </script>
