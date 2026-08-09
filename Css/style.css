@@ -2628,3 +2628,9 @@ html[data-theme="dark"] .dish-description p { color: var(--text-soft) !important
   color: #fff !important;
   border-color: var(--accent) !important;
 }
+
+.video-embed {
+  margin-top: 16px;
+  max-width: 100%;
+  border-radius: 12px;
+}
