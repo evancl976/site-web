@@ -2584,8 +2584,8 @@ html[data-theme="dark"] .dish-description p { color: var(--text-soft) !important
   font-weight: 700;
   padding: 12px 26px;
   border-radius: var(--radius-pill);
-  border: 1px solid transparent;
-  background: transparent;
+  border: 1px solid var(--border-soft);
+  background: var(--card-bg);
   color: var(--text-soft);
   cursor: pointer;
   transition: all 0.25s ease;
@@ -2597,9 +2597,9 @@ html[data-theme="dark"] .dish-description p { color: var(--text-soft) !important
 }
 .mode-btn.active {
   color: #1a1205;
-  background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+  background: var(--gold);
   border-color: var(--gold);
-  box-shadow: var(--shadow-gold);
+  box-shadow: 0 2px 10px rgba(224, 123, 57, 0.35);
 }
 [data-theme="light"] .mode-btn.active {
   color: #fff;
