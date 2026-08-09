@@ -2561,75 +2561,13 @@ html[data-theme="dark"] .dish-description p { color: var(--text-soft) !important
 }
 .exercise p { margin: 6px 0; }
 .lesson h3 { color: var(--accent); margin-top: 22px; }
-.mode-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  padding: 12px 28px;
-  border-radius: var(--radius-pill);
-  border: 2px solid var(--border-soft);
-  background: var(--card-bg);
-  color: var(--text-soft);
-  cursor: pointer;
-  user-select: none;
-  transition: all 0.25s ease;
-}
-.mode-btn:hover {
-  color: #fff;
-  background: var(--accent);
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(224, 123, 57, 0.3);
-}
 [data-theme="light"] 
-.mode-btn.active {
-  color: #1a1205;
-  background: var(--gold);
-  border-color: var(--gold);
-  box-shadow: 0 4px 14px rgba(224, 123, 57, 0.45);
-}
-[data-theme="light"] .mode-btn.active {
-  color: #fff;
-  background: var(--accent);
-  border-color: var(--accent);
-}
-
-.mode-switch {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 16px auto 8px;
-  max-width: 1100px;
-  padding: 6px;
-  background: var(--card-bg);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-soft);
-  width: fit-content;
-}
 [data-theme="light"] 
-.mode-intro {
-  text-align: center;
-  color: var(--accent);
-  font-weight: 700;
-  font-size: 16px;
-  margin: 28px auto 0;
-  max-width: 1100px;
-  padding: 0 20px;
-}
+[data-theme="light"] 
 
 /* ===== Animation d'apparition des panneaux (slide + fade) ===== */
-@keyframes modeFadeIn {
-  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.mode-fade { animation: modeFadeIn 0.45s ease both; }
-[hidden] { display: none !important; }
 
 /* ===== Lien video YouTube (secondaire, sans embed qui plante) ===== */
 .video-link-frame {
@@ -2664,4 +2602,29 @@ html[data-theme="dark"] .dish-description p { color: var(--text-soft) !important
   color: var(--text-soft);
   font-size: 14px;
   margin: 0;
+}
+
+/* ===== Boutons selecteur Apprendre (reutilise kayak-btn) ===== */
+.kayak-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 15px;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+}
+.kayak-btn.active {
+  background: var(--gold) !important;
+  color: #1a1205 !important;
+  border-color: var(--gold) !important;
+  box-shadow: 0 4px 14px rgba(224, 123, 57, 0.45) !important;
+}
+[data-theme="light"] .kayak-btn.active {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-color: var(--accent) !important;
 }
