@@ -2585,16 +2585,17 @@ html[data-theme="dark"] .dish-description p { color: var(--text-soft) !important
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(224, 123, 57, 0.3);
 }
+[data-theme="light"] 
 .mode-btn.active {
-  color: #1a1205 !important;
-  background: var(--gold) !important;
-  border-color: var(--gold) !important;
-  box-shadow: 0 4px 14px rgba(224, 123, 57, 0.45) !important;
+  color: #1a1205;
+  background: var(--gold);
+  border-color: var(--gold);
+  box-shadow: 0 4px 14px rgba(224, 123, 57, 0.45);
 }
 [data-theme="light"] .mode-btn.active {
-  color: #fff !important;
-  background: var(--accent) !important;
-  border-color: var(--accent) !important;
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .mode-switch {
