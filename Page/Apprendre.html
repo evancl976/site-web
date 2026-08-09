@@ -6,7 +6,7 @@
     <title>Apprendre à créer un site web — de A à Z</title>
     <link rel="icon" href="../images/logo.png" type="image/png">
 
-    <link rel="stylesheet" href="../Css/main.css?v=15">
+    <link rel="stylesheet" href="../Css/main.css?v=16">
 </head>
 <body>
 
@@ -65,8 +65,9 @@
     </nav>
 
     <!-- ============ SELECTEUR MODE : ecrit / video ============ -->
+    <p class="mode-intro">Choisis comment apprendre — écrit ou en vidéo :</p>
     <div class="mode-switch" role="tablist" aria-label="Choisissez le format">
-        <button class="mode-btn active" id="btnEcrit" onclick="showMode('ecrit')" aria-selected="true">📝 Version écrite</button>
+        <button class="mode-btn" id="btnEcrit" onclick="showMode('ecrit')" aria-selected="false">📝 Version écrite</button>
         <button class="mode-btn" id="btnVideo" onclick="showMode('video')" aria-selected="false">📺 Version vidéo</button>
     </div>
 
@@ -82,7 +83,7 @@
         </div>
     </div>
 
-    <main class="tuto-main" id="ecrit">
+    <main hidden class="tuto-main" id="ecrit">
 
         <!-- LEÇON 1 -->
         <section class="lesson" id="lecon1">
@@ -403,7 +404,12 @@ body { background: var(--bg); color: var(--text); }</code></pre>
             </div>
         </section>
 
-        <!-- LEÇON 9 : EXERCICES PAR NIVEAUX -->
+        
+
+
+    </main>
+    <!-- EXERCICES : toujours visibles -->
+<!-- LEÇON 9 : EXERCICES PAR NIVEAUX -->
         <section class="lesson" id="lecon9">
             <div class="lesson__head">
                 <span class="lesson__num">9</span>
@@ -430,8 +436,6 @@ body { background: var(--bg); color: var(--text); }</code></pre>
             </div>
         </section>
 
-
-    </main>
 
 
     
