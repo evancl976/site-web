@@ -6,31 +6,14 @@
     <title>Dans les Coulisses du Code – Fiche Technique</title>
     <link rel="icon" href="../images/logo.png" type="image/png">
 
-    <link rel="stylesheet" href="../Css/style.css?v=33">
+    <link rel="stylesheet" href="../Css/style.css?v=42">
     
-</head>
-<body>
+<script src="../script/theme.js?v=42"></script></head>
+<body><a class="skip-link" href="#main-content">Aller au contenu</a><nav class="site-nav" aria-label="Navigation principale"><a class="site-nav__brand" href="../index.html"><img src="../images/logo.png" alt="" width="44" height="44"><span>Cuisines<span class="brand-small">D’OUTRE-MER</span></span></a><button class="site-nav__toggle" aria-label="Ouvrir le menu" aria-controls="navLinks" aria-expanded="false">☰</button><div class="site-nav__links" id="navLinks"><a href="../index.html">Accueil</a><a href="../index.html#iles">Les territoires</a><a href="../Page/recettes.html">Les recettes</a><a href="../Page/Apprendre.html">Apprendre</a></div><div class="site-nav__actions"><a class="nav-icon" href="../Page/favoris.html" aria-label="Mes favoris">♡<span class="fav-count"></span></a><a class="nav-icon" href="../Page/recherche.html" aria-label="Rechercher"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></a><button class="theme-toggle nav-icon" onclick="toggleTheme()" aria-label="Passer au thème sombre">☾</button></div></nav>
 
-                <nav class="site-nav">
-        <a class="site-nav__brand" href="../index.html"><img class="site-nav__logo" src="../images/logo.png" alt="Les Cuisines d'Outre-Mer"></a>
-        <button class="site-nav__toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
-        <div class="site-nav__links" id="navLinks">
-            <a href="../index.html">🏠 Accueil</a>
-            <a href="../Page/Apprendre.html">🎨 Apprendre</a>
-            <a href="../Page/Info.html" class="active">🛠️ Fiche technique</a>
-        </div>
-        <div class="site-nav__actions">
-            <button class="site-nav__fav" title="Mes favoris">⭐</button>
-            <button class="site-nav__account" title="Mon compte">👤</button>
-            <form class="site-nav__search" action="../Page/recherche.html" method="get">
-                <input type="text" name="q" class="site-nav__search-input" placeholder="🔍 Rechercher…" aria-label="Rechercher">
-                <button type="submit" class="site-nav__search-btn" aria-label="Lancer la recherche">🔍</button>
-            </form>
-            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer le thème">☀️</button>
-        </div>
-    </nav>
+                
 
-    <div class="info-page-container">
+    <div id="main-content" role="main" class="info-page-container">
 
         <header class="info-hero">
             <h1>🛠️ Fiche Technique & Architecture</h1>
@@ -119,13 +102,13 @@
                 <div class="accordion-content">
                     <ul class="resume-list">
                         <li>Le site est divisé en <span class="flashy">modules distincts</span> pour éviter le désordre.</li>
-                        <li>Utilisation de <span class="flashy">chemins d'accès relatifs</span> (ex: <code>../Css/style.css?v=33</code>) pour lier les pages.</li>
+                        <li>Utilisation de <span class="flashy">chemins d'accès relatifs</span> (ex: <code>../Css/style.css?v=42</code>) pour lier les pages.</li>
                     </ul>
                     <div class="arbo-container">
                         <span class="arbo-folder">📁 Racine_Projet/</span><br>
                         ├── index.html <span style="color: #718096;">(Accueil du site)</span><br>
                         ├── <span class="arbo-folder">📁 Css/</span> ➔ styles.css<br>
-                        ├── <span class="arbo-folder">📁 Script/</span> ➔ globe_sboutton.js, globe_boutton.js<br>
+                        ├── <span class="arbo-folder">📁 script/</span> ➔ globe_sboutton.js, globe_boutton.js<br>
                         └── <span class="arbo-folder">📁 Page/</span><br>
                             ├── Info.html <span style="color: #718096;">(Page actuelle Fiche Technique)</span><br>
                             ├── Mayotte.html<br>
@@ -210,7 +193,7 @@
 
         <div class="actions-footer">
             <button onclick="location.href='../index.html'" class="btn-footer">🏠 Retour à l'accueil</button>
-            <a href="https://github.com/evancl976/site-web" target="_blank" class="btn-footer">
+            <a href="https://github.com/evancl976/site-web" target="_blank" rel="noopener noreferrer" class="btn-footer">
                 <img src="../images/github.png" alt="GitHub"> Download Site Web
             </a>
             <a href="Apprendre.html" class="btn-footer btn-footer--small">
@@ -220,8 +203,8 @@
 
     </div>
 
-    <script src="../Script/globe_sboutton.js"></script>
-    <script src="../Script/globe_boutton.js"></script>
+    <script src="../script/globe_sboutton.js"></script>
+    <script src="../script/globe_boutton.js"></script>
 
     <script>
         let currentIdx = 0;
@@ -252,7 +235,7 @@
 
         // Commande Espace
         window.addEventListener('keydown', function(e) {
-            if (e.code === 'Space') {
+            if (e.code === 'Space' && !e.target.closest('button, a, input, select, textarea, [role=button]')) {
                 e.preventDefault();
                 currentIdx = (currentIdx + 1) % cards.length;
                 goToSection(currentIdx);
@@ -260,6 +243,6 @@
         });
     </script>
 
-<script src="../Script/theme.js"></script>
-</body>
+
+<footer class="footer"><div class="footer-top"><div><a class="footer-brand" href="../index.html">Le voyage commence<br>dans l’assiette.</a><p>Cinq territoires, mille façons de se retrouver.</p></div><div class="footer-links"><a href="../index.html#iles">Les territoires</a><a href="../Page/recettes.html">Toutes les recettes</a><a href="../Page/Apprendre.html">Apprendre</a><a href="../Page/Info.html">Fiche technique</a></div></div><div class="footer-bottom"><span>Cuisines d’Outre-Mer · Projet pédagogique 2026</span><span>Evan Colo & Enzo Adam Maltese</span><div class="footer-socials" aria-label="Nos réseaux sociaux"><div><strong>Enzo Adam Maltese</strong><a href="https://www.instagram.com/ea.mlts/?hl=fr" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Enzo Adam Maltese">Instagram ↗</a><a href="https://www.tiktok.com/@ea_mlts" target="_blank" rel="noopener noreferrer" aria-label="TikTok de Enzo Adam Maltese">TikTok ↗</a></div><div><strong>Evan Colo</strong><a href="https://www.instagram.com/evan_976_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Evan Colo">Instagram ↗</a><a href="https://www.tiktok.com/@evancl976" target="_blank" rel="noopener noreferrer" aria-label="TikTok de Evan Colo">TikTok ↗</a></div></div></div></footer><div class="toast" role="status" aria-live="polite"></div><script src="../script/catalog.js"></script><script src="../script/site.js?v=42"></script></body>
 </html>

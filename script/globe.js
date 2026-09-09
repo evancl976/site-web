@@ -34,7 +34,7 @@ let targetRadius = 195;
 let mouseX = 0, mouseY = 0;
 let hoveredCountry = null;
 let isHoveringCanvas = false;
-let isPausedByKeyboard = false;
+let isPausedByKeyboard = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let autoRotationTimer;
 
 // Synchronise les boutons d'îles avec le globe (grossit + scintille l'actif)
@@ -79,6 +79,8 @@ function updateTargetRotation() {
 
     activeTitle.innerText = target.flag + " " + target.nom;
     updateIslandButtons();
+    const destination = document.getElementById('globe-destination');
+    if (destination) { destination.href = target.url; destination.textContent = 'Découvrir ' + target.nom + ' ↗'; }
 
     // Effet de zoom / saut mécanique
     targetRadius = 215;
@@ -126,7 +128,7 @@ function prevCountry() {
 
 function startTimer() {
     autoRotationTimer = setInterval(() => {
-        if (!hoveredCountry && !isHoveringCanvas && !isPausedByKeyboard) {
+        if (!document.hidden && !hoveredCountry && !isHoveringCanvas && !isPausedByKeyboard) {
             nextCountry();
         }
     }, 5000);
@@ -138,22 +140,27 @@ function resetTimer() {
 }
 
 // Gestion des touches Clavier
-window.addEventListener('keydown', (e) => {
-    if (e.key === ' ' || e.code === 'Space') {
-        e.preventDefault();
-        isPausedByKeyboard = !isPausedByKeyboard;
-    } else if (e.key === 'ArrowRight') {
-        nextCountry();
-    } else if (e.key === 'ArrowLeft') {
-        prevCountry();
-    }
+window.toggleGlobePause = function () {
+    isPausedByKeyboard = !isPausedByKeyboard;
+    syncPauseButton();
+};
+function syncPauseButton() {
+    const button = document.querySelector('.globe-pause');
+    if (button) { button.textContent = isPausedByKeyboard ? 'Reprendre le voyage' : 'Mettre en pause'; button.setAttribute('aria-pressed', String(isPausedByKeyboard)); }
+}
+syncPauseButton();
+canvas.addEventListener('keydown', (e) => {
+    if (e.key === ' ' || e.code === 'Space') { e.preventDefault(); toggleGlobePause(); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); nextCountry(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); prevCountry(); }
+    else if (e.key === 'Enter') { openIslandPage(currentIndex); }
 });
 
 // Position de la souris réajustée
 canvas.addEventListener('mousemove', (e) => {
     const rect = canvas.getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
+    mouseX = (e.clientX - rect.left) * canvas.width / rect.width;
+    mouseY = (e.clientY - rect.top) * canvas.height / rect.height;
 });
 
 canvas.addEventListener('mouseenter', () => { isHoveringCanvas = true; });
@@ -178,7 +185,7 @@ function drawGlobe() {
     canvas.height = dynamicSize;
 
     globeContainer.style.width = `${dynamicSize}px`;
-    globeContainer.style.height = `${dynamicSize}px`;
+    globeContainer.style.height = `${Math.min(dynamicSize, globeContainer.getBoundingClientRect().width)}px`;
     globeContainer.style.backgroundSize = `${dynamicSize * 2}px ${dynamicSize}px`;
 
     const cx = dynamicSize / 2;
