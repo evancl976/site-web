@@ -53,3 +53,33 @@
 .site-nav__links a[href*="Apprendre.html"],.site-nav__links a[href*="Info.html"]{display:none}
 @media(max-width:800px){.footer-bottom{align-items:flex-start}}
 @media(max-width:520px){.footer-socials{gap:24px}}
+/* Finition visuelle — surfaces, navigation et interactions */
+:root{--shadow-float:0 18px 48px rgba(23,62,50,.14);--shadow-card:0 12px 28px rgba(23,62,50,.08)}
+::selection{background:var(--gold);color:var(--text)}
+.site-nav{background:var(--page-bg);background:color-mix(in srgb,var(--page-bg) 88%,transparent);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(23,62,50,.06)}
+.site-nav__links a{position:relative;border-bottom:0}
+.site-nav__links a:after{content:"";position:absolute;left:0;right:100%;bottom:3px;height:2px;background:var(--accent);transition:right .24s ease}
+.site-nav__links a:hover:after,.site-nav__links a.active:after{right:0}
+.site-nav__links a.active{border-color:transparent}
+.nav-icon{background:color-mix(in srgb,var(--page-bg) 78%,transparent);transition:transform .2s,background .2s,box-shadow .2s}
+.nav-icon:hover{transform:translateY(-2px);box-shadow:0 7px 18px rgba(23,62,50,.12)}
+.home-hero__visual{box-shadow:var(--shadow-float)}
+.territory-card,.recipe-card,.category-links a{box-shadow:var(--shadow-card)}
+.territory-card:focus-visible,.recipe-card:focus-within,.category-links a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.recipe-card__image{background:var(--panel)}
+.recipe-card__body{background:color-mix(in srgb,var(--card-bg) 94%,var(--panel))}
+.category-links a{transition:transform .2s,background .2s,box-shadow .2s}
+.category-links a:hover{transform:translateY(-4px);box-shadow:var(--shadow-float)}
+.btn-primary:active,.btn-secondary:active,.nav-icon:active{transform:translateY(1px)}
+@media(max-width:800px){.site-nav{background:var(--page-bg);box-shadow:0 8px 22px rgba(23,62,50,.06)}.home-hero__visual{box-shadow:0 14px 32px rgba(23,62,50,.13)}}
+@media(prefers-reduced-motion:reduce){.site-nav__links a:after{transition:none}.nav-icon,.category-links a{transition:none}}
+/* Fiche technique : actions lisibles et icones maitrisees. */
+.actions-footer .btn-footer{min-width:220px;min-height:52px;text-decoration:none;box-shadow:0 10px 24px rgba(23,62,50,.14);transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
+.actions-footer .btn-footer:hover{background:var(--accent);color:var(--page-bg);transform:translateY(-2px);box-shadow:0 14px 28px rgba(23,62,50,.2)}
+.actions-footer .btn-footer:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.actions-footer .btn-footer:active{transform:translateY(1px)}
+.actions-footer .btn-footer img{width:22px;height:22px;max-width:22px;object-fit:contain;display:block;flex:0 0 22px}
+.actions-footer .btn-github{background:#24292f;color:#fff}
+.actions-footer .btn-github img{filter:invert(1)}
+.actions-footer .btn-github:hover{background:#0d1117;color:#fff}
+@media(max-width:520px){.actions-footer{padding-inline:5%;gap:12px}.actions-footer .btn-footer{width:100%;min-width:0}.actions-footer .btn-footer img{width:20px;height:20px;flex-basis:20px}}

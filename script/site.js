@@ -198,3 +198,28 @@
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; resume(); }, {threshold: 0.15}).observe(section);
   updatePause();
 })();
+/* Démarrage vidéo robuste : l’autoplay muet reste actif même avec un réglage de mouvement réduit. */
+(() => {
+  document.querySelectorAll('.travel-card').forEach(card => {
+    const video = card.querySelector('.travel-card__video');
+    if (!video) return;
+    video.autoplay = true;
+    video.muted = true;
+    video.playsInline = true;
+    video.preload = 'auto';
+    let visible = false;
+    const start = () => {
+      if (!visible || document.hidden || video.hidden) return;
+      video.play().catch(() => {});
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) start();
+    }, {threshold: 0.1});
+    observer.observe(card);
+    video.addEventListener('loadeddata', start);
+    card.querySelector('[data-pause]')?.addEventListener('click', () => {
+      if (card.querySelector('[data-pause]').textContent === 'Pause') start();
+    });
+  });
+})();
